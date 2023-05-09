@@ -26,6 +26,5 @@
   ];
 
   # Install the gitconfig file, as .gitconfig in the home directory
-  home.file.".config/wezterm".source = ./gitconfig;
+  # home.file.".config/wezterm".source = ./gitconfig;
 }
-home.file["~/config/karabiner"].source = ./karabiner.bak;
