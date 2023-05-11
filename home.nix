@@ -29,6 +29,7 @@
     pkgs.gnugrep # for nix-direnv
     pkgs.bash
     pkgs.zsh
+    pkgs.tmux
   ];
 
   programs = {
@@ -55,6 +56,9 @@
 
   # symlink dotfiles, ensure that any changes while running programs are not lost
   home.file = {
+    ".tmux.conf" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/.tmux.conf;
+    };
     ".zshenv" = {
       source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/.zshenv;
     };

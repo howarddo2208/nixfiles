@@ -35,7 +35,7 @@ alias g='lazygit'
 alias cs="cht.sh" # cheatsheet for command lines
 
 #nix related
-alias hms="home-manager switch ~/nixfiles/home.nix"
+alias hms="home-manager switch -f ~/nixfiles/home.nix"
 alias ckshell='if [ -n "$IN_NIX_SHELL" ]; then echo "Inside nix-shell"; else echo "Not inside nix-shell"; fi;'
 
 case "$(uname -s)" in
