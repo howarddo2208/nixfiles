@@ -1,8 +1,10 @@
 { config, pkgs, libs, ... }: {
   home.username = "tanhopdo";
-  home.homeDirectory = "/home/tanhopdo";
+  home.homeDirectory = "/Users/tanhopdo";
   home.stateVersion = "22.11"; # To figure this out you can comment out the line and see what version it expected.
   programs.home-manager.enable = true;
+
+  fonts.fontconfig.enable = true;
 
   home.packages = [
     pkgs.atuin
@@ -11,7 +13,8 @@
     pkgs.ffmpeg
     pkgs.git
     pkgs.neovim
-    # pkgs.nerdfonts # need override
+    pkgs.fontconfig
+    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Hack"]; })
     pkgs.imgcat
     pkgs.btop
     pkgs.ripgrep
