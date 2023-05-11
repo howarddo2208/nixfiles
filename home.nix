@@ -24,6 +24,8 @@
     pkgs.bat
     pkgs.lazygit
     pkgs.karabiner-elements
+    pkgs.yq-go # yaml, json and xml processor
+    pkgs.zsh
   ];
 
   # TODO install wezterm without compile error
@@ -41,6 +43,13 @@
 
   # symlink dotfiles, ensure that any changes while running programs are not lost
   home.file = {
+    ".zshenv" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/.zshenv;
+    };
+    ".config/zsh" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/zsh;
+      recursive = true;
+    };
     ".config/karabiner" = {
       source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/karabiner;
       recursive = true;
