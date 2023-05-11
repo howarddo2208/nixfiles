@@ -16,6 +16,9 @@ plug "$HOME/.config/zsh/aliases.zsh"
 plug "$HOME/.config/zsh/exports.zsh"
 plug "$HOME/.config/zsh/secrets.zsh"
 
+# programs customizations
+plug "$HOME/.config/zsh/direnv.zsh"
+
 # plugins
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"

@@ -26,9 +26,19 @@
     pkgs.lazygit
     pkgs.karabiner-elements
     pkgs.yq-go # yaml, json and xml processor
-    pkgs.zsh
+    pkgs.gnugrep # for nix-direnv
     pkgs.bash
+    pkgs.zsh
   ];
+
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv = {
+        enable = true;
+      };
+    };
+  };
 
   # TODO install wezterm without compile error
   #  programs.wezterm = {
