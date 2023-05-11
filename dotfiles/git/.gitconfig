@@ -1,0 +1,15 @@
+[user]
+	name = Howard Do
+	email = howarddo2208@gmail.com
+[includeIf "gitdir:~/Developments/work/"] #reconfig this if change work
+	path = .gitconfig-work 
+[alias]
+	ac = commit -am
+	hs = log --pretty=\"%C(Yellow)%h %C(reset)%ad (%C(Green)%cr%C(reset))%x09 %C(Cyan)%an: %C(reset)%s\" --date=short
+[merge]
+	conflictstyle = diff3
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

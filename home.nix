@@ -9,6 +9,7 @@
     pkgs.fd
     pkgs.fzf
     pkgs.ffmpeg
+    pkgs.git
     pkgs.neovim
     # pkgs.nerdfonts # need override
     pkgs.imgcat
@@ -49,6 +50,12 @@
     ".config/zsh" = {
       source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/zsh;
       recursive = true;
+    };
+    ".gitconfig" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/git/.gitconfig;
+    };
+    ".gitconfig-work" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/git/.gitconfig-work;
     };
     ".config/karabiner" = {
       source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/karabiner;
