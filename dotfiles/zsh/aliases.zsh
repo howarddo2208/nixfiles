@@ -31,9 +31,6 @@ alias m="git checkout master"
 alias s="git checkout stable"
 alias g='lazygit'
 
-#config repo
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 # other
 alias cs="cht.sh" # cheatsheet for command lines
 

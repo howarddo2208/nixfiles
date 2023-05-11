@@ -23,6 +23,9 @@ plug "zap-zsh/vim"
 plug "zap-zsh/zap-prompt"
 plug "zap-zsh/exa"
 plug "zsh-users/zsh-syntax-highlighting"
+# for nix
+plug "chisui/zsh-nix-shell" "4eb69b0" #v0.5 works, but 0.6 I got an error
+plug "nix-community/nix-zsh-completions"
 
 # keybinds
 # ctrl+space to accept suggestion

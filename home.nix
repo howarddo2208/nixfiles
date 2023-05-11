@@ -27,6 +27,7 @@
     pkgs.karabiner-elements
     pkgs.yq-go # yaml, json and xml processor
     pkgs.zsh
+    pkgs.bash
   ];
 
   # TODO install wezterm without compile error
