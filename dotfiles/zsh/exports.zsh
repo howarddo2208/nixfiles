@@ -23,3 +23,6 @@ eval "$(zoxide init zsh)"
 
 # ruby version manager rbenv
 eval "$(rbenv init - zsh)"
+
+# direnv: auto switch dev environment
+eval "$(direnv hook zsh)"
