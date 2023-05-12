@@ -1,6 +1,6 @@
 { config, pkgs, libs, ... }: {
-  home.username = "tanhopdo";
-  home.homeDirectory = "/Users/tanhopdo";
+  home.username = "tanhopdo"; #change to your username
+  home.homeDirectory = "/Users/tanhopdo"; # /home/username on linux, /Users/username on macos
   home.stateVersion = "22.11"; # To figure this out you can comment out the line and see what version it expected.
   programs.home-manager.enable = true;
 
@@ -14,7 +14,7 @@
     pkgs.git
     pkgs.neovim
     pkgs.fontconfig
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Hack"]; })
+    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Hack" "JetBrainsMono"]; })
     pkgs.imgcat
     pkgs.btop
     pkgs.ripgrep
@@ -27,12 +27,19 @@
     pkgs.fnm
     pkgs.bat
     pkgs.lazygit
-    pkgs.karabiner-elements
     pkgs.yq-go # yaml, json and xml processor
-    pkgs.gnugrep # for nix-direnv
     pkgs.bash
     pkgs.zsh
     pkgs.tmux
+
+    # # GUI, utility apps
+    # pkgs.syncthing
+    # pkgs.logseq
+
+    # macos specific
+    pkgs.gnugrep # for nix-direnv
+    pkgs.karabiner-elements
+    # pkgs.raycast
   ];
 
   programs = {

@@ -8,4 +8,6 @@ This is my personal nixfiles
     - tmux: install plugins by `tmux attach` -> `<C-a> + I`
 5. ??? Profits ???
 
-[ ] zsh-zap install config
+## TODOS
+- [] zsh-zap install config
+- [] split modules for macos / nixOS setup
