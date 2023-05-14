@@ -9,7 +9,7 @@ alias zshrc="nvim $ZDOTDIR"
 alias nvimrc='nvim ~/.config/nvim/'
 
 # tmux
-alias txi='tmuxifier' # tmux session preset
+# alias txi='tmuxifier' # tmux session preset
 alias tmuxrc='nvim ~/.tmux.conf'
 
 

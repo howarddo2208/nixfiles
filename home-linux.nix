@@ -31,9 +31,11 @@
     pkgs.bash
     pkgs.tmux
 
-    # # GUI, utility apps
+    # GUI apps I use, I will install them on with current distro package manager, since app installed by nix won't get indexed for searching
+    # reference: https://github.com/nix-community/home-manager/issues/1439
     # pkgs.syncthing
     # pkgs.logseq
+    # pkgs. wezter
   ];
 
   programs = {
@@ -45,19 +47,6 @@
       };
     };
   };
-
-  # TODO install wezterm without compile error
-  #  programs.wezterm = {
-  #   enable = true;
-  #   extraConfig = ''
-  #     local wezterm = require 'wezterm'
-  #     return {
-  #       font = wezterm.font 'JetBrainsMono Nerd Font Mono'
-  #       color_scheme = 'GitHub Dark'
-  #       window_background_opacity = 0.9
-  #     }
-  #   '';
-  #  };
 
   # symlink dotfiles, ensure that any changes while running programs are not lost
   home.file = {
