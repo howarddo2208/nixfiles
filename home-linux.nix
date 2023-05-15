@@ -35,7 +35,7 @@
     # reference: https://github.com/nix-community/home-manager/issues/1439
     # pkgs.syncthing
     # pkgs.logseq
-    # pkgs. wezter
+    # pkgs. wezterm
   ];
 
   programs = {
