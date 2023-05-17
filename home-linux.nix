@@ -7,6 +7,7 @@
   fonts.fontconfig.enable = true;
 
   home.packages = [
+    # dev environment apps
     pkgs.atuin
     pkgs.fd
     pkgs.fzf
@@ -15,7 +16,7 @@
     pkgs.neovim
     pkgs.fontconfig
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Hack" "JetBrainsMono"]; })
-    pkgs.imgcat
+    pkgs.catimg
     pkgs.btop
     pkgs.ripgrep
     pkgs.tree
@@ -31,11 +32,16 @@
     pkgs.bash
     pkgs.tmux
 
+    # utility apps
+    # pkgs.ibus-engines.bamboo
+    # pkgs.bitwarden-cli #install with npm instead, nix taks too long: `npm install -g @bitwarden/cli`
+    pkgs.noto-fonts-emoji #to display my logseq emoji correctly
+
     # GUI apps I use, I will install them on with current distro package manager, since app installed by nix won't get indexed for searching
     # reference: https://github.com/nix-community/home-manager/issues/1439
     # pkgs.syncthing
     # pkgs.logseq
-    # pkgs. wezterm
+    # pkgs.wezterm
   ];
 
   programs = {

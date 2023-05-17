@@ -9,7 +9,7 @@ This is my personal nixfiles
     - login to github + ssh for it: `gh auth login`
     - tmux: install plugin manager `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm` then `tmux source ~/.tmux.conf` -> `tmux attach` -> `<C-a> + I`
     - install programming languages:
-        - node: `fnm install --lts`
+        - node: `fnm install --lts`, enable yarn/pnpm: `corepack enable`
         - [rust](https://www.rust-lang.org/tools/install): `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
     - may need to install some lsp for neovim with `:Mason`
 5. Each time changing the settings: `nix run . -- switch -f home-{system}.nix`

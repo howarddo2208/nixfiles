@@ -37,6 +37,23 @@ alias cs="cht.sh" # cheatsheet for command lines
 #nix related
 alias hms="home-manager switch -f ~/nixfiles/home.nix"
 alias ckshell='if [ -n "$IN_NIX_SHELL" ]; then echo "Inside nix-shell"; else echo "Not inside nix-shell"; fi;'
+nixify() { # create starter file for direnv
+  if [[ ! -e shell.nix ]] && [[ ! -e default.nix ]]; then
+    cat << EOF > shell.nix
+with import <nixpkgs> {};
+mkShell {
+  packages = [
+    # list the packages here
+  ];
+}
+EOF
+  fi
+  if [ ! -e ./.envrc ]; then
+    echo "use nix" > .envrc
+  fi
+  direnv allow
+  ${EDITOR:-vim} shell.nix
+}
 
 case "$(uname -s)" in
 

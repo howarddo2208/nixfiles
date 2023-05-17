@@ -15,7 +15,7 @@
     pkgs.neovim
     pkgs.fontconfig
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Hack" "JetBrainsMono"]; })
-    pkgs.imgcat
+    pkgs.catimg
     pkgs.btop
     pkgs.ripgrep
     pkgs.tree
