@@ -1,12 +1,9 @@
-{ config, pkgs, libs, ... }: {
-  home.username = "tanhopdo"; #change to your username
-  home.homeDirectory = "/Users/tanhopdo"; # /home/username on linux, /Users/username on macos
-  home.stateVersion = "22.11"; # To figure this out you can comment out the line and see what version it expected.
-  programs.home-manager.enable = true;
-
+{ config, pkgs, libs, lib, ... }:
+{
   fonts.fontconfig.enable = true;
 
   home.packages = [
+    # dev environment apps
     pkgs.atuin
     pkgs.fd
     pkgs.fzf
@@ -27,19 +24,12 @@
     pkgs.fnm
     pkgs.bat
     pkgs.lazygit
+    pkgs.lazydocker
     pkgs.yq-go # yaml, json and xml processor
     pkgs.bash
-    pkgs.zsh
     pkgs.tmux
-
-    # # GUI, utility apps
-    # pkgs.syncthing
-    # pkgs.logseq
-
-    # macos specific
-    pkgs.gnugrep # for nix-direnv
-    pkgs.karabiner-elements
-    # pkgs.raycast
+    pkgs.tldr
+    pkgs.zsh
   ];
 
   programs = {
@@ -50,19 +40,6 @@
       };
     };
   };
-
-  # TODO install wezterm without compile error
-  #  programs.wezterm = {
-  #   enable = true;
-  #   extraConfig = ''
-  #     local wezterm = require 'wezterm'
-  #     return {
-  #       font = wezterm.font 'JetBrainsMono Nerd Font Mono'
-  #       color_scheme = 'GitHub Dark'
-  #       window_background_opacity = 0.9
-  #     }
-  #   '';
-  #  };
 
   # symlink dotfiles, ensure that any changes while running programs are not lost
   home.file = {

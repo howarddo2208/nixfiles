@@ -4,34 +4,11 @@
   home.stateVersion = "22.11"; # To figure this out you can comment out the line and see what version it expected.
   programs.home-manager.enable = true;
 
-  fonts.fontconfig.enable = true;
+  imports = [
+    ./core.nix
+  ];
 
   home.packages = [
-    # dev environment apps
-    pkgs.atuin
-    pkgs.fd
-    pkgs.fzf
-    pkgs.ffmpeg
-    pkgs.git
-    pkgs.neovim
-    pkgs.fontconfig
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Hack" "JetBrainsMono"]; })
-    pkgs.catimg
-    pkgs.btop
-    pkgs.ripgrep
-    pkgs.tree
-    pkgs.mc
-    pkgs.gh
-    pkgs.exa
-    pkgs.rbenv
-    pkgs.zoxide
-    pkgs.fnm
-    pkgs.bat
-    pkgs.lazygit
-    pkgs.yq-go # yaml, json and xml processor
-    pkgs.bash
-    pkgs.tmux
-
     # utility apps
     # pkgs.ibus-engines.bamboo
     # pkgs.bitwarden-cli #install with npm instead, nix taks too long: `npm install -g @bitwarden/cli`
@@ -45,7 +22,6 @@
   ];
 
   programs = {
-    zsh.enable = true;
     direnv = {
       enable = true;
       nix-direnv = {
