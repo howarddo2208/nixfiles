@@ -16,6 +16,7 @@
 
     # macos specific
     pkgs.gnugrep # for nix-direnv
+    pkgs.pngpaste # for neovim clipboard-image
     pkgs.karabiner-elements
     # pkgs.raycast
   ];

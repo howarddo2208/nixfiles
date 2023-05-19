@@ -13,6 +13,7 @@
     # pkgs.ibus-engines.bamboo
     # pkgs.bitwarden-cli #install with npm instead, nix taks too long: `npm install -g @bitwarden/cli`
     pkgs.noto-fonts-emoji #to display my logseq emoji correctly
+    pkgs.xclip # for neovim in case not yet installed
 
     # GUI apps I use, I will install them on with current distro package manager, since app installed by nix won't get indexed for searching
     # reference: https://github.com/nix-community/home-manager/issues/1439
