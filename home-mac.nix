@@ -1,6 +1,6 @@
 { config, pkgs, libs, ... }: {
-  home.username = "tanhopdo"; #change to your username
-  home.homeDirectory = "/Users/tanhopdo"; # /home/username on linux, /Users/username on macos
+  home.username = "howard"; #change to your username
+  home.homeDirectory = "/Users/howard"; # /home/username on linux, /Users/username on macos
   home.stateVersion = "22.11"; # To figure this out you can comment out the line and see what version it expected.
   programs.home-manager.enable = true;
 
