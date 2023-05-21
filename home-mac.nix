@@ -8,16 +8,11 @@
     ./core.nix
   ];
 
-  home.packages = [
-
-    # # GUI, utility apps
-    # pkgs.syncthing
-    # pkgs.logseq
-
+  home.packages = with pkgs; [
     # macos specific
-    pkgs.gnugrep # for nix-direnv
-    pkgs.pngpaste # for neovim clipboard-image
-    pkgs.karabiner-elements
-    # pkgs.raycast
+    gnugrep # for nix-direnv
+    pngpaste # for neovim clipboard-image
+    karabiner-elements
+    # raycast
   ];
 }

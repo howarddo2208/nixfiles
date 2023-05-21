@@ -25,12 +25,24 @@
     nodejs
     rbenv
     ripgrep
+    stow #symlink manager
     tldr
     tmux
     tree
     yq-go # yaml, json and xml processor
     zoxide
     zsh
+
+    # programming languages
+    nodejs
+    cargo
+    rustc
+
+    # # GUI, utility apps
+    # syncthing
+    # logseq
+    # vscode
+    # wezterm
   ];
 
   programs = {
@@ -39,37 +51,6 @@
       nix-direnv = {
         enable = true;
       };
-    };
-  };
-
-  # symlink dotfiles, ensure that any changes while running programs are not lost
-  home.file = {
-    ".tmux.conf" = {
-      source = ./dotfiles/.tmux.conf;
-    };
-    ".zshenv" = {
-      source = ./dotfiles/.zshenv;
-    };
-    ".config/zsh" = {
-      source = ./dotfiles/zsh;
-    };
-    ".gitconfig" = {
-      source = ./dotfiles/git/.gitconfig;
-    };
-    ".gitconfig-work" = {
-      source = ./dotfiles/git/.gitconfig-work;
-    };
-    ".config/karabiner" = {
-      source = ./dotfiles/karabiner;
-    };
-    ".config/nvim" = {
-      source = ./dotfiles/nvim;
-    };
-    ".config/mc" = {
-      source = ./dotfiles/mc;
-    };
-    ".config/wezterm" = {
-      source = ./dotfiles/wezterm;
     };
   };
 }

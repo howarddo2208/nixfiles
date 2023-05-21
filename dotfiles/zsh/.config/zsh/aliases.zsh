@@ -35,8 +35,6 @@ alias g='lazygit'
 alias cs="cht.sh" # cheatsheet for command lines
 
 #nix related
-alias hmsm="home-manager switch -f ~/nixfiles/home-mac.nix"
-alias hmsl="home-manager switch -f ~/nixfiles/home-linux.nix"
 alias hmp="home-manager packages"
 alias ckshell='if [ -n "$IN_NIX_SHELL" ]; then echo "Inside nix-shell"; else echo "Not inside nix-shell"; fi;'
 nixify() { # create starter file for direnv
@@ -61,9 +59,11 @@ case "$(uname -s)" in
 
 Darwin)
 	# echo 'Mac OS X'
+	alias hms='(cd ~/nixfiles && home-manager switch --flake ".#macos")'
 	;;
 
 Linux)
+	alias hms='(cd ~/nixfiles && home-manager switch --flake ".#linux")'
 	;;
 
 CYGWIN* | MINGW32* | MSYS* | MINGW*)

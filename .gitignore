@@ -1,9 +1,1 @@
-dotfiles/mc/hotlist*
-dotfiles/mc/cd
 *secret*
-
-# zsh files
-*.zcompdump
-*.zcompcache
-*.zsh_history
-*.zsh_sessions

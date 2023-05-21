@@ -46,7 +46,7 @@ keybindings.toggletermKeys = function(plugins)
       "toggle vifm",
     },
   }, normalModeOpts)
-  return "<C-x>" -- toggle terminal
+  return "<C-\\>" -- toggle terminal
 end
 
 return keybindings
