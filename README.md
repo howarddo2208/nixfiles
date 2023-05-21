@@ -12,8 +12,7 @@ If you want to use this, highly recommend forking it and change username/home di
     - set default shell to `zsh` if you are on linux with bash default `command -v zsh | sudo tee -a /etc/shells && chsh -s "$(command -v zsh)"`. [reference](https://unix.stackexchange.com/questions/111365/how-to-change-default-shell-to-zsh-chsh-says-invalid-shell). The default shell emulator maynot switch to zsh because it was hard-coded to bash, then you may want to tweak the setting, or install another shell emulator, I recommend [wezterm](https://github.com/wez/wezterm) 
     - login to github + ssh for it: `gh auth login`
     - tmux: install plugin manager `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm` then `tmux source ~/.tmux.conf` -> `tmux attach` -> `<C-a> + I`
-    - install programming languages:
-        - [rust](https://www.rust-lang.org/tools/install): `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+    - login into atuin + sync (command hisotry): `atuin login -u username` -> `atuin sync`
     - may need to install some lsp for neovim with `:Mason`
 5. Each time changing the configs: `cd ~/nixfiles && home-manager switch --flake ".#{macos|linux}"` or alias `hms`
 6. ??? Profits ???
