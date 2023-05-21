@@ -15,9 +15,6 @@ export PATH="$PNPM_HOME:$PATH"
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
 
-# fast node version manager
-eval "$(fnm env)"
-
 # quick navigate folder
 eval "$(zoxide init zsh)"
 

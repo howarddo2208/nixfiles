@@ -2,34 +2,35 @@
 {
   fonts.fontconfig.enable = true;
 
-  home.packages = [
+  home.packages = with pkgs; [
     # dev environment apps
-    pkgs.atuin
-    pkgs.fd
-    pkgs.fzf
-    pkgs.ffmpeg
-    pkgs.git
-    pkgs.neovim
-    pkgs.fontconfig
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Hack" "JetBrainsMono"]; })
-    pkgs.catimg
-    pkgs.btop
-    pkgs.ripgrep
-    pkgs.tree
-    pkgs.mc
-    pkgs.gh
-    pkgs.exa
-    pkgs.rbenv
-    pkgs.zoxide
-    pkgs.fnm
-    pkgs.bat
-    pkgs.lazygit
-    pkgs.lazydocker
-    pkgs.yq-go # yaml, json and xml processor
-    pkgs.bash
-    pkgs.tmux
-    pkgs.tldr
-    pkgs.zsh
+    (nerdfonts.override { fonts = [ "FiraCode" "Hack" "JetBrainsMono" ]; })
+    atuin
+    bash
+    bat
+    btop
+    catimg
+    cht-sh
+    exa
+    fd
+    ffmpeg
+    fontconfig
+    fzf
+    gh
+    git
+    lazydocker
+    lazygit
+    mc
+    neovim
+    nodejs
+    rbenv
+    ripgrep
+    tldr
+    tmux
+    tree
+    yq-go # yaml, json and xml processor
+    zoxide
+    zsh
   ];
 
   programs = {
@@ -44,36 +45,31 @@
   # symlink dotfiles, ensure that any changes while running programs are not lost
   home.file = {
     ".tmux.conf" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/.tmux.conf;
+      source = ./dotfiles/.tmux.conf;
     };
     ".zshenv" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/.zshenv;
+      source = ./dotfiles/.zshenv;
     };
     ".config/zsh" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/zsh;
-      recursive = true;
+      source = ./dotfiles/zsh;
     };
     ".gitconfig" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/git/.gitconfig;
+      source = ./dotfiles/git/.gitconfig;
     };
     ".gitconfig-work" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/git/.gitconfig-work;
+      source = ./dotfiles/git/.gitconfig-work;
     };
     ".config/karabiner" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/karabiner;
-      recursive = true;
+      source = ./dotfiles/karabiner;
     };
     ".config/nvim" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/nvim;
-      recursive = true;
+      source = ./dotfiles/nvim;
     };
     ".config/mc" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/mc;
-      recursive = true;
+      source = ./dotfiles/mc;
     };
     ".config/wezterm" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/wezterm;
-      recursive = true;
+      source = ./dotfiles/wezterm;
     };
   };
 }
