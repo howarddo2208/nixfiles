@@ -1,3 +1,7 @@
+if not pcall(require, 'tailwindcss-colors') then
+  return
+end
+
 local nvim_lsp = require 'lspconfig'
 
 local on_attach = function(client, bufnr)

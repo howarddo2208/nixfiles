@@ -1,3 +1,7 @@
+if not pcall(require, 'tmux') then
+  return
+end
+
 local map = require('utils').map
 -- Move to window using the <ctrl> hjkl keys
 map('n', '<C-h>', '<cmd>lua require("tmux").move_left()<cr>', { desc = 'Go to left window' })

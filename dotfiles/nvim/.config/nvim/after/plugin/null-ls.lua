@@ -1,3 +1,7 @@
+if not pcall(require, 'null-ls') then
+  return
+end
+
 local null_ls = require 'null-ls'
 require('mason').setup()
 

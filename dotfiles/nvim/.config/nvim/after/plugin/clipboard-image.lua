@@ -1,3 +1,7 @@
+if not pcall(require, 'clipboard-image') then
+  return
+end
+
 require 'clipboard-image'.setup {
   -- Default configuration for all filetype
   default = {
