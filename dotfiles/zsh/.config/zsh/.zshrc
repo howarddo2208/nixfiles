@@ -17,11 +17,11 @@ plug "$HOME/.config/zsh/exports.zsh"
 plug "$HOME/.config/zsh/secrets.zsh"
 
 # plugins
-plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/vim"
 plug "zap-zsh/zap-prompt"
 plug "zap-zsh/exa"
+plug "zsh-users/zsh-autosuggestions"
 # for nix
 plug "chisui/zsh-nix-shell" 
 plug "nix-community/nix-zsh-completions"
@@ -41,4 +41,7 @@ fi
 eval "$(atuin init zsh --disable-ctrl-r --disable-up-arrow)"
 bindkey '^e' _atuin_search_widget
 
+
+# Load and initialise completion system
+autoload -Uz compinit compinit
 plug "zsh-users/zsh-syntax-highlighting" #must be source at the end, documentation said

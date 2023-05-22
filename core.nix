@@ -29,6 +29,7 @@
     tldr
     tmux
     tree
+    wget
     yq-go # yaml, json and xml processor
     zoxide
     zsh
@@ -38,12 +39,16 @@
     cargo
     rustc
 
-    # # GUI, utility apps
-    # syncthing
-    # logseq
-    # vscode
-    # wezterm
+    # # GUI apps
+    vscode # binary name: code
+    # wezterm #need to build, takes too long
+    alacritty
   ];
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = _: true;
+  };
 
   programs = {
     direnv = {

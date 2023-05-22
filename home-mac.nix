@@ -12,7 +12,8 @@
     # macos specific
     gnugrep # for nix-direnv
     pngpaste # for neovim clipboard-image
-    karabiner-elements
-    # raycast
+    # karabiner-elements #install from web is better
+    # GUI apps is stored at ~/.nix-profile/Applications
+    raycast
   ];
 }

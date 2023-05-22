@@ -5,6 +5,7 @@ SAVEHIST=1000000
 export EDITOR="nvim"
 export PATH="$HOME/.local/bin":$PATH
 
+export NIXPKGS_ALLOW_UNFREE=1
 # quick navigate folder
 eval "$(zoxide init zsh)"
 
