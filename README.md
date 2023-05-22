@@ -19,5 +19,7 @@ If you want to use this, highly recommend forking it and change username/home di
 
 install wezterm with current OS package manager
 ## TODOS
-- [] remove zsh-zap
 - [x] split modules for macos / linux setup
+
+## Some problems I encountered
+- repeating character in tmux on macos: [Installing tmux-256color for macOS (github.com)](https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95)
