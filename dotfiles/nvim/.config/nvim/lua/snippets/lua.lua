@@ -29,6 +29,20 @@ local {} = {}
     { i(1, ''), i(2, '') }
   ),
   { '<C-d>', 'jj' }
+)   --}}
+
+cs( -- [local] Lua local variable snippet{{{
+  'pcall',
+  fmt(
+    [[
+if not pcall(require, '{}') then
+  return
+end
+{}
+  ]],
+    { i(1, 'module'), i(2, '') }
+  ),
+  {}
 ) --}}
 
 -- End Refactoring --

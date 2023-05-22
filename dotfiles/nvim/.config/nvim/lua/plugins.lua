@@ -113,6 +113,18 @@ return {
     },
   },
   {
+    "glepnir/lspsaga.nvim",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+      --Please make sure you install markdown and markdown_inline parser
+      { "nvim-treesitter/nvim-treesitter" }
+    }
+  },
+  {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
@@ -202,12 +214,7 @@ return {
   },
   { 'nvim-telescope/telescope-ui-select.nvim' },
   {
-    -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-    -- Only load if `make` is available. Make sure you have the system
-    -- requirements installed.
     'nvim-telescope/telescope-fzf-native.nvim',
-    -- NOTE: If you are having trouble with this installation,
-    --       refer to the README for telescope-fzf-native for more instructions.
     build = 'make',
     cond = function()
       return vim.fn.executable 'make' == 1
@@ -337,5 +344,13 @@ return {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     }
-  }
+  },
+  { 'kevinhwang91/nvim-bqf' }, -- better quick fix
+  {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+  {
+    'toppair/reach.nvim',
+    config = function()
+      require('reach').setup()
+    end
+  },
 }
