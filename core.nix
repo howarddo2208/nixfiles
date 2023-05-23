@@ -43,7 +43,8 @@
     # # GUI apps
     vscode # binary name: code
     # wezterm #need to build, takes too long
-    alacritty
+    # alacritty
+    kitty
   ];
 
   nixpkgs.config = {
