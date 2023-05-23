@@ -23,6 +23,7 @@
     mc
     neovim
     nodejs
+    noto-fonts-emoji #to display logseq emoji correctly
     rbenv
     ripgrep
     stow #symlink manager

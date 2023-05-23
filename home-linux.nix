@@ -10,8 +10,7 @@
 
   home.packages = with pkgs; [
     # linux specific
-    # ibus-engines.bamboo #my vietnamese keyboard
-    noto-fonts-emoji #to display my logseq emoji correctly
+    ibus-engines.bamboo #my vietnamese keyboard
     xclip # for neovim in case not yet installed
   ];
 
