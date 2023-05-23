@@ -20,6 +20,8 @@ If you want to use this, highly recommend forking it and change username/home di
 install wezterm with current OS package manager
 ## TODOS
 - [x] split modules for macos / linux setup
+- [] zsh vim mode hard to copy into neovim?
 
 ## Some problems I encountered
-- repeating character in tmux on macos: [Installing tmux-256color for macOS (github.com)](https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95)
+- repeating character in tmux on macOS: [Installing tmux-256color for macOS (github.com)](https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95)
+- Neorg malfunction on macOS: `nix-shell -p gcc11` -> `which gcc` -> `CC=(gcc path) nvim -c TSInstallSync norg`
