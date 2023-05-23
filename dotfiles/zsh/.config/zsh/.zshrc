@@ -10,16 +10,19 @@ if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
 fi
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+--color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
 
 # source
-plug "$HOME/.config/zsh/aliases.zsh"
-plug "$HOME/.config/zsh/exports.zsh"
-plug "$HOME/.config/zsh/secrets.zsh"
+source "$HOME/.config/zsh/aliases.zsh"
+source "$HOME/.config/zsh/exports.zsh"
+source "$HOME/.config/zsh/eval.zsh"
 
 # plugins
 plug "zap-zsh/supercharge"
 plug "zap-zsh/vim"
-plug "zap-zsh/zap-prompt"
 plug "zap-zsh/exa"
 plug "zsh-users/zsh-autosuggestions"
 # for nix
@@ -37,12 +40,8 @@ if command -v bat &> /dev/null; then
   alias catt="bat --theme \"Visual Studio Dark+\"" 
 fi
 
-# atuin: sqlite command history
-eval "$(atuin init zsh --disable-ctrl-r --disable-up-arrow)"
-bindkey '^e' _atuin_search_widget
-
-eval $(thefuck --alias)
 
 # Load and initialise completion system
 autoload -Uz compinit compinit
 plug "zsh-users/zsh-syntax-highlighting" #must be source at the end, documentation said
+source ~/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
