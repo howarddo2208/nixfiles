@@ -21,6 +21,7 @@ install wezterm with current OS package manager
 ## TODOS
 - [x] split modules for macos / linux setup
 - [] zsh vim mode hard to copy into neovim?
+- [] migrate to nix-darwin
 
 ## Some problems I encountered
 - repeating character in tmux on macOS: [Installing tmux-256color for macOS (github.com)](https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95)

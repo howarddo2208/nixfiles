@@ -9,6 +9,8 @@ require('mason').setup()
 require('mason-null-ls').setup {
   ensure_installed = {
     -- Opt to list sources here, when available in mason.
+    'eslint_d',
+    'prettierd',
   },
   automatic_installation = false,
   handlers = {},

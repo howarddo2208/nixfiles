@@ -42,7 +42,7 @@ map('n', '<leader>Q', '<cmd>qa<cr>', { desc = 'quit all windows' })
 map('n', '<leader>q', '<cmd>q<cr>', { desc = 'quit current window' })
 
 -- saving with Ctrl+S
-map({ 'i', 'n', 's' }, '<C-s>', '<ESC>:w<CR>', { desc = 'save buffer' })
+map({ 'i', 'n', 's' }, '<C-s>', '<ESC>:silent! w<CR>', { desc = 'save buffer' })
 
 -- delete current file, follow up with :bd or as I set <leader>c to unload buffer
 map('n', '<leader>fd', '<cmd>!rm %<cr>', { desc = 'delete current file' })

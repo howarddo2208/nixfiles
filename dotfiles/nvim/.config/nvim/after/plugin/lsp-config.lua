@@ -44,8 +44,8 @@ local on_attach = function(client, bufnr)
   -- nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   -- nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   -- nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  -- nmap('<leader>ss', require('telescope.builtin').lsp_document_symbols, 'Search document symbols')
-  -- nmap('<leader>sS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Search workspace symbols')
+  nmap('<leader>ss', require('telescope.builtin').lsp_document_symbols, 'Search document symbols')
+  nmap('<leader>sS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Search workspace symbols')
 
   -- See `:help K` for why this keymap
   -- nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -78,6 +78,8 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
+  emmet_ls = {},
+  jsonls = {},
   -- clojure_lsp = {},
 
   lua_ls = {

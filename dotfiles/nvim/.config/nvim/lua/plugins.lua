@@ -16,11 +16,13 @@ return {
       }
     end,
   },
+  -- Autocompletion and snippet {{{
   {
-    -- Autocompletion
     'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip',
+      'rafamadriz/friendly-snippets' },
   },
+  -- }}}
   {
     'norcalli/nvim-colorizer.lua',
     config = function()
@@ -137,14 +139,6 @@ return {
       },
     },
   },
-  {
-    'L3MON4D3/LuaSnip',
-    -- follow latest release.
-    version = '<CurrentMajor>.*',
-    -- install jsregexp (optional!).
-    -- build = "make install_jsregexp"
-  },
-  { 'saadparwaiz1/cmp_luasnip' },
   {
     'iamcco/markdown-preview.nvim',
     ft = 'markdown',
@@ -346,7 +340,7 @@ return {
     }
   },
   { 'kevinhwang91/nvim-bqf' }, -- better quick fix
-  {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   {
     'toppair/reach.nvim',
     config = function()

@@ -22,11 +22,11 @@
     lazygit
     mc
     neovim
-    nodejs
     noto-fonts-emoji #to display logseq emoji correctly
     rbenv
     ripgrep
     stow #symlink manager
+    thefuck
     tldr
     tmux
     tree
@@ -37,6 +37,7 @@
 
     # programming languages
     nodejs
+    nodePackages.pnpm
     cargo
     rustc
 
