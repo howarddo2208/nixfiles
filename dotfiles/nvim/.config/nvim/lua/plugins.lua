@@ -29,18 +29,7 @@ return {
       require('colorizer').setup()
     end,
   },
-  {
-    -- theme
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    priority = 1000,
-    config = function()
-      require('catppuccin').setup {
-        -- transparent_background = true,
-      }
-      vim.cmd.colorscheme 'catppuccin-macchiato'
-    end,
-  },
+  { "catppuccin/nvim",     name = "catppuccin" },
   {
     -- "gc" to comment visual regions/lines
     'numToStr/Comment.nvim',
@@ -340,7 +329,7 @@ return {
     }
   },
   { 'kevinhwang91/nvim-bqf' }, -- better quick fix
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+  { 'nvim-treesitter/nvim-treesitter',        build = ':TSUpdate' },
   {
     'toppair/reach.nvim',
     config = function()
