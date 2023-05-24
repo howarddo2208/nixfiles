@@ -1,6 +1,5 @@
 # atuin: sqlite command history
 eval "$(atuin init zsh --disable-ctrl-r --disable-up-arrow)"
-bindkey '^e' _atuin_search_widget
 
 eval $(thefuck --alias)
 

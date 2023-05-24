@@ -32,6 +32,7 @@ plug "nix-community/nix-zsh-completions"
 # keybinds
 # ctrl+space to accept suggestion
 bindkey '^ ' autosuggest-accept
+bindkey '^e' _atuin_search_widget
 
 export PATH="$HOME/.local/bin":$PATH
 

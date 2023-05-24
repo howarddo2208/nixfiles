@@ -30,7 +30,9 @@
     thefuck
     tldr
     tmux
+    tmux-sessionizer
     tree
+    vifm
     wget
     yq-go # yaml, json and xml processor
     zoxide

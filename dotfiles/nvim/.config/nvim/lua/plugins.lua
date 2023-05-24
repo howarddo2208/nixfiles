@@ -218,11 +218,7 @@ return {
     'folke/trouble.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
-      require('trouble').setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
+      require('trouble').setup {}
     end,
   },
   {
@@ -264,19 +260,20 @@ return {
     'aserowy/tmux.nvim',
     config = function()
       return require('tmux').setup {
-        copy_sync = {
-          enable = true,
-        },
-        resize = {
-          -- enables default keybindings (A-hjkl) for normal mode
-          enable_default_keybindings = false,
-          -- sets resize steps for x axis
-          resize_step_x = 1,
-          -- sets resize steps for y axis
-          resize_step_y = 1,
-        },
+        -- copy_sync = {
+        --   enable = true,
+        --   sync_clipboard = true,
+        -- },
+        -- resize = {
+        --   -- enables default keybindings (A-hjkl) for normal mode
+        --   enable_default_keybindings = false,
+        --   -- sets resize steps for x axis
+        --   resize_step_x = 1,
+        --   -- sets resize steps for y axis
+        --   resize_step_y = 1,
+        -- },
       }
-    end,
+    end
   },
   {
     -- illuminate all the occurences of the word under the cursor
@@ -316,16 +313,12 @@ return {
     dependencies = { { "nvim-lua/plenary.nvim" } },
   },
   {
-    'Shatur/neovim-session-manager'
-  },
-  {
     "folke/noice.nvim",
     config = function()
       require("noice").setup({})
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
     }
   },
   { 'kevinhwang91/nvim-bqf' }, -- better quick fix
@@ -336,4 +329,10 @@ return {
       require('reach').setup()
     end
   },
+  -- {
+  --   "tversteeg/registers.nvim",
+  --   config = function()
+  --     require("registers").setup()
+  --   end,
+  -- },
 }

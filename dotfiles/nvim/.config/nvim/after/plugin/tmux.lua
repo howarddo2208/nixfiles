@@ -14,3 +14,5 @@ map('n', '<C-Left>', '<cmd>lua require("tmux").resize_left()<cr>', { desc = 'Dec
 map('n', '<C-Down>', '<cmd>lua require("tmux").resize_bottom()<cr>', { desc = 'Decrease window height' })
 map('n', '<C-Up>', '<cmd>lua require("tmux").resize_top()<cr>', { desc = 'Increase window height' })
 map('n', '<C-Right>', '<cmd>lua require("tmux").resize_right()<cr>', { desc = 'Increase window width' })
+
+pcall(vim.api.nvim_del_keymap, 'n', '"')
