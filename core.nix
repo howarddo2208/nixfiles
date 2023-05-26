@@ -14,10 +14,12 @@
     exa
     fd
     ffmpeg
+    fish
     fontconfig
     fzf
     gh
     git
+    gimp
     lazydocker
     lazygit
     mc

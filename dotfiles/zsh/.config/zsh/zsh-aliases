@@ -16,7 +16,8 @@ alias nvimrc='nvim ~/.config/nvim/'
 
 # tmux
 # alias txi='tmuxifier' # tmux session preset
-alias tmuxrc='nvim ~/.tmux.conf'
+alias tme='nvim ~/.tmux.conf'
+alias tmr='tmux source ~/.tmux.conf'
 
 
 # Colorize grep output (good for log files)
@@ -35,7 +36,8 @@ alias df='df -h'     # human-readable sizes
 # git
 alias m="git checkout master"
 alias s="git checkout stable"
-alias g='lazygit'
+alias lg='lazygit'
+alias ld='lazydocker'
 
 # other
 alias cs="cht.sh" # cheatsheet for command lines
