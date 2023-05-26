@@ -12,13 +12,13 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- open telescope on startup
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
-  callback = function()
-    if #vim.fn.argv() == 0 then
-      vim.cmd("SessionManager load_session")
-    end
-  end
-})
+-- vim.api.nvim_create_autocmd({ "VimEnter" }, {
+--   callback = function()
+--     if #vim.fn.argv() == 0 then
+--       vim.cmd("SessionManager load_session")
+--     end
+--   end
+-- })
 
 -- function to create a list of commands and convert them to autocommands
 -------- This function is taken from https://github.com/norcalli/nvim_utils

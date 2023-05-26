@@ -329,10 +329,5 @@ return {
       require('reach').setup()
     end
   },
-  -- {
-  --   "tversteeg/registers.nvim",
-  --   config = function()
-  --     require("registers").setup()
-  --   end,
-  -- },
+  {'tpope/vim-eunuch'}
 }
