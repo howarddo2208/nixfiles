@@ -1,6 +1,12 @@
 #!/bin/sh
-alias rls='source $ZSHRC'
+alias rl='source $ZSHRC'
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
+
+# cat -> bat
+if command -v bat &> /dev/null; then
+  alias cat="bat -pp"
+  alias catt="bat"
+fi
 
 # neovim
 alias v='nvim'

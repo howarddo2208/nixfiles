@@ -21,11 +21,13 @@
     lazydocker
     lazygit
     mc
+    nap # code snippet manager
     neovim
     nix-prefetch-github
     noto-fonts-emoji #to display logseq emoji correctly
     rbenv
     ripgrep
+    skate #personal key-value store
     stow #symlink manager
     thefuck
     tldr

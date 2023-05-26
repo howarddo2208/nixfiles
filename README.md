@@ -8,7 +8,6 @@ If you want to use this, highly recommend forking it and change username/home di
 2. run `nix run "github:howarddo2208/nixfiles#homeConfigurations.{macos|linux}.activationPackage" --extra-experimental-features nix-command --extra-experimental-features flakes` change uri to your repo.
 3. Run `cd ~/nixfiles/dotfiles && stow -vSt ~ *` to create symlink dotfiles, add `-n` flag to `stow` to view simulation before symlink. I won't manage configuration purely with Nix.
 4. first time config
-    - install [zsh-zap](https://github.com/zap-zsh/zap) as I use it to manage zsh plugins: `zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1`, if you don't install it, there will be errors about the plug keyword when switching to `zsh`
     - set default shell to `zsh` if you are on linux with bash default `command -v zsh | sudo tee -a /etc/shells && chsh -s "$(command -v zsh)"`. [reference](https://unix.stackexchange.com/questions/111365/how-to-change-default-shell-to-zsh-chsh-says-invalid-shell). The default shell emulator maynot switch to zsh because it was hard-coded to bash, then you may want to tweak the setting, or install another shell emulator, I recommend [wezterm](https://github.com/wez/wezterm) 
     - login to github + ssh for it: `gh auth login`
     - tmux: install plugin manager `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm` then `tmux source ~/.tmux.conf` -> `tmux attach` -> `<C-a> + I`
@@ -20,7 +19,7 @@ If you want to use this, highly recommend forking it and change username/home di
 install wezterm with current OS package manager
 ## TODOS
 - [x] split modules for macos / linux setup
-- [] zsh vim mode hard to copy into neovim?
+- [x] remove plugin manager, use vanilla script to manage plugins (steals from https://github.com/ChristianChiarulli/Machfiles)
 - [] migrate to nix-darwin
 
 ## Some problems I encountered
