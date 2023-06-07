@@ -19,3 +19,7 @@ export NAP_DEFAULT_LANGUAGE="js"
 export NAP_THEME="dracula"
 
 export NIXPKGS_ALLOW_UNFREE=1
+
+export PATH="/Users/howard/Library/Python/3.9/bin:$PATH" #xcode python
+
+export PKM="$HOME/Sync/howard-pkm"

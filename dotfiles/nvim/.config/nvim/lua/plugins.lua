@@ -259,20 +259,7 @@ return {
     -- navigation easy between tmux and nvim
     'aserowy/tmux.nvim',
     config = function()
-      return require('tmux').setup {
-        -- copy_sync = {
-        --   enable = true,
-        --   sync_clipboard = true,
-        -- },
-        -- resize = {
-        --   -- enables default keybindings (A-hjkl) for normal mode
-        --   enable_default_keybindings = false,
-        --   -- sets resize steps for x axis
-        --   resize_step_x = 1,
-        --   -- sets resize steps for y axis
-        --   resize_step_y = 1,
-        -- },
-      }
+      return require('tmux').setup {}
     end
   },
   {
@@ -312,15 +299,6 @@ return {
     },
     dependencies = { { "nvim-lua/plenary.nvim" } },
   },
-  {
-    "folke/noice.nvim",
-    config = function()
-      require("noice").setup({})
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    }
-  },
   { 'kevinhwang91/nvim-bqf' }, -- better quick fix
   { 'nvim-treesitter/nvim-treesitter',        build = ':TSUpdate' },
   {
@@ -329,5 +307,12 @@ return {
       require('reach').setup()
     end
   },
-  {'tpope/vim-eunuch'}
+  { 'tpope/vim-eunuch' },
+  { 'wakatime/vim-wakatime' },
+  {
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').add_default_mappings()
+    end
+  }
 }

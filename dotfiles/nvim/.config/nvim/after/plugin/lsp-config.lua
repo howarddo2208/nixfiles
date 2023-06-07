@@ -23,7 +23,7 @@ local on_attach = function(client, bufnr)
       buffer = bufnr,
       callback = function()
         -- want to autoformat? uncomment below
-        -- lsp_formatting(bufnr)
+        lsp_formatting(bufnr)
       end,
     })
   end
@@ -37,7 +37,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  -- nmap('<leader>lr', vim.lsp.buf.rename, '[R]e[n]ame')
+  nmap('<leader>lr', vim.lsp.buf.rename, '[R]e[n]ame')
   -- nmap('<leader>la', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   -- nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
@@ -78,7 +78,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
-  emmet_ls = {},
+  -- emmet_ls = {},
   jsonls = {},
   -- clojure_lsp = {},
 

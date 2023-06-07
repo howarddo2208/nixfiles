@@ -32,6 +32,7 @@
     skate #personal key-value store
     stow #symlink manager
     thefuck
+    taskell #kanban task manager in the terminal
     tldr
     tmux
     tmux-sessionizer
@@ -49,9 +50,6 @@
     rustc
 
     # # GUI apps
-    vscode # binary name: code
-    # wezterm #need to build, takes too long
-    # alacritty
     kitty
   ];
 

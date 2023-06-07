@@ -39,7 +39,7 @@ keybindings.toggletermKeys = function(plugins)
       toggle_lazygit,
       "toggle lazygit",
     },
-    ["<C-n>"] = {
+    ["<C-f>"] = {
       function()
         plugins.vifm():toggle()
       end,

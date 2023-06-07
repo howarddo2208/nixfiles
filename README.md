@@ -13,6 +13,20 @@ If you want to use this, highly recommend forking it and change username/home di
     - tmux: install plugin manager `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm` then `tmux source ~/.tmux.conf` -> `tmux attach` -> `<C-a> + I`
     - login into atuin + sync (command hisotry): `atuin login -u username` -> `atuin sync`
     - may need to install some lsp for neovim with `:Mason`
+    - setup wakapi tracker in `~/.wakatime.cfg`
+        ```
+        [settings]
+        debug = false
+        hidefilenames = false
+        ignore =
+            COMMIT_EDITMSG$
+            PULLREQ_EDITMSG$
+            MERGE_MSG$
+            TAG_EDITMSG$
+        api_url = https://wakapi.dev/api
+        api_key = <api-key>
+
+        ```
 5. Each time changing the configs: `cd ~/nixfiles && home-manager switch --flake ".#{macos|linux}"` or alias `hms`
 6. ??? Profits ???
 
