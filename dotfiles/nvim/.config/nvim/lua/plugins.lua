@@ -281,32 +281,8 @@ return {
       require "octo".setup()
     end
   },
-  {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    opts = {
-      load = {
-        ["core.defaults"] = {},  -- Loads default behaviour
-        ["core.concealer"] = {}, -- Adds pretty icons to your documents
-        ["core.dirman"] = {      -- Manages Neorg workspaces
-          config = {
-            workspaces = {
-              notes = "~/Sync/neorg/notes",
-            },
-          },
-        },
-      },
-    },
-    dependencies = { { "nvim-lua/plenary.nvim" } },
-  },
   { 'kevinhwang91/nvim-bqf' }, -- better quick fix
   { 'nvim-treesitter/nvim-treesitter',        build = ':TSUpdate' },
-  {
-    'toppair/reach.nvim',
-    config = function()
-      require('reach').setup()
-    end
-  },
   { 'tpope/vim-eunuch' },
   { 'wakatime/vim-wakatime' },
   {

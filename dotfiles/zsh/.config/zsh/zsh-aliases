@@ -65,11 +65,11 @@ EOF
 
 # taskell, I store my taskell files in my personal knowledge management folder
 tk() {
-    taskell $PKM/taskell/"$1".md
+    taskell $PKM/otherapps/taskell/"$1".md
 }
 _tk_completion() {
     local files
-    files=($PKM/taskell/*.md)
+    files=($PKM/otherapps/taskell/*.md)
     reply=($(basename -s .md -- $files))
 }
 compctl -K _tk_completion tk

@@ -46,10 +46,24 @@ zsh_add_plugin "nix-community/nix-zsh-completions"
 # zsh_add_completion "esc/conda-zsh-completion" false
 # More completions https://github.com/zsh-users/zsh-completions
 
+# test search for pkm, still not working, need to learn more about bash scripting
+# search_folder() {
+#   read -r -p "Enter search term: " search_term
+#   search_result=$(find "$PKM" -type d \( -name '.git' -o -name 'logseq' \) -prune -o -type f ! -name '*.excalidraw' -exec grep -I "$search_term" {} + | awk -F: -v PKM="$PKM" '{gsub(PKM, ""); printf "%s:%d:%s\n", $1, $2, $3}' | awk -F: -v PKM="$PKM" '{printf "%s/%s:%s\n", PKM, $1, $2}' | fzf)
+#
+#   if [[ -n "$search_result" ]]; then
+#     file_path=$(echo "$search_result" | awk -F: -v PKM="$PKM" '{gsub(PKM, ""); print $1}')
+#     line_number=$(echo "$search_result" | awk -F: '{print $2}')
+#     $EDITOR "$file_path" +"$line_number"
+#   fi
+# }
+# zle -N search_folder
+# bindkey '^s' search_folder
+
 # Key-bindings
 bindkey -s '^o' 'vifm^M'
 bindkey -s '^f' 'zi^M'
-bindkey -s '^s' 'ncdu^M'
+# bindkey -s '^s' 'ncdu^M'
 bindkey -s '^v' 'nvim $(fzf)^M'
 bindkey -s '^z' 'zi^M'
 bindkey '^[[P' delete-char

@@ -24,11 +24,13 @@
     lazygit
     mc
     nap # code snippet manager
+    nb #note taking in terminal
     neovim
     nix-prefetch-github
     noto-fonts-emoji #to display logseq emoji correctly
     rbenv
     ripgrep
+    sc-im #spreadsheet in the terminal
     skate #personal key-value store
     stow #symlink manager
     thefuck
