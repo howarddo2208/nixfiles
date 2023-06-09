@@ -4,6 +4,7 @@
 
   home.packages = with pkgs; [
     # dev environment apps
+    # mc # file manager
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" "JetBrainsMono" ]; })
     atuin
     bash
@@ -18,30 +19,36 @@
     fontconfig
     fzf
     gh
-    git
     gimp
+    git
     lazydocker
     lazygit
-    mc
+    mpv
     nap # code snippet manager
     nb #note taking in terminal
     neovim
+    newsboat
     nix-prefetch-github
+    nodePackages.readability-cli # supports for nb
     noto-fonts-emoji #to display logseq emoji correctly
+    pandoc
     rbenv
     ripgrep
     sc-im #spreadsheet in the terminal
     skate #personal key-value store
     stow #symlink manager
-    thefuck
     taskell #kanban task manager in the terminal
+    thefuck
     tldr
     tmux
     tmux-sessionizer
     tree
+    ueberzugpp
     vifm
     wget
     yq-go # yaml, json and xml processor
+    yt-dlp
+    ytfzf
     zoxide
     zsh
 
