@@ -1,0 +1,38 @@
+#starred articles
+# ctrl-e to flag, s-enter to start it, to remove, ctrl-e -> delete the flag char
+"query:Starred:flags # \"s\""
+"query:Unread:unread = \"yes\""
+
+# (Youtube)
+  ## programming
+https://www.youtube.com/feeds/videos.xml?channel_id=UC8ENHE5xdFSwx71u3fDH5Xw "~ThePrimeagen" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCjREVt2ZJU8ql-NC9Gu-TJw "~Code to the Moon" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCbRP3c757lWg9M-U7TyEkXA "~Theo t3" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCd3dNckv1Za2coSaHGHl5aA "~TJ DeVries" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCyUBW72KU30dfAYWLVNZO8Q "~Stefan Mischook" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5--wS0Ljbin1TjWQX6eafA "~bigboxSWE" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "~Fireship" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCvGwM5woTl13I-qThI4YMCg "~Josh tried coding" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCWQaM7SpSECp9FELz-cHzuQ "~Dream of Code" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCrsLPlwxUInDoNubOP85EWQ "~Coderized" "(Youtube)"
+  ## linux
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith" "(Youtube)"
+  ### entertain
+https://www.youtube.com/feeds/videos.xml?channel_id=UC-lHJZR3Gqxm24_Vd_AJ5Yw "~Pewdiepie" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCDETFHKteb-C_EaXmRKvP4w "~Sisyphus 55" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCu7ODDeIZ4x1rJwM1LCVL8w "~Thebausffs" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCxLYtICsUCWdr1YPrj5DtwA "~Ordinary Things" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC4QZ_LsYcvcq7qOsOhpAX4A "~ColdFusion" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCR1D15p_vdP3HkrH8wgjQRw "~Internet Historian" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCFQMnBA3CS502aghlcr0_aw "~Coffeezilla" "(Youtube)"
+
+
+# (Twitter)
+
+# (Reddit)
+
+# (Blog)
+https://www.joshwcomeau.com/rss.xml "~Josh W Comeau" "(Blog)"
+https://jdhao.github.io/index.xml "~jdhao" "(Blog)"
+
+# (Github)

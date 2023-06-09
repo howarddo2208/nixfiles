@@ -6,7 +6,7 @@ If you want to use this, highly recommend forking it and change username/home di
 0. Install nix from `nixos.org`
 1. Clone the repo to home directory
 2. run `nix run "github:howarddo2208/nixfiles#homeConfigurations.{macos|linux}.activationPackage" --extra-experimental-features nix-command --extra-experimental-features flakes` change uri to your repo.
-3. Run `cd ~/nixfiles/dotfiles && stow -vSt ~ *` to create symlink dotfiles, add `-n` flag to `stow` to view simulation before symlink. I won't manage configuration purely with Nix.
+3. Run `cd ~/nixfiles/dotfiles && stow -vSt ~ *` to create symlink dotfiles, add `-n` flag to `stow` to view simulation before symlink. I won't manage configuration purely with Nix. sync scripts with `stow -vSt ~ scripts`
 4. first time config
     - set default shell to `zsh` if you are on linux with bash default `command -v zsh | sudo tee -a /etc/shells && chsh -s "$(command -v zsh)"`. [reference](https://unix.stackexchange.com/questions/111365/how-to-change-default-shell-to-zsh-chsh-says-invalid-shell). The default shell emulator maynot switch to zsh because it was hard-coded to bash, then you may want to tweak the setting, or install another shell emulator, I recommend [wezterm](https://github.com/wez/wezterm) 
     - login to github + ssh for it: `gh auth login`

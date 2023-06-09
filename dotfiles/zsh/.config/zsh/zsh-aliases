@@ -77,9 +77,18 @@ _tk_completion() {
 }
 compctl -K _tk_completion tk
 
+# exa aliases
+alias ls='exa --group-directories-first --icons'
+if exa --version | grep -q '+git';
+then
+	alias ll='ls -lh --git'
+else
+	alias ll='ls -lh'
+fi
+alias la='ll -a'
+alias tree='ll --tree'
 
 case "$(uname -s)" in
-
 Darwin)
 	# echo 'Mac OS X'
 	alias hms='(cd ~/nixfiles && home-manager switch --flake ".#macos")'

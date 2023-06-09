@@ -49,6 +49,7 @@
     yq-go # yaml, json and xml processor
     yt-dlp
     ytfzf
+    yewtube
     zoxide
     zsh
 
