@@ -94,5 +94,3 @@ export FZF_DEFAULT_OPTS=" \
 
 # Load and initialise completion system
 # autoload -Uz compinit
-
-tk projects

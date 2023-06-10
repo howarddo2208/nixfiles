@@ -30,12 +30,8 @@ If you want to use this, highly recommend forking it and change username/home di
 5. Each time changing the configs: `cd ~/nixfiles && home-manager switch --flake ".#{macos|linux}"` or alias `hms`
 6. ??? Profits ???
 
-install wezterm with current OS package manager
-## TODOS
-- [x] split modules for macos / linux setup
-- [x] remove plugin manager, use vanilla script to manage plugins (steals from https://github.com/ChristianChiarulli/Machfiles)
-- [ ] adding nix-darwin config
-- [ ] refactor keybinding code
+## hmmmmmmmm
+- set `SONG_DIR` for ytmdl 
 
 ## Some problems I encountered
 - repeating character in tmux on macOS: [Installing tmux-256color for macOS (github.com)](https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95)

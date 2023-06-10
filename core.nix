@@ -3,41 +3,27 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    # dev environment apps
-    # mc # file manager
+    # dev tools
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" "JetBrainsMono" ]; })
-    atuin
+    atuin # command history
     bash
     bat
-    btop
     catimg
     cht-sh
     exa
     fd
-    ffmpeg
     fish
     fontconfig
     fzf
     gh
-    gimp
     git
+    kitty
     lazydocker
     lazygit
-    mpv
-    nap # code snippet manager
-    nb #note taking in terminal
+    # mc # file manager
     neovim
-    newsboat
-    nix-prefetch-github
-    nodePackages.readability-cli # supports for nb
     noto-fonts-emoji #to display logseq emoji correctly
-    pandoc
-    rbenv
     ripgrep
-    sc-im #spreadsheet in the terminal
-    skate #personal key-value store
-    stow #symlink manager
-    taskell #kanban task manager in the terminal
     thefuck
     tldr
     tmux
@@ -47,20 +33,34 @@
     vifm
     wget
     yq-go # yaml, json and xml processor
-    yt-dlp
-    ytfzf
-    yewtube
     zoxide
     zsh
 
-    # programming languages
+    # utility apps
+    btop
+    ffmpeg
+    gimp # photo editor
+    mpv # vide player
+    musikcube #music player
+    nap # code snippet manager
+    nb #note taking in terminal
+    newsboat # terminal RSS reader
+    nix-prefetch-github
+    nodePackages.readability-cli # supports for nb
+    pandoc # convert docs
+    sc-im #spreadsheet in the terminal
+    skate #personal key-value store
+    stow #symlink manager
+    taskell #kanban task manager in the terminal
+    yt-dlp # youtube downloader
+    ytfzf # watch youtube from terminal
+    ytmdl # music downloader
+
+    # programming languages & sdk
     nodejs
     nodePackages.pnpm
     cargo
     rustc
-
-    # # GUI apps
-    kitty
   ];
 
   nixpkgs.config = {
