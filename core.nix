@@ -50,11 +50,13 @@
     pandoc # convert docs
     sc-im #spreadsheet in the terminal
     skate #personal key-value store
+    sioyek # pdf viewer
     stow #symlink manager
     taskell #kanban task manager in the terminal
     yt-dlp # youtube downloader
     ytfzf # watch youtube from terminal
     ytmdl # music downloader
+    rtorrent
 
     # programming languages & sdk
     nodejs

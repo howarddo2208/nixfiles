@@ -15,8 +15,10 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "~F
 https://www.youtube.com/feeds/videos.xml?channel_id=UCvGwM5woTl13I-qThI4YMCg "~Josh tried coding" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCWQaM7SpSECp9FELz-cHzuQ "~Dream of Code" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCrsLPlwxUInDoNubOP85EWQ "~Coderized" "(Youtube)"
-  ## linux
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9x0AN7BWHpCDHSm9NiJFJQ "~NetworkChuck" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC_mYaQAE6-71rjSN6CeCA-g "~Neetcode" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6biysICWOJ-C3P4Tyeggzg "~Low Level Learning" "(Youtube)"
   ### entertain
 https://www.youtube.com/feeds/videos.xml?channel_id=UC-lHJZR3Gqxm24_Vd_AJ5Yw "~Pewdiepie" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCDETFHKteb-C_EaXmRKvP4w "~Sisyphus 55" "(Youtube)"
@@ -25,6 +27,8 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCxLYtICsUCWdr1YPrj5DtwA "~O
 https://www.youtube.com/feeds/videos.xml?channel_id=UC4QZ_LsYcvcq7qOsOhpAX4A "~ColdFusion" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCR1D15p_vdP3HkrH8wgjQRw "~Internet Historian" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCFQMnBA3CS502aghlcr0_aw "~Coffeezilla" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCgHGPOxUMfWsiy1ZyR-tLVw "~Livakivi" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCdC0An4ZPNr_YiFiYoVbwaw "~Daily Dose Of Internet" "(Youtube)"
 
 
 # (Twitter)
@@ -34,5 +38,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCFQMnBA3CS502aghlcr0_aw "~C
 # (Blog)
 https://www.joshwcomeau.com/rss.xml "~Josh W Comeau" "(Blog)"
 https://jdhao.github.io/index.xml "~jdhao" "(Blog)"
+https://hiro.codes/index.xml "~Hiro" "(Blog)"
+https://www.devas.life/rss/ "~Devaslife" "(Blog)"
 
 # (Github)

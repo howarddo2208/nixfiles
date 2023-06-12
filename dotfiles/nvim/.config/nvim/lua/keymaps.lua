@@ -56,3 +56,6 @@ map('n', '<leader>lI', '<cmd>Mason<CR>', { desc = 'Manage LSP servers' })
 map('n', '<M-t>', '<cmd>tabnew<CR>', { desc = 'new tab' })
 map('n', '<M-Tab>', '<cmd>tabnext<CR>', { desc = 'next tab' })
 map('n', '<M-S-Tab>', '<cmd>tabprevious<CR>', { desc = 'previous tab' })
+
+-- add semicolon to the end of line
+map('i', '<M-;>', '<ESC>A;<ESC>o', { desc = 'add semicolon to the end of the line' })

@@ -169,10 +169,10 @@ command! reload :write | restart full
 
 " Pdf
 filetype {*.pdf},<application/pdf>
+       \ {Open in Sioyek}
+       \ sioyek,
        \ {Open in Preview}
        \ open -a Preview.app,
-       \ {Open in Skim}
-       \ open -a Skim.app,
 fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
 
 " PostScript
