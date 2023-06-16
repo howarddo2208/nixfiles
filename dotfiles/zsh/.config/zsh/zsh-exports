@@ -27,3 +27,21 @@ export PKM="$HOME/Sync/howard-pkm"
 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+case "$(uname -s)" in
+Darwin)
+	# echo 'Mac OS X'
+  export BROWSER="open"
+	;;
+
+Linux)
+  export BROWSER="firefox"
+	;;
+
+CYGWIN* | MINGW32* | MSYS* | MINGW*)
+	# echo 'MS Windows'
+	;;
+*)
+	# echo 'Other OS'
+	;;
+esac

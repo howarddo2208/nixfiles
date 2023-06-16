@@ -30,6 +30,7 @@
     tmux-sessionizer
     tree
     ueberzugpp
+    urlscan
     vifm
     wget
     yq-go # yaml, json and xml processor
@@ -47,6 +48,7 @@
     newsboat # terminal RSS reader
     nix-prefetch-github
     nodePackages.readability-cli # supports for nb
+    nsxiv # image viewer
     pandoc # convert docs
     sc-im #spreadsheet in the terminal
     skate #personal key-value store

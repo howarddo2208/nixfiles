@@ -29,7 +29,9 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCR1D15p_vdP3HkrH8wgjQRw "~I
 https://www.youtube.com/feeds/videos.xml?channel_id=UCFQMnBA3CS502aghlcr0_aw "~Coffeezilla" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCgHGPOxUMfWsiy1ZyR-tLVw "~Livakivi" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCdC0An4ZPNr_YiFiYoVbwaw "~Daily Dose Of Internet" "(Youtube)"
-
+https://www.youtube.com/feeds/videos.xml?channel_id=UCflB5s9lNML-rFf9JpBiC4A "~Thanh Pahm" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "~Marques Brownlee" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCa4GzOwXZbQPQyPHhQmpKCQ "~ Ants are everywhere" "(Youtube)"
 
 # (Twitter)
 
@@ -40,5 +42,7 @@ https://www.joshwcomeau.com/rss.xml "~Josh W Comeau" "(Blog)"
 https://jdhao.github.io/index.xml "~jdhao" "(Blog)"
 https://hiro.codes/index.xml "~Hiro" "(Blog)"
 https://www.devas.life/rss/ "~Devaslife" "(Blog)"
+https://www.scotthyoung.com/blog/feed/ "~Scott Young" "(Blog)"
 
 # (Github)
+https://github.com/logseq/logseq/releases.atom "~Logseq" "(Github)"

@@ -20,6 +20,19 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 --   end
 -- })
 
+-- custom filetype settings
+vim.api.nvim_create_autocmd("BufRead", {
+  callback = function()
+    vim.filetype.add({
+      extension = {},
+      filename = {
+        ['.env.example'] = 'sh'
+      },
+      pattern = {}
+    })
+  end
+})
+
 -- function to create a list of commands and convert them to autocommands
 -------- This function is taken from https://github.com/norcalli/nvim_utils
 function M.nvim_create_augroups(definitions)

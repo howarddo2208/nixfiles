@@ -224,7 +224,7 @@ return {
   {
     'mbbill/undotree',
     keys = {
-      { '<leader>u', '<cmd>UndotreeToggle<cr>', desc = 'Toggle Undo Tree' },
+      { '<leader>t', '<cmd>UndotreeToggle<cr>', desc = 'Toggle Undo Tree' },
     },
   },
   {
@@ -290,5 +290,6 @@ return {
     config = function()
       require('leap').add_default_mappings()
     end
-  }
+  },
+  { "axieax/urlview.nvim" }
 }

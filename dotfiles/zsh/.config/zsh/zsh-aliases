@@ -45,7 +45,7 @@ alias ld='lazydocker'
 # other
 alias cs="cht.sh" # cheatsheet for command lines
 
-#nix related
+# NIX {{{
 alias hmp="home-manager packages"
 alias ckshell='if [ -n "$IN_NIX_SHELL" ]; then echo "Inside nix-shell"; else echo "Not inside nix-shell"; fi;'
 nixify() { # create starter file for direnv
@@ -65,6 +65,26 @@ EOF
   direnv allow
   ${EDITOR:-vim} shell.nix
 }
+
+nixrust() {
+  if [[ ! -e shell.nix ]] && [[ ! -e default.nix ]]; then
+    cat << EOF > shell.nix
+with import <nixpkgs> {};
+mkShell {
+  packages = [
+    cargo
+    rustc
+  ];
+  RUST_SRC_PATH = "\${rustPlatform.rustLibSrc}";
+}
+EOF
+  fi
+  if [ ! -e ./.envrc ]; then
+    echo "use nix" > .envrc
+  fi
+  direnv allow
+}
+#}}}
 
 # taskell, I store my taskell files in my personal knowledge management folder
 tk() {
