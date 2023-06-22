@@ -1,3 +1,30 @@
+-- KEYMAPS
+-- TODO: merge keybindings and keymaps together
+local map = require('utils').map
+-- Keymaps for better default experience
+-- See `:help vim.keymap.set()`
+-- map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- Remap for dealing with word wrap
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- yank/delete without copy to clipboard
+map('x', '<leader>p', [["_dP]], { desc = 'paste without copying deleted text' })
+map({ 'n', 'v' }, '<leader>D', [["_d]], { desc = 'delete without copying text' })
+
+-- yank to system clipboard
+map({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'yank to system clipboard' })
+map('n', '<leader>Y', [["+Y]], { desc = 'yank til end of line to system clipboard' })
+map({ 'n', 'v' }, '<leader>P', [["+gP]], { desc = 'paste from system clipboard' })
+
+-- saving with Ctrl+S
+map({ 'i', 'n', 's' }, '<C-s>', '<ESC>:silent! w<CR>', { desc = 'save buffer' })
+
+-- add semicolon, comma to the end of line
+map('i', '<M-;>', '<ESC>A;<ESC>', { desc = 'add semicolon to the end of the line' })
+map('i', '<M-,>', '<ESC>A,<ESC>', { desc = 'add comma to the end of the line' })
+
 -- steal from https://github.com/liaohui5/dotfiles/blob/d935bdcfd8a04d6112b380d071df06442b2b48b3/nvim/lua/keybindings.lua
 -- the repo structure is really interesting, will steal more
 local wk = require("which-key")
@@ -15,8 +42,32 @@ local operateModeOpts = createBindKeyOpts("o")
 local keybindings = {
 }
 
+keybindings.general = function()
+  wk.register({
+    ['<C-d>'] = { "<C-d>zz", "scroll down half page" },
+    ['<C-u>'] = { '<C-u>zz', "scroll up half page", },
+    ['n'] = { 'nzzzv', "next match", },
+    ['N'] = { 'Nzzzv', "previous match", },
+    ['gl'] = { vim.diagnostic.open_float, "Open floating diagnostic message", },
+    ['gL'] = { vim.diagnostic.setloclist, "Open diagnostics list", },
+    ['<leader>Q'] = { '<cmd>qa<cr>', 'quit all windows' },
+    ['<leader>q'] = { '<cmd>q<cr>', 'quit current window' },
+    ['<leader>fd'] = { '<cmd>!rm %<cr>', 'delete current file' },
+    ['<leader>c'] = { '<cmd>bd<cr>', 'Unload buffer' },
+    ['<M-t>'] = { '<cmd>tabnew<cr>', 'New tab' },
+    ['<M-Tab>'] = { '<cmd>tabnext<cr>', 'next tab' },
+    ['<M-S-Tab>'] = { '<cmd>tabprevious<cr>', 'previous tab' },
+    ['J'] = { 'mzJ`z', 'group lines' }
+  }, normalModeOpts)
+  wk.register({
+    J = { ":m '>+1<CR>gv=gv", "move highlighted text down" },
+    K = { ":m '<-2<CR>gv=gv", 'move highlighted text up' }
+  }, visualModeOpts)
+end
+keybindings.general()
+
 -- ╭──────────────────────────────────────────────────────────────────────────────╮
--- │                          ctrl + x : toggleterm                               │
+-- │                          ctrl + \ : toggleterm                               │
 -- ╰──────────────────────────────────────────────────────────────────────────────╯
 keybindings.toggletermKeys = function(plugins)
   local toggle_lazygit = function()
@@ -31,14 +82,8 @@ keybindings.toggletermKeys = function(plugins)
       end,
       "open terminal in current directory",
     },
-    ["<leader>gg"] = {
-      toggle_lazygit,
-      "toggle lazygit",
-    },
-    ["<C-g>"] = {
-      toggle_lazygit,
-      "toggle lazygit",
-    },
+    ["<leader>gg"] = { toggle_lazygit, "toggle lazygit", },
+    ["<C-g>"] = { toggle_lazygit, "toggle lazygit", },
     ["<C-f>"] = {
       function()
         plugins.vifm():toggle()
@@ -47,6 +92,180 @@ keybindings.toggletermKeys = function(plugins)
     },
   }, normalModeOpts)
   return "<C-\\>" -- toggle terminal
+end
+
+-- ╭──────────────────────────────────────────────────────────────────────────────╮
+-- │                                   dap                                        │
+-- ╰──────────────────────────────────────────────────────────────────────────────╯
+keybindings.dapKeys = function(debug_close)
+  local function dap_call_fn(fn)
+    return string.format("<cmd>lua require('dap').%s()<CR>", fn)
+  end
+
+  wk.register({
+    ["<leader>d"] = {
+      name = "+Debugger",
+      t = { dap_call_fn("toggle_breakpoint"), "toggle breakpoint(F9)", },
+      s = { dap_call_fn("continue"), "start debug(F5)", },
+      c = { dap_call_fn("continue"), "start debug(F5)", },
+      i = { dap_call_fn("step_into"), "debug step in(F10)", },
+      o = { dap_call_fn("step_out"), "debug step out(F11)", },
+      O = { dap_call_fn("step_over"), "debug step over(F12)", },
+    },
+  })
+
+  wk.register({
+    ["<F5>"] = { dap_call_fn("continue"), "start debug(F5)", },
+    ["<F6>"] = { debug_close, "close debug(F6)", },
+    ["<F9>"] = { dap_call_fn("toggle_breakpoint"), "toggle breakpoint(F9)", },
+    ["<F10>"] = { dap_call_fn("step_into"), "debug step in(F10)", },
+    ["<F11>"] = { dap_call_fn("step_out"), "debug step out(F11)", },
+    ["<F12>"] = { dap_call_fn("step_over"), "debug step over(F12)", },
+  }, normalModeOpts)
+end
+
+-- ╭──────────────────────────────────────────────────────────────────────────────╮
+-- │                                    dapUI                                     │
+-- ╰──────────────────────────────────────────────────────────────────────────────╯
+keybindings.dapUIKeys = function()
+  return {
+    mappings = {
+      expand = { "o" },
+      open = "<Enter>",
+      remove = "d",
+      edit = "e",
+      repl = "r",
+      toggle = "t",
+    },
+    floatingMappings = {
+      close = { "q", "<Esc>" },
+    },
+  }
+end
+
+keybindings.cratesKeys = function()
+  wk.register({
+    ["<leader>rcu"] = {
+      function()
+        require("crates").update_all_crates()
+      end,
+      "update all crates",
+    },
+  }, normalModeOpts)
+end
+
+keybindings.rustToolsKeys = function()
+  wk.register({
+    ["<leader>r"] = {
+      name = '+Rust',
+      h = { "<cmd>RustHoverActions<CR>", "show hover actions", },
+      a = { "<cmd>RustCodeAction<CR>", "show code actions" },
+      r = { "<cmd>RustRunnables<CR>", "show runnables", },
+      p = { "<cmd>RustParentModule<CR>", "show parent module", },
+      j = { "<cmd>RustMoveItemDown<CR>", "move item down", },
+      k = { "<cmd>RustMoveItemUp<CR>", "move item up", }
+    }
+  }, normalModeOpts)
+end
+
+keybindings.lspsagaKeys = function()
+  wk.register({
+    ["gh"] = { "<cmd>Lspsaga lsp_finder<CR>", "Lspsaga lsp_finder", },
+    ["<leader>ca"] = { "<cmd>Lspsaga code_action<CR>", "Lspsaga code_action", },
+    ["gr"] = { "<cmd>Lspsaga rename<CR>", "Lspsaga rename", },
+    ["gR"] = { "<cmd>Lspsaga rename ++project<CR>", "Lspsaga rename ++project", },
+    ["gp"] = { "<cmd>Lspsaga peek_definition<CR>", "Lspsaga peek_definition", },
+    ["gd"] = { "<cmd>Lspsaga goto_definition<CR>", "Lspsaga goto_definition", },
+    ["gt"] = { "<cmd>Lspsaga peek_type_definition<CR>", "Lspsaga peek_type_definition", },
+    ["gT"] = { "<cmd>Lspsaga goto_type_definition<CR>", "Lspsaga goto_type_definition", },
+    ["<leader>sl"] = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga show_line_diagnostics", },
+    ["<leader>sb"] = { "<cmd>Lspsaga show_buf_diagnostics<CR>", "Lspsaga show_buf_diagnostics", },
+    ["<leader>sw"] = { "<cmd>Lspsaga show_workspace_diagnostics<CR>", "Lspsaga show_workspace_diagnostics", },
+    ["<leader>sc"] = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "Lspsaga show_cursor_diagnostics", },
+    ["[e"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Lspsaga diagnostic_jump_prev", },
+    ["]e"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Lspsaga diagnostic_jump_next", },
+    ["[E"] = {
+      function()
+        require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+      end,
+      "lspsaga.diagnostic.goto_prev (severity = ERROR)",
+    },
+    ["]E"] = {
+      function()
+        require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
+      end,
+      "lspsaga.diagnostic.goto_next (severity = ERROR)",
+    },
+    ["<leader>o"] = { "<cmd>Lspsaga outline<CR>", "Lspsaga outline", },
+    ["K"] = { "<cmd>Lspsaga hover_doc ++keep<CR>", "Lspsaga hover_doc ++keep", },
+    ["<Leader>ci"] = { "<cmd>Lspsaga incoming_calls<CR>", "Lspsaga incoming_calls", },
+    ["<Leader>co"] = { "<cmd>Lspsaga outgoing_calls<CR>", "Lspsaga outgoing_calls", },
+  }, normalModeOpts)
+end
+
+keybindings.lspKeys = function()
+  wk.register({
+    ["<leader>l"] = {
+      name = '+LSP',
+      s = { "<cmd>LspStart<CR>", "Start LSP", },
+      S = { "<cmd>LspStop<CR>", "Stop LSP", },
+      r = { "<cmd>LspRestart<CR>", "Restart LSP", },
+      i = { "<cmd>LspInfo<CR>", "LSP Info", },
+      I = { "<cmd>Mason<CR>", "Manage LSP servers", },
+      -- a = {
+      --   vim.lsp.buf.code_action,
+      --   "[C]ode [A]ction",
+      -- },
+    },
+    -- ["gd"] = {
+    --   vim.lsp.buf.definition,
+    --   "[G]oto [D]efinition",
+    -- },
+    -- ["gr"] = {
+    --   require('telescope.builtin').lsp_references,
+    --   "[G]oto [R]eferences",
+    -- },
+    -- ["gI"] = {
+    --   vim.lsp.buf.implementation,
+    --   "[G]oto [I]mplementation",
+    -- },
+    -- ["<leader>D"] = {
+    --   vim.lsp.buf.type_definition,
+    --   "Type [D]efinition",
+    -- },
+    ["<leader>ss"] = {
+      require('telescope.builtin').lsp_document_symbols,
+      "Search document symbols",
+    },
+    ["<leader>sS"] = {
+      require('telescope.builtin').lsp_dynamic_workspace_symbols,
+      "Search workspace symbols",
+    },
+    -- ["K"] = {
+    --   vim.lsp.buf.hover,
+    --   "Hover Documentation",
+    -- },
+    -- ["<M-k>"] = {
+    --   vim.lsp.buf.signature_help,
+    --   "Signature Documentation",
+    -- },
+    -- ["gD"] = {
+    --   vim.lsp.buf.declaration,
+    --   "[G]oto [D]eclaration",
+    -- },
+    ["<leader>wa"] = { vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder", },
+    ["<leader>wr"] = { vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder", },
+    ["<leader>wl"] = {
+      function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+      end,
+      "[W]orkspace [L]ist Folders",
+    },
+    ["gq"] = {
+      vim.lsp.buf.format,
+      "Format buffer",
+    },
+  }, normalModeOpts)
 end
 
 return keybindings

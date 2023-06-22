@@ -191,10 +191,6 @@ return {
     version = '*',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
-  {
-    'nvim-telescope/telescope-file-browser.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-  },
   { 'nvim-telescope/telescope-ui-select.nvim' },
   {
     'nvim-telescope/telescope-fzf-native.nvim',
@@ -291,5 +287,30 @@ return {
       require('leap').add_default_mappings()
     end
   },
-  { "axieax/urlview.nvim" }
+  { "axieax/urlview.nvim" },
+  {
+    "simrat39/rust-tools.nvim",
+    dependencies = {
+      'mfussenegger/nvim-dap',
+      'nvim-lua/plenary.nvim',
+      'neovim/nvim-lspconfig'
+    }
+  },
+  {
+    'rcarriga/nvim-dap-ui',
+    config = function()
+      require("neodev").setup({
+        library = { plugins = { "nvim-dap-ui" }, types = true },
+      })
+    end
+  },
+  {
+    'saecki/crates.nvim',
+    ft = { 'rust', 'toml' },
+    config = function(_, opts)
+      local crates = require('crates')
+      crates.setup(opts)
+      crates.show()
+    end,
+  }
 }

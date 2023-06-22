@@ -8,8 +8,6 @@ local telescopeConfig = require 'telescope.config'
 local actions = require 'telescope.actions'
 local map = require('utils').map
 
-local fb_actions = require('telescope').extensions.file_browser.actions
-
 -- Clone the default Telescope configuration
 local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
 
@@ -65,33 +63,11 @@ telescope.setup {
     },
   },
   extensions = {
-    file_browser = {
-      theme = 'dropdown',
-      -- disables netrw and use telescope-file-browser in its place
-      hijack_netrw = true,
-      mappings = {
-        -- your custom insert mode mappings
-        ['i'] = {
-          ['<C-w>'] = function()
-            vim.cmd 'normal vbd'
-          end,
-        },
-        ['n'] = {
-          -- your custom normal mode mappings
-          ['N'] = fb_actions.create,
-          ['h'] = fb_actions.goto_parent_dir,
-          ['/'] = function()
-            vim.cmd 'startinsert'
-          end,
-        },
-      },
-    },
   },
 }
 
 -- load extensions
 pcall(telescope.load_extension, 'fzf')
-pcall(telescope.load_extension, 'file_browser')
 pcall(telescope.load_extension, 'ui-select')
 
 -- See `:help telescope.builtin`
@@ -114,10 +90,3 @@ map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Searc
 map('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = 'Search Keymaps' })
 map('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = 'Search Help docs' })
 map('n', '<leader>sb', require('telescope.builtin').builtin, { desc = 'Search builtin method' })
-
--- keymap for file browser
-map('n', '<leader>fb', function()
-  require('telescope').extensions.file_browser.file_browser()
-end, { desc = 'browse current workspace' })
-
-map('n', '<space>fB', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', { noremap = true, desc = 'browse current folder' })

@@ -22,6 +22,7 @@
     lazygit
     # mc # file manager
     neovim
+    tree-sitter
     noto-fonts-emoji #to display logseq emoji correctly
     ripgrep
     thefuck
@@ -47,8 +48,6 @@
     nb #note taking in terminal
     newsboat # terminal RSS reader
     nix-prefetch-github
-    nodePackages.readability-cli # supports for nb
-    nsxiv # image viewer
     pandoc # convert docs
     sc-im #spreadsheet in the terminal
     skate #personal key-value store
