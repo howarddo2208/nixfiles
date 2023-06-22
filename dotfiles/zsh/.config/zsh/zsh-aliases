@@ -3,7 +3,8 @@ alias rl='source $ZSHRC'
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
 
 # others
-alias wt='curl wttr.in' #weather
+alias weather='curl wttr.in' #weather
+alias news='newsboat'
 
 # cat -> bat
 if command -v bat &> /dev/null; then
@@ -65,26 +66,6 @@ EOF
   direnv allow
   ${EDITOR:-vim} shell.nix
 }
-
-nixrust() {
-  if [[ ! -e shell.nix ]] && [[ ! -e default.nix ]]; then
-    cat << EOF > shell.nix
-with import <nixpkgs> {};
-mkShell {
-  packages = [
-    cargo
-    rustc
-  ];
-  RUST_SRC_PATH = "\${rustPlatform.rustLibSrc}";
-}
-EOF
-  fi
-  if [ ! -e ./.envrc ]; then
-    echo "use nix" > .envrc
-  fi
-  direnv allow
-}
-#}}}
 
 # taskell, I store my taskell files in my personal knowledge management folder
 tk() {

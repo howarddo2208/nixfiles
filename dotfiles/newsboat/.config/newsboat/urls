@@ -19,6 +19,10 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~L
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9x0AN7BWHpCDHSm9NiJFJQ "~NetworkChuck" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC_mYaQAE6-71rjSN6CeCA-g "~Neetcode" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC6biysICWOJ-C3P4Tyeggzg "~Low Level Learning" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCmtyQOKKmrMVaKuRXz02jbQ "~Sebastian Lague" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUMwY9iS8oMyWDYIe6_RmoA "~No Boilerplate" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCSp-OaMpsO8K0KkOqyBl7_w "~Let's Get Rusty" "(Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCiSIL42pQRpc-8JNiYDFyzQ "~chris biscardi rust" "(Youtube)"
   ### entertain
 https://www.youtube.com/feeds/videos.xml?channel_id=UC-lHJZR3Gqxm24_Vd_AJ5Yw "~Pewdiepie" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCDETFHKteb-C_EaXmRKvP4w "~Sisyphus 55" "(Youtube)"
@@ -28,7 +32,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC4QZ_LsYcvcq7qOsOhpAX4A "~C
 https://www.youtube.com/feeds/videos.xml?channel_id=UCR1D15p_vdP3HkrH8wgjQRw "~Internet Historian" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCFQMnBA3CS502aghlcr0_aw "~Coffeezilla" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCgHGPOxUMfWsiy1ZyR-tLVw "~Livakivi" "(Youtube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCdC0An4ZPNr_YiFiYoVbwaw "~Daily Dose Of Internet" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCflB5s9lNML-rFf9JpBiC4A "~Thanh Pahm" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "~Marques Brownlee" "(Youtube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCa4GzOwXZbQPQyPHhQmpKCQ "~ Ants are everywhere" "(Youtube)"
@@ -43,6 +46,15 @@ https://jdhao.github.io/index.xml "~jdhao" "(Blog)"
 https://hiro.codes/index.xml "~Hiro" "(Blog)"
 https://www.devas.life/rss/ "~Devaslife" "(Blog)"
 https://www.scotthyoung.com/blog/feed/ "~Scott Young" "(Blog)"
+https://readrust.net/all/feed.rss "~Read Rust" "(Blog)"
 
 # (Github)
 https://github.com/logseq/logseq/releases.atom "~Logseq" "(Github)"
+
+# (Lemmy communities I moderate)
+https://programming.dev/feeds/c/neovim.xml?sort=New "~Neovim" "(Lemmy)"
+https://programming.dev/feeds/c/linux.xml?sort=New "~Linux" "(Lemmy)"
+
+# (Newsletter)
+https://this-week-in-rust.org/rss.xml "~This week in Rust" "(Newsletter)"
+https://this-week-in-neovim.org/rss "~This week in Neovim" "(Newsletter)"

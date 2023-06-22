@@ -59,12 +59,14 @@
     ytfzf # watch youtube from terminal
     ytmdl # music downloader
     rtorrent
+    gomuks # matrix terminal client
+    darktable
 
     # programming languages & sdk
     nodejs
+    yarn
     nodePackages.pnpm
-    cargo
-    rustc
+    rustup
   ];
 
   nixpkgs.config = {

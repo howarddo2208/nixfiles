@@ -76,9 +76,18 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
+  rust_analyzer = {
+    ['rust-analyzer'] = {
+      cargo = {
+        allFeatures = true,
+      },
+      checkOnSave = {
+        command = 'clippy',
+      },
+    },
+  },
   tsserver = {},
-  -- emmet_ls = {},
+  emmet_ls = {},
   jsonls = {},
   -- clojure_lsp = {},
 
