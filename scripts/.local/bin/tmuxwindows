@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# from https://gist.github.com/thugcee/41d1ba786fa5e66167ed6ee45e4f6346
 # customizable
 LIST_DATA="#{window_name} #{session_name} #{pane_title} #{pane_current_path} #{pane_current_command}"
 FZF_COMMAND="fzf-tmux -p --delimiter=: --with-nth 4 --color=hl:2"
