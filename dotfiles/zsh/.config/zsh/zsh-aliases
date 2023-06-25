@@ -22,7 +22,7 @@ alias nvimrc='nvim ~/.config/nvim/'
 # alias txi='tmuxifier' # tmux session preset
 alias tme='nvim ~/.tmux.conf'
 alias tmr='tmux source ~/.tmux.conf'
-
+alias dev="tmux split-window -h -p 30 \; split-window -v \; select-pane -L && nvim ." # dev layout preset tmux
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'

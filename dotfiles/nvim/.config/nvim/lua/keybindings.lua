@@ -171,7 +171,7 @@ end
 keybindings.lspsagaKeys = function()
   wk.register({
     ["gh"] = { "<cmd>Lspsaga lsp_finder<CR>", "Lspsaga lsp_finder", },
-    ["<leader>ca"] = { "<cmd>Lspsaga code_action<CR>", "Lspsaga code_action", },
+    ["<leader>la"] = { "<cmd>Lspsaga code_action<CR>", "Lspsaga code_action", },
     ["gr"] = { "<cmd>Lspsaga rename<CR>", "Lspsaga rename", },
     ["gR"] = { "<cmd>Lspsaga rename ++project<CR>", "Lspsaga rename ++project", },
     ["gp"] = { "<cmd>Lspsaga peek_definition<CR>", "Lspsaga peek_definition", },
@@ -198,8 +198,8 @@ keybindings.lspsagaKeys = function()
     },
     ["<leader>o"] = { "<cmd>Lspsaga outline<CR>", "Lspsaga outline", },
     ["K"] = { "<cmd>Lspsaga hover_doc ++keep<CR>", "Lspsaga hover_doc ++keep", },
-    ["<Leader>ci"] = { "<cmd>Lspsaga incoming_calls<CR>", "Lspsaga incoming_calls", },
-    ["<Leader>co"] = { "<cmd>Lspsaga outgoing_calls<CR>", "Lspsaga outgoing_calls", },
+    ["<Leader>ln"] = { "<cmd>Lspsaga incoming_calls<CR>", "Lspsaga incoming_calls", },
+    ["<Leader>lo"] = { "<cmd>Lspsaga outgoing_calls<CR>", "Lspsaga outgoing_calls", },
   }, normalModeOpts)
 end
 
@@ -209,7 +209,8 @@ keybindings.lspKeys = function()
       name = '+LSP',
       s = { "<cmd>LspStart<CR>", "Start LSP", },
       S = { "<cmd>LspStop<CR>", "Stop LSP", },
-      r = { "<cmd>LspRestart<CR>", "Restart LSP", },
+      r = { vim.lsp.buf.rename, "Rename", },
+      R = { "<cmd>LspRestart<CR>", "Restart LSP", },
       i = { "<cmd>LspInfo<CR>", "LSP Info", },
       I = { "<cmd>Mason<CR>", "Manage LSP servers", },
       -- a = {
