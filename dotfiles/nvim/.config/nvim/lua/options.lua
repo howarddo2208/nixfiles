@@ -4,6 +4,9 @@ vim.o.smartindent = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 
+vim.o.cursorline = true
+vim.o.cursorcolumn = true
+
 -- Set highlight on search
 vim.o.hlsearch = false
 -- incremental search
