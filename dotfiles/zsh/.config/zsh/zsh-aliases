@@ -8,8 +8,8 @@ alias news='newsboat'
 
 # cat -> bat
 if command -v bat &> /dev/null; then
-  alias cat="bat -pp"
-  alias catt="bat"
+    alias cat="bat -pp"
+    alias catt="bat"
 fi
 
 # neovim
@@ -22,7 +22,10 @@ alias nvimrc='nvim ~/.config/nvim/'
 # alias txi='tmuxifier' # tmux session preset
 alias tme='nvim ~/.tmux.conf'
 alias tmr='tmux source ~/.tmux.conf'
-alias dev="tmux split-window -h -p 30 \; split-window -v \; select-pane -L && nvim ." # dev layout preset tmux
+alias dev="tmux split-window -h -p 30 \; split-window -v \; select-pane -L && nvim ."
+alias dev2="tmux split-window -v -p 30 \; split-window -h \; select-pane -U && nvim ."
+alias side="tmux split-window -h -p 30 \; split-window -v \; select-pane -L"
+alias side2="tmux split-window -v -p 30 \; split-window -h \; select-pane -U"
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -50,8 +53,8 @@ alias cs="cht.sh" # cheatsheet for command lines
 alias hmp="home-manager packages"
 alias ckshell='if [ -n "$IN_NIX_SHELL" ]; then echo "Inside nix-shell"; else echo "Not inside nix-shell"; fi;'
 nixify() { # create starter file for direnv
-  if [[ ! -e shell.nix ]] && [[ ! -e default.nix ]]; then
-    cat << EOF > shell.nix
+    if [[ ! -e shell.nix ]] && [[ ! -e default.nix ]]; then
+        cat << EOF > shell.nix
 with import <nixpkgs> {};
 mkShell {
   packages = [
@@ -59,18 +62,19 @@ mkShell {
   ];
 }
 EOF
-  fi
-  if [ ! -e ./.envrc ]; then
-    echo "use nix" > .envrc
-  fi
-  direnv allow
-  ${EDITOR:-vim} shell.nix
+    fi
+    if [ ! -e ./.envrc ]; then
+        echo "use nix" > .envrc
+    fi
+    direnv allow
+    ${EDITOR:-vim} shell.nix
 }
 
 # taskell, I store my taskell files in my personal knowledge management folder
 tk() {
     taskell $PKM/otherapps/taskell/"$1".md
 }
+alias tkp='tk projects'
 _tk_completion() {
     local files
     files=($PKM/otherapps/taskell/*.md)
@@ -78,31 +82,37 @@ _tk_completion() {
 }
 compctl -K _tk_completion tk
 
+# create a new directory and enter it
+nd() {
+    mkdir -p -- "$1" &&
+    cd -P -- "$1"
+}
+
 # exa aliases
 alias ls='exa --group-directories-first --icons'
 if exa --version | grep -q '+git';
 then
-	alias ll='ls -lh --git'
+    alias ll='ls -lh --git'
 else
-	alias ll='ls -lh'
+    alias ll='ls -lh'
 fi
 alias la='ll -a'
 alias tree='ll --tree'
 
 case "$(uname -s)" in
-Darwin)
-	# echo 'Mac OS X'
-	alias hms='(cd ~/nixfiles && home-manager switch --flake ".#macos")'
-	;;
+    Darwin)
+        # echo 'Mac OS X'
+        alias hms='(cd ~/nixfiles && home-manager switch --flake ".#macos")'
+        ;;
 
-Linux)
-	alias hms='(cd ~/nixfiles && home-manager switch --flake ".#linux")'
-	;;
+    Linux)
+        alias hms='(cd ~/nixfiles && home-manager switch --flake ".#linux")'
+        ;;
 
-CYGWIN* | MINGW32* | MSYS* | MINGW*)
-	# echo 'MS Windows'
-	;;
-*)
-	# echo 'Other OS'
-	;;
+    CYGWIN* | MINGW32* | MSYS* | MINGW*)
+        # echo 'MS Windows'
+        ;;
+    *)
+        # echo 'Other OS'
+        ;;
 esac

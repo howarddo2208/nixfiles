@@ -37,7 +37,16 @@ end
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
   -- clangd = {},
-  -- gopls = {},
+  gopls = {
+    settings = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+        -- shadow = true,
+      },
+    }
+  },
   -- pyright = {},
   tsserver = {},
   emmet_ls = {},

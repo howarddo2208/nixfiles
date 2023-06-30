@@ -27,6 +27,11 @@ null_ls.setup {
     -- clojure
     null_ls.builtins.diagnostics.clj_kondo,
     null_ls.builtins.formatting.cljstyle,
+
+    -- go formatters
+    null_ls.builtins.formatting.gofumpt,
+    null_ls.builtins.formatting.goimports_reviser,
+    null_ls.builtins.formatting.golines,
   },
 }
 

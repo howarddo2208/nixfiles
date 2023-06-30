@@ -209,6 +209,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
     build = ':TSUpdate',
+    -- commit = "33eb472"
   },
   {
     'folke/trouble.nvim',
@@ -291,11 +292,24 @@ return {
     }
   },
   {
-    'rcarriga/nvim-dap-ui',
+    'mfussenegger/nvim-dap',
+    dependencies = {
+      "jay-babu/mason-nvim-dap.nvim",
+      'rcarriga/nvim-dap-ui',
+    },
     config = function()
+      require("mason").setup()
+      require("mason-nvim-dap").setup()
       require("neodev").setup({
         library = { plugins = { "nvim-dap-ui" }, types = true },
       })
+    end
+  },
+  {
+    'leoluz/nvim-dap-go',
+    config = function()
+      require('dap-go').setup()
+      require('keybindings').languages.go.dapGoKeys()
     end
   },
   {
@@ -305,6 +319,7 @@ return {
       local crates = require('crates')
       crates.setup(opts)
       crates.show()
+      require('keybindings').languages.rust.cratesKeys()
     end,
   },
   {
@@ -339,5 +354,28 @@ return {
         desc = "Remote Flash",
       },
     },
+  },
+  {
+    'akinsho/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+    config = true,
+  },
+  {
+    "olexsmir/gopher.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function(_, opts)
+      require("gopher").setup(opts)
+      require('keybindings').languages.go.gopherKeys()
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end
   }
 }

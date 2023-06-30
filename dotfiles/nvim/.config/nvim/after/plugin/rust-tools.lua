@@ -8,7 +8,7 @@ end
 rt.setup({
   server = {
     on_attach = function()
-      require("keybindings").rustToolsKeys()
+      require("keybindings").languages.rust.rustToolsKeys()
     end,
   },
 })

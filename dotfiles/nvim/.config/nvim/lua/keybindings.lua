@@ -143,31 +143,6 @@ keybindings.dapUIKeys = function()
   }
 end
 
-keybindings.cratesKeys = function()
-  wk.register({
-    ["<leader>rcu"] = {
-      function()
-        require("crates").update_all_crates()
-      end,
-      "update all crates",
-    },
-  }, normalModeOpts)
-end
-
-keybindings.rustToolsKeys = function()
-  wk.register({
-    ["<leader>r"] = {
-      name = '+Rust',
-      h = { "<cmd>RustHoverActions<CR>", "show hover actions", },
-      a = { "<cmd>RustCodeAction<CR>", "show code actions" },
-      r = { "<cmd>RustRunnables<CR>", "show runnables", },
-      p = { "<cmd>RustParentModule<CR>", "show parent module", },
-      j = { "<cmd>RustMoveItemDown<CR>", "move item down", },
-      k = { "<cmd>RustMoveItemUp<CR>", "move item up", }
-    }
-  }, normalModeOpts)
-end
-
 keybindings.lspsagaKeys = function()
   wk.register({
     ["gh"] = { "<cmd>Lspsaga lsp_finder<CR>", "Lspsaga lsp_finder", },
@@ -268,5 +243,64 @@ keybindings.lspKeys = function()
     },
   }, normalModeOpts)
 end
+
+keybindings.languages = {
+  init = function()
+    wk.register({
+      ["<leader>L"] = { name = "languages" }
+    })
+  end,
+  rust = {
+    rustToolsKeys = function()
+      wk.register({
+        ["<leader>Lr"] = {
+          name = '+Rust',
+          h = { "<cmd>RustHoverActions<CR>", "show hover actions", },
+          a = { "<cmd>RustCodeAction<CR>", "show code actions" },
+          r = { "<cmd>RustRunnables<CR>", "show runnables", },
+          p = { "<cmd>RustParentModule<CR>", "show parent module", },
+          j = { "<cmd>RustMoveItemDown<CR>", "move item down", },
+          k = { "<cmd>RustMoveItemUp<CR>", "move item up", }
+        }
+      })
+    end,
+    cratesKeys = function()
+      wk.register({
+        ["<leader>Lru"] = {
+          function()
+            require("crates").update_all_crates()
+          end,
+          "update all crates",
+        },
+      })
+    end
+  },
+  go = {
+    dapGoKeys = function()
+      wk.register({
+        ["<leader>dg"] = {
+          name = "Go+",
+          t = { require('dap-go').debug_test,
+            "debug go test"
+          },
+          l = { require('dap-go').debug_last,
+            "debug last go test"
+          },
+        },
+      })
+    end,
+    gopherKeys = function()
+      wk.register({
+        ["<leader>Lg"] = {
+          name = "Go+",
+          j = { "<cmd>GoTagAdd json<CR>", "Add json struct tags", },
+          y = { "<cmd>GoTagAdd yaml<CR>", "Add yaml struct tags", },
+          t = { "<cmd>GoMod tidy<CR>", "Run go mod tidy", },
+        }
+      })
+    end
+  }
+}
+keybindings.languages.init()
 
 return keybindings
