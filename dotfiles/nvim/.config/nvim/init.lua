@@ -46,5 +46,5 @@ require('lazy').setup('plugins', {
     timeout = 300
   }
 })
-require 'keybindings'
 require 'autocommands'
+require 'keybindings'

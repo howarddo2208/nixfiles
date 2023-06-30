@@ -97,30 +97,32 @@ end
 -- ╭──────────────────────────────────────────────────────────────────────────────╮
 -- │                                   dap                                        │
 -- ╰──────────────────────────────────────────────────────────────────────────────╯
-keybindings.dapKeys = function(debug_close)
+keybindings.dapKeys = function()
   local function dap_call_fn(fn)
-    return string.format("<cmd>lua require('dap').%s()<CR>", fn)
+    return string.format("<cmd>lua require('dap').%s<CR>", fn)
   end
 
   wk.register({
     ["<leader>d"] = {
       name = "+Debugger",
-      t = { dap_call_fn("toggle_breakpoint"), "toggle breakpoint(F9)", },
-      s = { dap_call_fn("continue"), "start debug(F5)", },
-      c = { dap_call_fn("continue"), "start debug(F5)", },
-      i = { dap_call_fn("step_into"), "debug step in(F10)", },
-      o = { dap_call_fn("step_out"), "debug step out(F11)", },
-      O = { dap_call_fn("step_over"), "debug step over(F12)", },
+      t = { dap_call_fn("toggle_breakpoint()"), "toggle breakpoint(F4)", },
+      c = { dap_call_fn("continue()"), "continue/start debug(F5)", },
+      i = { dap_call_fn("step_into()"), "debug step in(F1)", },
+      O = { dap_call_fn("step_over()"), "debug step over(F2)", },
+      o = { dap_call_fn("step_out()"), "debug step out(F3)", },
+      B = { dap_call_fn("set_breakpoint(vim.fn.input('Breakpoint condition: '))"), "Breakpoint condition", },
+      p = { dap_call_fn("set_breakpoint(nil, nil, vim.fn.input('Log point message: '))"), "Log point", },
+      r = { dap_call_fn("repl.open()"), "open REPL", },
+      l = { dap_call_fn("run_last()"), "run last", },
     },
   })
 
   wk.register({
-    ["<F5>"] = { dap_call_fn("continue"), "start debug(F5)", },
-    ["<F6>"] = { debug_close, "close debug(F6)", },
-    ["<F9>"] = { dap_call_fn("toggle_breakpoint"), "toggle breakpoint(F9)", },
-    ["<F10>"] = { dap_call_fn("step_into"), "debug step in(F10)", },
-    ["<F11>"] = { dap_call_fn("step_out"), "debug step out(F11)", },
-    ["<F12>"] = { dap_call_fn("step_over"), "debug step over(F12)", },
+    ["<F5>"] = { dap_call_fn("continue()"), "start debug(F5)", },
+    ["<F4>"] = { dap_call_fn("toggle_breakpoint()"), "toggle breakpoint(F9)", },
+    ["<F1>"] = { dap_call_fn("step_into()"), "debug step in(F1)", },
+    ["<F2>"] = { dap_call_fn("step_over()"), "debug step over(F2)", },
+    ["<F3>"] = { dap_call_fn("step_out()"), "debug step out(F3)", },
   }, normalModeOpts)
 end
 
@@ -128,19 +130,9 @@ end
 -- │                                    dapUI                                     │
 -- ╰──────────────────────────────────────────────────────────────────────────────╯
 keybindings.dapUIKeys = function()
-  return {
-    mappings = {
-      expand = { "o" },
-      open = "<Enter>",
-      remove = "d",
-      edit = "e",
-      repl = "r",
-      toggle = "t",
-    },
-    floatingMappings = {
-      close = { "q", "<Esc>" },
-    },
-  }
+  wk.register({
+    ["<leader>du"] = { ":lua require('dapui').toggle()<CR>", "Toggle DAP UI" }
+  })
 end
 
 keybindings.lspsagaKeys = function()
@@ -151,7 +143,7 @@ keybindings.lspsagaKeys = function()
     ["gR"] = { "<cmd>Lspsaga rename ++project<CR>", "Lspsaga rename ++project", },
     ["gp"] = { "<cmd>Lspsaga peek_definition<CR>", "Lspsaga peek_definition", },
     ["gd"] = { "<cmd>Lspsaga goto_definition<CR>", "Lspsaga goto_definition", },
-    ["gt"] = { "<cmd>Lspsaga peek_type_definition<CR>", "Lspsaga peek_type_definition", },
+    ["gP"] = { "<cmd>Lspsaga peek_type_definition<CR>", "Lspsaga peek_type_definition", },
     ["gT"] = { "<cmd>Lspsaga goto_type_definition<CR>", "Lspsaga goto_type_definition", },
     ["<leader>sl"] = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga show_line_diagnostics", },
     ["<leader>sb"] = { "<cmd>Lspsaga show_buf_diagnostics<CR>", "Lspsaga show_buf_diagnostics", },
@@ -245,15 +237,10 @@ keybindings.lspKeys = function()
 end
 
 keybindings.languages = {
-  init = function()
-    wk.register({
-      ["<leader>L"] = { name = "languages" }
-    })
-  end,
   rust = {
     rustToolsKeys = function()
       wk.register({
-        ["<leader>Lr"] = {
+        ["<leader>R"] = {
           name = '+Rust',
           h = { "<cmd>RustHoverActions<CR>", "show hover actions", },
           a = { "<cmd>RustCodeAction<CR>", "show code actions" },
@@ -266,7 +253,7 @@ keybindings.languages = {
     end,
     cratesKeys = function()
       wk.register({
-        ["<leader>Lru"] = {
+        ["<leader>Ru"] = {
           function()
             require("crates").update_all_crates()
           end,
@@ -278,29 +265,65 @@ keybindings.languages = {
   go = {
     dapGoKeys = function()
       wk.register({
-        ["<leader>dg"] = {
-          name = "Go+",
-          t = { require('dap-go').debug_test,
-            "debug go test"
+        ["<leader>G"] = {
+          d = { require('dap-go').debug_test,
+            "Go: debug go test"
           },
           l = { require('dap-go').debug_last,
-            "debug last go test"
+            "Go: debug last go test"
           },
         },
       })
     end,
     gopherKeys = function()
       wk.register({
-        ["<leader>Lg"] = {
+        ["<leader>G"] = {
           name = "Go+",
           j = { "<cmd>GoTagAdd json<CR>", "Add json struct tags", },
           y = { "<cmd>GoTagAdd yaml<CR>", "Add yaml struct tags", },
           t = { "<cmd>GoMod tidy<CR>", "Run go mod tidy", },
+          g = { "<cmd>GoGet ", "get go package", },
+          r = { "<cmd>!go run main.go<CR>", "run main.go", },
         }
       })
     end
   }
 }
-keybindings.languages.init()
+
+keybindings.sessionManagerKeys = function()
+  wk.register({
+    ["<leader>p"] = {
+      name = "Project Session Manager",
+      s = { "<cmd>SessionManager load_session<CR>", "switch project session", },
+      a = { "<cmd>SessionManager save_current_session<CR>", "Load session", },
+      d = { "<cmd>SessionManager delete_session<CR>", "Delete session", },
+    },
+  })
+end
+
+keybindings.dapTelescopeKeys = function()
+  wk.register({
+    ["<leader>dd"] = {
+      "<Cmd>Telescope dap commands<CR>",
+      "DAP search commands",
+    },
+    ["<leader>dC"] = {
+      "<Cmd>Telescope dap configurations<CR>",
+      "DAP search configurations",
+    },
+    ["<leader>dP"] = {
+      "<Cmd>Telescope dap list_breakpoints<CR>",
+      "DAP search breakpoints",
+    },
+    ["<leader>df"] = {
+      "<Cmd>Telescope dap frames<CR>",
+      "DAP search frames",
+    },
+    ["<leader>dv"] = {
+      "<Cmd>Telescope dap variables<CR>",
+      "DAP search variables",
+    },
+  })
+end
 
 return keybindings

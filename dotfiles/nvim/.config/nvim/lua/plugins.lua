@@ -291,6 +291,7 @@ return {
       'neovim/nvim-lspconfig'
     }
   },
+  -- Debugging
   {
     'mfussenegger/nvim-dap',
     dependencies = {
@@ -305,13 +306,9 @@ return {
       })
     end
   },
-  {
-    'leoluz/nvim-dap-go',
-    config = function()
-      require('dap-go').setup()
-      require('keybindings').languages.go.dapGoKeys()
-    end
-  },
+  { "theHamsta/nvim-dap-virtual-text" },
+  { 'leoluz/nvim-dap-go', },
+  { "nvim-telescope/telescope-dap.nvim" },
   {
     'saecki/crates.nvim',
     ft = { 'rust', 'toml' },

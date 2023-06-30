@@ -20,9 +20,35 @@ if not ok2 then
   return
 end
 
+local keybindings = require("keybindings")
+
+keybindings.dapKeys()
+
+dapui.setup({})
+keybindings.dapUIKeys()
+
+require("nvim-dap-virtual-text").setup({})
+require('telescope').load_extension('dap')
+keybindings.dapTelescopeKeys()
+
+
 require("mason-nvim-dap").setup({
   ensure_installed = { "delve" }
 })
+
+require('dap-go').setup({})
+keybindings.languages.go.dapGoKeys()
+
+-- auto open dapui on debug
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
 
 --  ╭──────────────────────────────────────────────────────────────────────────────╮
 --  │ breakpoint symbol                                                            │
@@ -51,59 +77,3 @@ local breakpoint = {
 vim.fn.sign_define("DapBreakpoint", breakpoint.error)
 vim.fn.sign_define("DapStopped", breakpoint.stopped)
 vim.fn.sign_define("DapBreakpointRejected", breakpoint.rejected)
-
---  ╭──────────────────────────────────────────────────────────────────────────────╮
---  │ debug UI                                                                 │
---  ╰──────────────────────────────────────────────────────────────────────────────╯
-local debug_open = function()
-  dapui.open()
-end
-
-local debug_close = function()
-  dapui.close()
-  dap.repl.close()
-end
-
-dap.listeners.after.event_initialized["dapui_config"] = debug_open
-dap.listeners.before.event_terminated["dapui_config"] = debug_close
-dap.listeners.before.event_exited["dapui_config"] = debug_close
-dap.listeners.before.disconnect["dapui_config"] = debug_close
-
-
-local keybindings = require("keybindings")
-local dapKeys = keybindings.dapKeys(debug_close)
--- local dapUIKeys = keybindings.dapUIKeys()
---
--- dapui.setup({
---   mappings = dapUIKeys.mappings,
---   icons = {
---     expanded = "",
---     collapsed = "",
---   },
---   layouts = {
---     {
---       -- 执行上下文/断点/堆栈信息/watch的变量
---       position = "left",
---       size = 35, -- 30% 宽度
---       elements = {
---         { id = "scopes", size = 0.5 },
---         { id = "stacks", size = 0.5 },
---         -- { id = "breakpoints", size = 0.25 },
---         -- { id = "watches", size = 0.25 },
---       },
---     },
---     {
---       -- elements = { "repl", "console" },
---       elements = { "repl" },
---       position = "bottom",
---       size = 0.3, -- 25% 高度
---     },
---   },
---   floating = {
---     border = "single", -- 边框: single | double | rounded
---     mappings = dapUIKeys.floatingMappings,
---   },
--- })
---
--- dap.set_log_level("DEBUG")
--- dap.defaults.fallback.terminal_win_cmd = "30vsplit new"
