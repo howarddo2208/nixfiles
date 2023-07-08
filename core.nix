@@ -20,7 +20,6 @@
     kitty
     lazydocker
     lazygit
-    # mc # file manager
     neovim
     tree-sitter
     noto-fonts-emoji #to display logseq emoji correctly
@@ -37,6 +36,7 @@
     yq-go # yaml, json and xml processor
     zoxide
     zsh
+    nap # code snippet manager
 
     # utility apps
     btop
@@ -44,8 +44,6 @@
     gimp # photo editor
     mpv # vide player
     musikcube #music player
-    nap # code snippet manager
-    nb #note taking in terminal
     newsboat # terminal RSS reader
     nix-prefetch-github
     pandoc # convert docs
@@ -58,8 +56,6 @@
     ytfzf # watch youtube from terminal
     ytmdl # music downloader
     rtorrent
-    gomuks # matrix terminal client
-    darktable
 
     # programming languages & sdk
     nodejs
