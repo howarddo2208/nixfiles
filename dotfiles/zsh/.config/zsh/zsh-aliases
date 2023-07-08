@@ -48,6 +48,8 @@ alias ld='lazydocker'
 
 # other
 alias cs="cht.sh" # cheatsheet for command lines
+alias snp="nap"
+alias loc="git ls-files | xargs wc -l" #count line of code in git repo
 
 # NIX {{{
 alias hmp="home-manager packages"
@@ -98,11 +100,22 @@ else
 fi
 alias la='ll -a'
 alias tree='ll --tree'
+alias yt='ytfzf'
+
 
 case "$(uname -s)" in
     Darwin)
         # echo 'Mac OS X'
         alias hms='(cd ~/nixfiles && home-manager switch --flake ".#macos")'
+        # capture standard output of process
+        capture() {
+            sudo dtrace -p "$1" -qn '
+        syscall::write*:entry
+        /pid == $target && arg0 == 1/ {
+            printf("%s", copyinstr(arg1, arg2));
+        }
+            '
+        }
         ;;
 
     Linux)

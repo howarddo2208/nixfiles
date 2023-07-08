@@ -1,0 +1,16 @@
+case "$(uname -s)" in
+    Darwin)
+        pbcopy
+        ;;
+
+    Linux)
+        xclip -selection clipboard
+        ;;
+
+    CYGWIN* | MINGW32* | MSYS* | MINGW*)
+        clip
+        ;;
+    *)
+        # echo 'Other OS'
+        ;;
+esac

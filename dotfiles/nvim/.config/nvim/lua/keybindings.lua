@@ -83,7 +83,6 @@ keybindings.toggletermKeys = function(plugins)
       "open terminal in current directory",
     },
     ["<leader>gg"] = { toggle_lazygit, "toggle lazygit", },
-    ["<C-g>"] = { toggle_lazygit, "toggle lazygit", },
     ["<C-f>"] = {
       function()
         plugins.vifm():toggle()
@@ -106,7 +105,7 @@ keybindings.dapKeys = function()
     ["<leader>d"] = {
       name = "+Debugger",
       t = { dap_call_fn("toggle_breakpoint()"), "toggle breakpoint(F4)", },
-      c = { dap_call_fn("continue()"), "continue/start debug(F5)", },
+      d = { dap_call_fn("continue()"), "continue/start debug(F5)", },
       i = { dap_call_fn("step_into()"), "debug step in(F1)", },
       O = { dap_call_fn("step_over()"), "debug step over(F2)", },
       o = { dap_call_fn("step_out()"), "debug step out(F3)", },
@@ -281,9 +280,13 @@ keybindings.languages = {
           name = "Go+",
           j = { "<cmd>GoTagAdd json<CR>", "Add json struct tags", },
           y = { "<cmd>GoTagAdd yaml<CR>", "Add yaml struct tags", },
-          t = { "<cmd>GoMod tidy<CR>", "Run go mod tidy", },
+          T = { "<cmd>GoMod tidy<CR>", "Run go mod tidy", },
           g = { "<cmd>GoGet ", "get go package", },
+          i = { "<cmd>GoImpl ", "Implent interface", },
+          c = { "<cmd>GoCmt<CR>", "Add comment", },
           r = { "<cmd>!go run main.go<CR>", "run main.go", },
+          t = { "<cmd>!go test<CR>", "Run tests", },
+          b = { "<cmd>!go build<CR>", "Build binary", },
         }
       })
     end
@@ -303,8 +306,8 @@ end
 
 keybindings.dapTelescopeKeys = function()
   wk.register({
-    ["<leader>dd"] = {
-      "<Cmd>Telescope dap commands<CR>",
+    ["<leader>ds"] = {
+      "<Cmd>Telescope dap search commands<CR>",
       "DAP search commands",
     },
     ["<leader>dC"] = {
