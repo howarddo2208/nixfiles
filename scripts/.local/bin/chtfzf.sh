@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # from https://github.com/iotku/fuzzy-sheets
 # chtfzf.sh
 # by iotku
