@@ -1,0 +1,37 @@
+#!/bin/bash
+
+echo "Please choose a search option:"
+echo "1) Fuzzy search cht.sh pages"
+echo "2) Query cht.sh"
+echo "3) Search snippets"
+echo "q) Quit"
+
+while true
+do
+    read -n 1 choice
+    case "$choice" in
+        [1]* )
+            chtfzf.sh -t
+            exit
+            ;;
+        [2]* )
+            while true
+            do
+                echo -e "\nPlease enter a query:"
+                read query
+                cht.sh "$query"
+                echo "press 's' to search again or any other key to exit"
+                read -n 1 choice
+                case "$choice" in
+                    [sS]* ) ;;
+                    * ) exit ;;
+                esac
+            done
+            ;;
+        [3]* )
+            napfzf
+            exit ;;
+        [qQ]* ) exit ;;
+        * ) echo -e "\nPlease answer" ;;
+    esac
+done

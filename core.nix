@@ -9,7 +9,9 @@
     bash
     bat
     catimg
+    cheat
     cht-sh
+    rlwrap
     exa
     fd
     fish

@@ -374,5 +374,16 @@ return {
     build = function()
       vim.cmd [[silent! GoInstallDeps]]
     end
+  },
+  {
+    'notjedi/nvim-rooter.lua',
+    config = function()
+      require('nvim-rooter').setup { manual = true }
+    end
+  },
+  {
+    "barreiroleo/ltex_extra.nvim",
+    ft = { "markdown", "tex" },
+    dependencies = { "neovim/nvim-lspconfig" },
   }
 }

@@ -14,6 +14,7 @@
     pngpaste # for neovim clipboard-image
     # karabiner-elements #install from web is better
     # GUI apps is stored at ~/.nix-profile/Applications
+    # pidof (for one of my fzf script, cheatfzf, but only available on homebrew for now)
     raycast
   ];
 }

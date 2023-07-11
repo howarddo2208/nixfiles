@@ -85,3 +85,12 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+-- grammar and spell checker for markdown, latex and plain text. I use this for writing blogs as English is not my first language.
+-- ltex-ls installed via mason require JAVA runtime, so download and install from github release page is better
+require("lspconfig").ltex.setup {
+    on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+        require("ltex_extra").setup { }
+    end,
+}

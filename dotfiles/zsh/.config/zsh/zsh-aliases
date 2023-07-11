@@ -20,6 +20,7 @@ alias nvimrc='nvim ~/.config/nvim/'
 
 # tmux
 # alias txi='tmuxifier' # tmux session preset
+alias tma='tmux attach'
 alias tme='nvim ~/.tmux.conf'
 alias tmr='tmux source ~/.tmux.conf'
 alias dev="tmux split-window -h -p 30 \; split-window -v \; select-pane -L && nvim ."
@@ -102,6 +103,13 @@ alias la='ll -a'
 alias tree='ll --tree'
 alias yt='ytfzf'
 
+# Convert video to gif file.
+# Usage: video2gif video_file (scale) (fps)
+video2gif() {
+  ffmpeg -y -i "${1}" -vf fps=${3:-10},scale=${2:-320}:-1:flags=lanczos,palettegen "${1}.png"
+  ffmpeg -i "${1}" -i "${1}.png" -filter_complex "fps=${3:-10},scale=${2:-320}:-1:flags=lanczos[x];[x][1:v]paletteuse" "${1}".gif
+  rm "${1}.png"
+}
 
 case "$(uname -s)" in
     Darwin)

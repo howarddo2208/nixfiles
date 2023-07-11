@@ -1,16 +1,17 @@
+#!/bin/bash
+# copy into clipboard as well as tmux. I use tmux.nvim so copy into tmux also sync to nvim register
+# didn't test on windows and linux tho. I use macos and this works, not sure about other OS
+
 case "$(uname -s)" in
     Darwin)
-        pbcopy
-        ;;
+        tee >(pbcopy) | tmux load-buffer - ;;
 
     Linux)
-        xclip -selection clipboard
-        ;;
+        tee >(xclip -selection clipboard) | tmux load-buffer - ;;
 
     CYGWIN* | MINGW32* | MSYS* | MINGW*)
-        clip
-        ;;
+        tee >(clip) | tmux load-buffer - ;;
     *)
-        # echo 'Other OS'
+        echo 'Other OS'
         ;;
 esac

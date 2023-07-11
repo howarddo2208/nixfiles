@@ -19,9 +19,11 @@ end
 
 -- empty setup using defaults
 require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
+  update_cwd = true,
   update_focused_file = {
     enable = true,
     update_root = true,
+    update_cwd = true,
     ignore_list = {},
   },
   git = {
