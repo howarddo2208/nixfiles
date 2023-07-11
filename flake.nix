@@ -14,13 +14,11 @@
       "macos" = home-manager.lib.homeManagerConfiguration {
         # Note: I am sure this could be done better with flake-utils or something
         pkgs = nixpkgs.legacyPackages.x86_64-darwin;
-
-        modules = [ ./home-mac.nix ];
+        modules = [ ./home.nix ];
       };
       "linux" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
-        modules = [ ./home-linux.nix ];
+        modules = [ ./home.nix ];
       };
     };
   };

@@ -1,15 +1,33 @@
 { config, pkgs, libs, lib, ... }:
+
+let
+  optionals = lib.optionals;
+  configs = import ./configs.nix;
+  isLinux = configs.isLinux;
+  isDarwin = !isLinux;
+  isGraphical = configs.isGraphical;
+in
 {
+  # set username and home directory based on if im on linux or darwin
+  home.username = "howard";
+  home.homeDirectory = if isLinux then "/home/howard" else "/Users/howard";
+
+  home.stateVersion = "23.05";
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = _: true;
+  };
+
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    # dev tools
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" "JetBrainsMono" ]; })
     atuin # command history
     bash
     bat
-    catimg
-    cheat
+    chafa
+    viu
     cht-sh
     rlwrap
     exa
@@ -19,57 +37,69 @@
     fzf
     gh
     git
-    kitty
     lazydocker
     lazygit
     neovim
     tree-sitter
     noto-fonts-emoji #to display logseq emoji correctly
     ripgrep
-    thefuck
     tldr
     tmux
     tmux-sessionizer
     tree
-    ueberzugpp
     urlscan
     vifm
     wget
     yq-go # yaml, json and xml processor
     zoxide
     zsh
-
-    # utility apps
     btop
     ffmpeg
-    gimp # photo editor
-    mpv # vide player
     musikcube #music player
-    newsboat # terminal RSS reader
     nix-prefetch-github
     pandoc # convert docs
-    sc-im #spreadsheet in the terminal
+    newsboat # terminal RSS reader
     skate #personal key-value store
-    sioyek # pdf viewer
-    stow #symlink manager
     taskell #kanban task manager in the terminal
     yt-dlp # youtube downloader
     ytfzf # watch youtube from terminal
     ytmdl # music downloader
     rtorrent
+    sc-im #spreadsheet in the terminal
 
     # programming languages & sdk
     nodejs
     yarn
     nodePackages.pnpm
     rustup
-  ];
+  ]
+  ++ (optionals isGraphical [
+    gimp # photo editor
+    mpv # vide player
+    sioyek # pdf viewer
+    stow #symlink manager
+    kitty
+  ])
+  ++ (optionals isLinux [
+    ibus-engines.bamboo #my vietnamese keyboard
+    xclip # for neovim in case not yet installed
+  ] ++ (optionals isGraphical [
+    librewolf
+    chromium
+    mullvad-browser
+    libreoffice-qt
+  ]))
+  ++ (optionals isDarwin [
+    gnugrep # for nix-direnv
+    pngpaste # for neovim clipboard-image
+    # karabiner-elements #install from web is better
+    # GUI apps is stored at ~/.nix-profile/Applications
+    # pidof (for one of my fzf script, cheatfzf, but only available on homebrew for now)
+    raycast
+    # librewolf # not available on nixpkgs for mac yet
+  ]);
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = _: true;
-  };
-
+  programs.home-manager.enable = true;
   programs = {
     direnv = {
       enable = true;
@@ -78,7 +108,6 @@
       };
     };
   };
-
   programs.starship =
     let
       flavour = "macchiato"; # One of `latte`, `frappe`, `macchiato`, or `mocha`

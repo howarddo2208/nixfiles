@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/Downloads
+
+fzf --bind 'ctrl-n:execute(bash -c "read filename && echo \"\$filename\" | touch")'

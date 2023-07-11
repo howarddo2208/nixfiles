@@ -1,16 +1,17 @@
 #!/bin/bash
 
 # set default cheat directory
-cheatpath=~/.config/cheat/cheatsheets
+cheatpath=~/programming/repos/cheatsheets
 cd "$cheatpath"
 
-# fuzzy search cheatsheets
+# fuzzy search cheatsheets of commands
 # enter to print out the paragraph (with comments)
 # ctrl-y to copy the command to clipboard (lines not start with '#' or empty lines)
 # prerequisite tools: fzf, bat
-grep --recursive --line-number --binary-files=without-match "^#" .\
-  | fzf -i --delimiter=':' -n 2..\
-  --preview-window '+{2}-/2' --preview 'bat --color=always --language sh --highlight-line {2} {1}'\
-  --bind "enter:execute(sed -n '{2},/^$/p' {1})+abort"\
-  --header 'Ctrl-y to copy the command to clipboard'\
-  --bind "ctrl-y:execute(sed -n '{2},/^$/p' {1} | grep -vE '^\s*(#|$)' | copy)+abort" # custom copy script to copy to clipboard based on OS, you can change it to xclip or pbcopy. link: https://github.com/howarddo2208/nixfiles/blob/3bb6de12647c2b6865ca00f7a71335214d49f27b/scripts/.local/bin/copy
+# I use a custom copy script to copy to clipboard based on OS, you can change it to xclip or pbcopy. link: https://github.com/howarddo2208/nixfiles/blob/3bb6de12647c2b6865ca00f7a71335214d49f27b/scripts/.local/bin/copy
+grep --exclude-dir=.git --recursive --line-number --binary-files=without-match "^#" \
+    | fzf -i --delimiter=':' -n 2..\
+    --preview-window '+{2}-/2' --preview 'bat --color=always --language sh --highlight-line {2} {1}'\
+    --bind "ctrl-y:execute(sed -n '{2},/^$/p' {1} | grep -vE '^\s*(#|$)' | copy && echo -n 'yanked into clipboard')+abort" \
+    --header 'Enter: print out command(s) without comments | Ctrl-y to copy into clipboard'\
+    # --bind "enter:execute(sed -n '{2},/^$/p' {1} | grep -vE '^\s*(#|$)' | cat)+abort"\
