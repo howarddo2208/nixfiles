@@ -49,7 +49,6 @@ alias ld='lazydocker'
 
 # other
 alias cs="cht.sh" # cheatsheet for command lines
-alias snp="nap"
 alias loc="git ls-files | xargs wc -l" #count line of code in git repo
 
 # NIX {{{

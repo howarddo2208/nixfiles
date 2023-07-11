@@ -38,7 +38,6 @@
     yq-go # yaml, json and xml processor
     zoxide
     zsh
-    nap # code snippet manager
 
     # utility apps
     btop

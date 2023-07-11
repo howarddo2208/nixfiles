@@ -14,11 +14,6 @@ export PATH="$PNPM_HOME:$PATH"
 export BAT_THEME="Catppuccin-macchiato"
 
 export PKM="$HOME/Sync/howard-pkm"
-# nap snippet manager config
-# export NAP_CONFIG="~/.config/nap/config.yaml"
-export NAP_HOME="$PKM/otherapps/nap-snippets"
-export NAP_DEFAULT_LANGUAGE="go"
-export NAP_THEME="nord"
 
 export NIXPKGS_ALLOW_UNFREE=1
 

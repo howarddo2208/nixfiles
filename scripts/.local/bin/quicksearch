@@ -29,7 +29,7 @@ do
             done
             ;;
         [3]* )
-            napfzf
+            snippet-manager
             exit ;;
         [qQ]* ) exit ;;
         * ) echo -e "\nPlease answer" ;;

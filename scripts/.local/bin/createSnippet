@@ -1,0 +1,3 @@
+read -p $'\nSnippet name: ' snippetName
+touch "$snippetName"
+$EDITOR "$snippetName"

@@ -25,7 +25,4 @@ set -Ux EDITOR "nvim"
 set -Ux PATH "$HOME/.local/bin" $PATH
 set -Ux PNPM_HOME "~/.local/share/pnpm"
 set -Ux BAT_THEME "Catppuccin-macchiato"
-set -Ux NAP_HOME "$HOME/programming/snippets"
-set -Ux NAP_DEFAULT_LANGUAGE "js"
-set -Ux NAP_THEME "dracula"
 set -Ux NIXPKGS_ALLOW_UNFREE 1

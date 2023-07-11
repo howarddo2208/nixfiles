@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# I use my copy script for multiplatform copy into clipboard and tmux, you can replace it with xclip, pbcopy or whatever you use
-find "$NAP_HOME" -type f ! -name "snippets.json" \
-  | fzf --delimiter / --with-nth -1 --preview "bat --color=always {}"\
-  --bind "ctrl-e:execute($EDITOR {})+abort"\
-  --bind "enter:execute-silent(cat {} | copy)+abort"\
-  --header 'Press Enter to yank snippet into clipboard and Ctrl-E to edit it'
