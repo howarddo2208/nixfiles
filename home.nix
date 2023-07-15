@@ -66,6 +66,7 @@ in
     ytmdl # music downloader
     rtorrent
     sc-im #spreadsheet in the terminal
+    stow #symlink manager
 
     # programming languages & sdk
     nodejs
@@ -77,18 +78,18 @@ in
     gimp # photo editor
     mpv # vide player
     sioyek # pdf viewer
-    stow #symlink manager
     kitty
   ])
   ++ (optionals isLinux [
     ibus-engines.bamboo #my vietnamese keyboard
     xclip # for neovim in case not yet installed
-  ] ++ (optionals isGraphical [
+  ])
+  ++ (optionals (isLinux && isGraphical) [
     librewolf
     chromium
     mullvad-browser
     libreoffice-qt
-  ]))
+  ])
   ++ (optionals isDarwin [
     gnugrep # for nix-direnv
     pngpaste # for neovim clipboard-image

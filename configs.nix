@@ -1,4 +1,4 @@
 {
-  isGraphical = false;
+  isGraphical = true;
   isLinux = false;
 }
