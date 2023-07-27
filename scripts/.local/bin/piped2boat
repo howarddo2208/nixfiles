@@ -1,0 +1,44 @@
+#!/bin/bash
+
+echoerr() { echo -e "\033[31m$@\033[0m" 1>&2; }
+
+# check if jq is installed
+if ! command -v jq &> /dev/null
+then
+    echoerr 'Error: jq is not installed.'
+    exit 1
+fi
+
+show_usage() {
+    echo "Convert a Pipedream JSON file to a Newsboat subscriptions file."
+    echo "Usage: piped2boat <path_to_json_file>"
+    echo 'Result: https://www.youtube.com/feeds/videos.xml?channel_id=<channel_id> "~Channel Name" "(Youtube)"'
+    echo "examples:"
+    echo "  piped2boat subscriptions.json >> ~/.newsboat/urls"
+    echo "  piped2boat subscriptions.json | pbcopy"
+    echo "  piped2boat subscriptions.json | xclip -selection clipboard"
+}
+
+# Check if the script is invoked with the -h or --help flag
+if [[ $1 == "-h" || $1 == "--help" ]]; then
+    show_usage
+    exit 0
+fi
+
+# Check if the JSON file argument is provided
+if [ -z "$1" ]; then
+    echoerr 'Error: JSON file path is missing.'
+    exit 1
+fi
+
+# Check if the file exists
+if [ ! -f "$1" ]; then
+    echoerr 'Error: File not found.'
+    exit 1
+fi
+
+# Parse the JSON data and extract the subscriptions
+subscriptions=$(jq -r '.subscriptions[] | "https://www.youtube.com/feeds/videos.xml?channel_id=\(.url | sub("https://www.youtube.com/channel/"; "")) \"~\(.name)\" \"(Youtube)\"" ' "$1")
+
+# Print the formatted Newsboat URLs
+echo "$subscriptions"

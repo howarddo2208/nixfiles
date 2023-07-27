@@ -51,6 +51,7 @@ in
     vifm
     wget
     yq-go # yaml, json and xml processor
+    jq
     zoxide
     zsh
     btop
@@ -64,7 +65,6 @@ in
     yt-dlp # youtube downloader
     ytfzf # watch youtube from terminal
     ytmdl # music downloader
-    rtorrent
     sc-im #spreadsheet in the terminal
     stow #symlink manager
 
@@ -79,6 +79,7 @@ in
     mpv # vide player
     sioyek # pdf viewer
     kitty
+    qbittorrent
   ])
   ++ (optionals isLinux [
     ibus-engines.bamboo #my vietnamese keyboard
@@ -89,6 +90,7 @@ in
     chromium
     mullvad-browser
     libreoffice-qt
+    libsForQt5.kdenlive
   ])
   ++ (optionals isDarwin [
     gnugrep # for nix-direnv
