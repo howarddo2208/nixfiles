@@ -1,6 +1,6 @@
 #!/bin/bash
 
-snippetPath=~/programming/repos/snippets # Change this to your snippets path
+snippetPath=~/programming/repos/dev-selfcraft/snippets # Change this to your snippets path
 cd "$snippetPath"
 
 FIND_DEFAULT_COMMAND="find $snippetPath -type f ! -iwholename '*.git*'"

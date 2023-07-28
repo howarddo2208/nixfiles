@@ -34,13 +34,7 @@ do
             exit ;;
         [4]* )
             cheatfzf
-            echo "Please choose a search option:"
-            echo "1) Fuzzy search cht.sh pages"
-            echo "2) Query cht.sh"
-            echo "3) Search snippets"
-            echo "4) Search cheatsheets"
-            echo "q) Quit"
-            ;;
+            exit ;;
         [qQ]* ) exit ;;
         * ) echo -e "\nPlease answer" ;;
     esac

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set default cheat directory
-cheatpath=~/programming/repos/cheatsheets
+cheatpath=~/programming/repos/dev-selfcraft/personal-cheatsheets
 cd "$cheatpath"
 
 # fuzzy search cheatsheets of commands
@@ -9,7 +9,7 @@ cd "$cheatpath"
 # ctrl-y to copy the command to clipboard (lines not start with '#' or empty lines)
 # prerequisite tools: fzf, bat
 # I use a custom copy script to copy to clipboard based on OS, you can change it to xclip or pbcopy. link: https://github.com/howarddo2208/nixfiles/blob/3bb6de12647c2b6865ca00f7a71335214d49f27b/scripts/.local/bin/copy
-grep --exclude-dir=.git --recursive --line-number --binary-files=without-match "^#" \
+grep --exclude-dir=.git --recursive --line-number --binary-files=without-match "^\s*#" \
     | fzf -i --delimiter=':' -n 2..\
     --preview-window '+{2}-/2' --preview 'bat --color=always --language sh --highlight-line {2} {1}'\
     --bind "ctrl-y:execute(sed -n '{2},/^$/p' {1} | grep -vE '^\s*(#|$)' | copy && echo -n 'yanked into clipboard')+abort" \
