@@ -281,7 +281,6 @@ return {
   { 'kevinhwang91/nvim-bqf' }, -- better quick fix
   { 'nvim-treesitter/nvim-treesitter',        build = ':TSUpdate' },
   { 'tpope/vim-eunuch' },
-  { 'wakatime/vim-wakatime' },
   { "axieax/urlview.nvim" },
   {
     "simrat39/rust-tools.nvim",

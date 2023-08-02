@@ -5,6 +5,7 @@ let
   configs = import ./configs.nix;
   isLinux = configs.isLinux;
   isDarwin = !isLinux;
+  useVM = configs.useVM;
   isGraphical = configs.isGraphical;
 in
 {
@@ -24,10 +25,10 @@ in
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" "JetBrainsMono" ]; })
     atuin # command history
-    bash
+    # bash
     bat
     chafa
-    viu
+    # viu # currently I u
     cht-sh
     rlwrap
     exa
@@ -76,8 +77,10 @@ in
   ]
   ++ (optionals isGraphical [
     gimp # photo editor
+    audacity # audio edit
     mpv # vide player
     sioyek # pdf viewer
+    alacritty
     kitty
     qbittorrent
   ])
@@ -86,11 +89,13 @@ in
     xclip # for neovim in case not yet installed
   ])
   ++ (optionals (isLinux && isGraphical) [
-    librewolf
-    chromium
-    mullvad-browser
+    brave
+    # firefox # with betterfox harden
     libreoffice-qt
     libsForQt5.kdenlive
+    mullvad-browser
+    obs-studio
+    thunderbird
   ])
   ++ (optionals isDarwin [
     gnugrep # for nix-direnv
@@ -100,6 +105,12 @@ in
     # pidof (for one of my fzf script, cheatfzf, but only available on homebrew for now)
     raycast
     # librewolf # not available on nixpkgs for mac yet
+  ])
+  ++ (optionals useVM [
+    libvirt
+    qemu
+    virt-manager
+    virt-viewer
   ]);
 
   programs.home-manager.enable = true;
