@@ -3,7 +3,8 @@
 "query:Starred:flags # \"s\""
 "query:Unread:unread = \"yes\""
 
-# (Github)
+https://pipedapi.kavin.rocks/feed/rss?authToken=e09caf4e-8a62-44cc-aa56-cfb171194b1b "~Piped" "(Youtube)"
+
 https://github.com/logseq/logseq/releases.atom "~Logseq" "(Github)"
 
 # (Lemmy communities I moderate)

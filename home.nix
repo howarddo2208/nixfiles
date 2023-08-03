@@ -57,6 +57,7 @@ in
     zsh
     btop
     ffmpeg
+    mediainfo # view media metadata
     musikcube #music player
     nix-prefetch-github
     pandoc # convert docs
@@ -76,6 +77,7 @@ in
     rustup
   ]
   ++ (optionals isGraphical [
+    darktable
     gimp # photo editor
     audacity # audio edit
     mpv # vide player
@@ -89,6 +91,7 @@ in
     xclip # for neovim in case not yet installed
   ])
   ++ (optionals (isLinux && isGraphical) [
+    digikam
     brave
     # firefox # with betterfox harden
     libreoffice-qt
@@ -107,10 +110,7 @@ in
     # librewolf # not available on nixpkgs for mac yet
   ])
   ++ (optionals useVM [
-    libvirt
     qemu
-    virt-manager
-    virt-viewer
   ]);
 
   programs.home-manager.enable = true;
