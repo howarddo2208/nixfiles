@@ -1,0 +1,8 @@
+#!/bin/bash
+
+eval "$(starship init bash)"
+# quick navigate folder
+eval "$(zoxide init bash)"
+
+# direnv: auto switch dev environment
+eval "$(direnv hook bash)"

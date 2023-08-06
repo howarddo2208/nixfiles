@@ -25,13 +25,15 @@ in
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" "JetBrainsMono" ]; })
     atuin # command history
-    # bash
+    bash
     bat
+    bleachbit # disk cleaner, file shredder
     chafa
     # viu # currently I u
     cht-sh
     rlwrap
     exa
+    exiftool
     fd
     fish
     fontconfig
@@ -68,16 +70,20 @@ in
     ytfzf # watch youtube from terminal
     ytmdl # music downloader
     sc-im #spreadsheet in the terminal
+    starship
     stow #symlink manager
+    spoof-mac # mac address spoofer
 
     # programming languages & sdk
     nodejs
+    typescript
     yarn
     nodePackages.pnpm
     rustup
   ]
   ++ (optionals isGraphical [
-    darktable
+    # calibre
+    # darktable
     gimp # photo editor
     audacity # audio edit
     mpv # vide player
@@ -122,23 +128,4 @@ in
       };
     };
   };
-  programs.starship =
-    let
-      flavour = "macchiato"; # One of `latte`, `frappe`, `macchiato`, or `mocha`
-    in
-    {
-      enable = true;
-      settings = {
-        # Other config here
-        format = "$all"; # Remove this line to disable the default prompt format
-        palette = "catppuccin_${flavour}";
-      } // builtins.fromTOML (builtins.readFile
-        (pkgs.fetchFromGitHub
-          {
-            owner = "catppuccin";
-            repo = "starship";
-            rev = "3e3e54410c3189053f4da7a7043261361a1ed1bc"; # Replace with the latest commit hash
-            sha256 = "soEBVlq3ULeiZFAdQYMRFuswIIhI9bclIU8WXjxd7oY=";
-          } + /palettes/${flavour}.toml));
-    };
 }

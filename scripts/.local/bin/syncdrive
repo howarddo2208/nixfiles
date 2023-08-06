@@ -1,0 +1,1 @@
+rsync -avh --delete ~/Sync/shared-media/music /Volumes/howard

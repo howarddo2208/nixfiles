@@ -1,0 +1,9 @@
+#!/bin/bash
+export BDOTDIR="$HOME/.config/bash"
+
+source "$BDOTDIR/bash-functions"
+bash_add_file "bash-eval"
+bash_add_file "bash-alias"
+
+# [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+# eval "$(atuin init bash)"

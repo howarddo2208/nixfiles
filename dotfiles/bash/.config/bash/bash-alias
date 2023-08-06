@@ -1,0 +1,2 @@
+#!/bin/bash
+alias hms='(cd ~/nixfiles && home-manager switch --flake ".#macos")'

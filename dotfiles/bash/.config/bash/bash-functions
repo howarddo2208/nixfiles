@@ -1,0 +1,4 @@
+#!/bin/bash
+function bash_add_file() {
+    [ -f "$BDOTDIR/$1" ] && source "$BDOTDIR/$1"
+}
