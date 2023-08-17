@@ -33,7 +33,7 @@ in
     cht-sh
     rlwrap
     exa
-    exiftool
+    # exiftool
     fd
     fish
     fontconfig
@@ -91,13 +91,13 @@ in
     alacritty
     kitty
     qbittorrent
+    lapce
   ])
   ++ (optionals isLinux [
     ibus-engines.bamboo #my vietnamese keyboard
     xclip # for neovim in case not yet installed
   ])
   ++ (optionals (isLinux && isGraphical) [
-    digikam
     brave
     # firefox # with betterfox harden
     libreoffice-qt
@@ -105,17 +105,20 @@ in
     mullvad-browser
     obs-studio
     thunderbird
+    veracrypt
   ])
   ++ (optionals isDarwin [
+    # GUI apps is stored at ~/.nix-profile/Applications
     gnugrep # for nix-direnv
     pngpaste # for neovim clipboard-image
-    # karabiner-elements #install from web is better
-    # GUI apps is stored at ~/.nix-profile/Applications
-    # pidof (for one of my fzf script, cheatfzf, but only available on homebrew for now)
     raycast
-    # librewolf # not available on nixpkgs for mac yet
+    # HOMEBREW SECTION
+    # pidof (for one of my fzf script, cheatfzf)
+    # stats
+    # karabiner-elements #install from web is better
+    # amethyst
   ])
-  ++ (optionals useVM [
+  ++ (optionals (useVM && isLinux) [
     qemu
   ]);
 
