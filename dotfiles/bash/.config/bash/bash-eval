@@ -5,4 +5,9 @@ eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 
 # direnv: auto switch dev environment
-eval "$(direnv hook bash)"
+# eval "$(direnv hook bash)"
+
+eval "$(fnm env --use-on-cd)"
+
+# [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+# eval "$(atuin init bash)"
