@@ -19,10 +19,10 @@ gui:
       - "#8aadf4" # Blue
     unstagedChangesColor:
       - red       # Red }}}
-    selectedLineBgColor:
-    - underline
-    selectedRangeBgColor:
-    - underline
+    # selectedLineBgColor:
+    # - underline
+    # selectedRangeBgColor:
+    # - underline
 git:
   paging:
     colorArg: never

@@ -23,9 +23,13 @@ local Terminal = require("toggleterm.terminal").Terminal
 local plugins = {}
 local float_opts = {
   border = "single", -- single | double | shadow | curved
-  width = 160,
-  height = 40,
   winblend = 1,
+  width = function()
+    return math.floor(vim.o.columns * 0.9)
+  end,
+  height = function()
+    return math.floor(vim.o.lines * 0.9)
+  end,
 }
 
 local function createTerminal(cmd)
