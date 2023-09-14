@@ -20,6 +20,7 @@ table.insert(vimgrep_arguments, '!**/.git/*')
 -- See `:help telescope` and `:help telescope.setup()`
 telescope.setup {
   defaults = {
+    wrap_results = true,
     preview = {
       mime_hook = function(filepath, bufnr, opts)
         local is_image = function(filepath)
