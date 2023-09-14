@@ -73,6 +73,7 @@ in
     starship
     stow #symlink manager
     spoof-mac # mac address spoofer
+    delta # syntax highlighting for git
 
     # programming languages & sdk
     nodejs
