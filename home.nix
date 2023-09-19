@@ -53,6 +53,7 @@ in
     starship
     stow #symlink manager, use this to sync dotfiles to current machine
     delta # syntax highlighting for git
+    python311Packages.pillow # for pastify.nvim (paste image from clipboard)
   ]
 
   programs.home-manager.enable = true;
