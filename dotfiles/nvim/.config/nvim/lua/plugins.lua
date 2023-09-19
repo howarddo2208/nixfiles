@@ -119,14 +119,22 @@ return {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        -- theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
+    config = function()
+      require('lualine').setup {
+        sections = {
+          lualine_c = {
+            {
+              'buffers',
+              mode = 4, -- 0: Shows buffer name
+              -- 1: Shows buffer index
+              -- 2: Shows buffer name + buffer index
+              -- 3: Shows buffer number
+              -- 4: Shows buffer name + buffer number
+            }
+          }
+        },
+      }
+    end,
   },
   {
     'iamcco/markdown-preview.nvim',
@@ -419,5 +427,11 @@ return {
         desc = "search plugins",
       },
     }
+  },
+  {
+    'chentoast/marks.nvim',
+    config = function()
+      require 'marks'.setup {}
+    end
   }
 }

@@ -93,6 +93,7 @@ map('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = 'Searc
 map('n', '<leader>st', require('telescope.builtin').live_grep, { desc = 'Search Text' })
 map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Search Diagnostics' })
 map('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = 'Search Keymaps' })
+map('n', '<leader>sm', require('telescope.builtin').marks, { desc = 'Search Marks' })
 map('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = 'Search Help docs' })
 map('n', '<leader>sb', require('telescope.builtin').builtin, { desc = 'Search builtin method' })
 map('n', '<leader>lp', '<cmd>Telescope import<cr>', { desc = 'Search and import' })
