@@ -33,4 +33,6 @@ require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
   on_attach = my_on_attach,
 } -- END_DEFAULT_OPTS
 
-vim.keymap.set('n', '\\', ':NvimTreeToggle<CR>', { desc = 'Toggle Explorer' })
+vim.keymap.set('n', '\\', ':NvimTreeToggle<CR>', { desc = 'Toggle Nvim Tree' })
+vim.keymap.set('n', '<leader>tr', ':NvimTreeRefresh<CR>', { desc = 'refresh nvim tree' })
+vim.keymap.set('n', '<leader>tf', ':NvimTreeFocus<CR>', { desc = 'refresh nvim tree' })

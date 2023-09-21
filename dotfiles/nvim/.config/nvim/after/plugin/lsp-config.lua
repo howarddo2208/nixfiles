@@ -48,7 +48,35 @@ local servers = {
   --   }
   -- },
   -- pyright = {},
-  tsserver = {},
+  tsserver = {
+    settings = {
+      typescript = {
+        inlayHints = {
+          -- taken from https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
+          includeInlayEnumMemberValueHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayParameterNameHints = 'all',
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,       -- false
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayVariableTypeHints = true,
+          includeInlayVariableTypeHintsWhenTypeMatchesName = true       -- false
+        }
+      },
+      javascript = {
+        inlayHints = {
+          includeInlayEnumMemberValueHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayParameterNameHints = 'all',
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayVariableTypeHints = true,
+          includeInlayVariableTypeHintsWhenTypeMatchesName = true
+        }
+      },
+    },
+  },
   emmet_ls = {},
   jsonls = {},
   -- clojure_lsp = {},
@@ -57,10 +85,11 @@ local servers = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
+      hint = { enable = true },
     },
   },
   ltex = {},
-  nil_ls = {} -- nix LSP
+  -- nil_ls = {} -- nix LSP
 }
 
 -- Setup neovim lua configuration
@@ -96,3 +125,9 @@ require("lspconfig").ltex.setup {
     require("ltex_extra").setup {}
   end,
 }
+
+if vim.lsp.inlay_hint then
+  vim.keymap.set('n', '<leader>lh', function()
+    vim.lsp.inlay_hint(0, nil)
+  end, { desc = 'Toggle Inlay Hints' })
+end
