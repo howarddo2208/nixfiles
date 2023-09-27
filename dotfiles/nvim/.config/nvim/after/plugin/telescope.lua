@@ -95,11 +95,14 @@ map('n', '<leader>fg', require('telescope.builtin').git_files, { desc = 'Search 
 map('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = 'Search Help' })
 map('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = 'Search current Word' })
 map('n', '<leader>st', require('telescope.builtin').live_grep, { desc = 'Search Text' })
+map('n', '<leader>sT', ':Telescope current_buffer_fuzzy_find<CR>', { desc = 'Search Text current buffer' })
 map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Search Diagnostics' })
 map('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = 'Search Keymaps' })
 map('n', '<leader>sm', require('telescope.builtin').marks, { desc = 'Search Marks' })
+map('n', '<leader>sb', require('telescope.builtin').buffers, { desc = 'Search Buffers' })
 map('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = 'Search Help docs' })
-map('n', '<leader>sb', require('telescope.builtin').builtin, { desc = 'Search builtin method' })
+map('n', '<leader>sB', require('telescope.builtin').builtin, { desc = 'Search Telescope builtin method' })
+map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Search diagnostics/errors' })
 map('n', '<leader>lp', '<cmd>Telescope import<cr>', { desc = 'Search and import' })
 
 -- file_browser open keymaps

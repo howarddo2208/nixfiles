@@ -140,14 +140,12 @@ keybindings.lspsagaKeys = function()
     ["<leader>la"] = { "<cmd>Lspsaga code_action<CR>", "Lspsaga code_action", },
     -- ["gr"] = { "<cmd>Lspsaga rename<CR>", "Lspsaga rename", },
     ["gR"] = { "<cmd>Lspsaga rename ++project<CR>", "Lspsaga rename ++project", },
-    ["gp"] = { "<cmd>Lspsaga peek_definition<CR>", "Lspsaga peek_definition", },
     ["gd"] = { "<cmd>Lspsaga goto_definition<CR>", "Lspsaga goto_definition", },
-    ["gP"] = { "<cmd>Lspsaga peek_type_definition<CR>", "Lspsaga peek_type_definition", },
     ["gT"] = { "<cmd>Lspsaga goto_type_definition<CR>", "Lspsaga goto_type_definition", },
-    ["<leader>sl"] = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga show_line_diagnostics", },
-    ["<leader>sb"] = { "<cmd>Lspsaga show_buf_diagnostics<CR>", "Lspsaga show_buf_diagnostics", },
-    ["<leader>sw"] = { "<cmd>Lspsaga show_workspace_diagnostics<CR>", "Lspsaga show_workspace_diagnostics", },
-    ["<leader>sc"] = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "Lspsaga show_cursor_diagnostics", },
+    ["<leader>ll"] = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga show_line_diagnostics", },
+    ["<leader>lb"] = { "<cmd>Lspsaga show_buf_diagnostics<CR>", "Lspsaga show_buf_diagnostics", },
+    ["<leader>lw"] = { "<cmd>Lspsaga show_workspace_diagnostics<CR>", "Lspsaga show_workspace_diagnostics", },
+    ["<leader>lc"] = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "Lspsaga show_cursor_diagnostics", },
     ["[d"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "previous diagnostic", },
     ["]d"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "next diagnostic", },
     ["[e"] = {
@@ -172,7 +170,7 @@ end
 keybindings.lspKeys = function()
   wk.register({
     ["<leader>l"] = {
-      name = '+LSP',
+      name = '+Language Server',
       s = { "<cmd>LspStart<CR>", "Start LSP", },
       S = { "<cmd>LspStop<CR>", "Stop LSP", },
       r = { vim.lsp.buf.rename, "Rename", },
