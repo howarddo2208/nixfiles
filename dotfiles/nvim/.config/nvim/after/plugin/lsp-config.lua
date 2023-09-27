@@ -2,6 +2,7 @@
 --  This function gets run when an LSP connects to a particular buffer.
 
 require('keybindings').lspKeys()
+local map = require('utils').map
 -- references: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
 -- use null-ls as default formatter
 local lsp_formatting = function(bufnr)
@@ -57,10 +58,10 @@ local servers = {
           includeInlayFunctionLikeReturnTypeHints = true,
           includeInlayFunctionParameterTypeHints = true,
           includeInlayParameterNameHints = 'all',
-          includeInlayParameterNameHintsWhenArgumentMatchesName = true,       -- false
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true, -- false
           includeInlayPropertyDeclarationTypeHints = true,
           includeInlayVariableTypeHints = true,
-          includeInlayVariableTypeHintsWhenTypeMatchesName = true       -- false
+          includeInlayVariableTypeHintsWhenTypeMatchesName = true -- false
         }
       },
       javascript = {
@@ -130,4 +131,16 @@ if vim.lsp.inlay_hint then
   vim.keymap.set('n', '<leader>lh', function()
     vim.lsp.inlay_hint(0, nil)
   end, { desc = 'Toggle Inlay Hints' })
+end
+
+local signs = {
+  Error = "",
+  Warn = "",
+  Hint = "",
+  Info = "",
+}
+
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end

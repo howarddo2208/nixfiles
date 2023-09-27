@@ -9,12 +9,11 @@ return {
   {
     'windwp/nvim-ts-autotag',
     config = function()
-      require('nvim-treesitter.configs').setup {
-        autotag = {
-          enable = true,
-        },
-      }
+      require('nvim-ts-autotag').setup()
     end,
+  },
+  {
+    'hiphish/rainbow-delimiters.nvim'
   },
   -- Autocompletion and snippet {{{
   {
@@ -301,21 +300,6 @@ return {
         }, }
     end
   },
-  -- {
-  --   'postfen/clipboard-image.nvim',
-  --   commit = '9c45980'
-  -- },
-  -- {
-  --   'pwntester/octo.nvim',
-  --   dependencies = {
-  --     'nvim-lua/plenary.nvim',
-  --     'nvim-telescope/telescope.nvim',
-  --     'nvim-tree/nvim-web-devicons',
-  --   },
-  --   config = function()
-  --     require "octo".setup()
-  --   end
-  -- },
   { 'kevinhwang91/nvim-bqf' }, -- better quick fix
   { 'nvim-treesitter/nvim-treesitter',        build = ':TSUpdate' },
   { 'tpope/vim-eunuch' },
@@ -372,7 +356,7 @@ return {
         desc = "Flash",
       },
       {
-        "S",
+        "_",
         mode = { "n", "o", "x" },
         function()
           require("flash").treesitter()
@@ -455,6 +439,26 @@ return {
     'chentoast/marks.nvim',
     config = function()
       require 'marks'.setup {}
+    end
+  },
+  -- {
+  --   'Wansmer/symbol-usage.nvim',
+  --   event = 'BufReadPre', -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
+  --   config = function()
+  --     require('symbol-usage').setup()
+  --   end
+  -- },
+  {
+    "chrisgrieser/nvim-puppeteer",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    lazy = false, -- plugin lazy-loads itself
+  },
+  {
+    'rmagatti/goto-preview',
+    config = function()
+      require('goto-preview').setup {
+        default_mappings = true
+      }
     end
   }
 }
