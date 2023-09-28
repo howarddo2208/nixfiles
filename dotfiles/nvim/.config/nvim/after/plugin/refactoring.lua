@@ -32,3 +32,24 @@ vim.api.nvim_set_keymap(
   ":lua require('refactoring').select_refactor()<CR>",
   { noremap = true, silent = true, expr = false, desc = 'Refactor' }
 )
+
+
+vim.keymap.set(
+  "n",
+  "<leader>rn",
+  function() require('refactoring').debug.printf() end,
+  { desc = 'print checkpoint below' }
+)
+vim.keymap.set(
+  "n",
+  "<leader>rN",
+  function() require('refactoring').debug.printf({ below = false }) end,
+  { desc = 'print checkpoint above' }
+)
+
+vim.keymap.set({ "x", "n" }, "<leader>rp", function() require('refactoring').debug.print_var() end,
+  { desc = 'print variable below' })
+vim.keymap.set({ "x", "n" }, "<leader>rP", function() require('refactoring').debug.print_var({ below = false }) end,
+  { desc = 'print variable above' })
+vim.keymap.set("n", "<leader>rd", function() require('refactoring').debug.cleanup({}) end,
+  { desc = 'cleanup debug prints' })
