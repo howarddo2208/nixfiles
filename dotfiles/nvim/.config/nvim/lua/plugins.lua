@@ -28,7 +28,10 @@ return {
       require('colorizer').setup()
     end,
   },
-  { "catppuccin/nvim",     name = "catppuccin" },
+  -- colorschemes
+  { "catppuccin/nvim",          name = "catppuccin" },
+  { "ellisonleao/gruvbox.nvim", priority = 1000,    config = true },
+  { 'Mofiqul/dracula.nvim' },
   {
     -- "gc" to comment visual regions/lines
     'numToStr/Comment.nvim',
@@ -69,7 +72,12 @@ return {
       },
     },
   },
-  { 'ThePrimeagen/harpoon' },
+  {
+    'ThePrimeagen/harpoon',
+    config = function()
+      vim.keymap.set('n', '<leader>sh', ':Telescope harpoon marks<CR>', { noremap = true, desc = 'search harpoon files' })
+    end,
+  },
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -200,8 +208,43 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
   {
+    'dhruvmanila/browser-bookmarks.nvim',
+    version = '*',
+    opts = {
+      selected_browser = 'brave'
+    },
+    config = function()
+      require('telescope').load_extension('bookmarks')
+      vim.keymap.set('n', '<leader>sb', ':Telescope bookmarks<CR>', { noremap = true, desc = 'search browser bookmarks' })
+    end,
+  },
+  {
+    "AckslD/nvim-neoclip.lua",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require('neoclip').setup()
+      require('telescope').load_extension('neoclip')
+      vim.keymap.set('n', '<leader>sc', ':Telescope neoclip<CR>', { noremap = true, desc = 'search clipboard history' })
+    end,
+  },
+  {
+    'jvgrootveld/telescope-zoxide',
+    config = function()
+      require('telescope').load_extension('zoxide')
+      vim.keymap.set('n', '<leader>sD', ':Telescope zoxide list<CR>',
+        { noremap = true, desc = 'search directory zoxide' })
+    end
+  },
+  {
     'nvim-telescope/telescope-file-browser.nvim',
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  },
+  {
+    'nvim-telescope/telescope-github.nvim',
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require('telescope').load_extension('gh')
+    end
   },
   {
     'piersolenski/telescope-import.nvim',
@@ -222,6 +265,16 @@ return {
     'akinsho/toggleterm.nvim',
     version = '*',
     opts = {},
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim"
+    },
+    config = function()
+      require("telescope").load_extension("lazygit")
+    end,
   },
   {
     -- Highlight, edit, and navigate code
@@ -275,7 +328,9 @@ return {
     -- navigation easy between tmux and nvim
     'aserowy/tmux.nvim',
     config = function()
-      return require('tmux').setup {}
+      return require('tmux').setup {
+        copy_sync = { enable = false, }
+      }
     end
   },
   {
@@ -452,5 +507,6 @@ return {
         default_mappings = true
       }
     end
-  }
+  },
+  { 'akinsho/git-conflict.nvim', version = "*", config = true }
 }
