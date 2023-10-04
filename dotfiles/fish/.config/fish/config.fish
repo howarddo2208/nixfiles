@@ -24,5 +24,5 @@ set -Ux MANWIDTH 999
 set -Ux EDITOR "nvim"
 set -Ux PATH "$HOME/.local/bin" $PATH
 set -Ux PNPM_HOME "~/.local/share/pnpm"
-set -Ux BAT_THEME "Catppuccin-macchiato"
+set -Ux BAT_THEME "Catppuccin-mocha"
 set -Ux NIXPKGS_ALLOW_UNFREE 1

@@ -49,7 +49,7 @@ local servers = {
   --   }
   -- },
   -- pyright = {},
-  tsserver = {
+  -- tsserver = {
     -- settings = {
     --   typescript = {
     --     inlayHints = {
@@ -77,7 +77,7 @@ local servers = {
     --     }
     --   },
     -- },
-  },
+  -- },
   emmet_ls = {},
   jsonls = {},
   -- clojure_lsp = {},
