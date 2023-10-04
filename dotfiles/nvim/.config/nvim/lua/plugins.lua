@@ -31,6 +31,7 @@ return {
   -- colorschemes
   { "catppuccin/nvim",          name = "catppuccin" },
   { "ellisonleao/gruvbox.nvim", priority = 1000,    config = true },
+
   { 'Mofiqul/dracula.nvim' },
   {
     -- "gc" to comment visual regions/lines
@@ -508,5 +509,12 @@ return {
       }
     end
   },
-  { 'akinsho/git-conflict.nvim', version = "*", config = true }
+  { 'akinsho/git-conflict.nvim', version = "*", config = true },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
+  { 'mattkubej/jest.nvim' },
+  { 'gbrlsnchs/winpick.nvim' }
 }
