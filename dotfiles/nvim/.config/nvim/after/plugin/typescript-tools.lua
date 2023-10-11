@@ -2,7 +2,15 @@ if not pcall(require, 'typescript-tools') then
   return
 end
 
+-- settings = {
+--   tsserver_max_memory = 8092,
+--   separate_diagnostic_server = false,
+-- }
 require("typescript-tools").setup {
+  on_attach = function(client)
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+  end,
   settings = {
     tsserver_plugins = {
       -- for TypeScript v4.9+
@@ -31,7 +39,7 @@ wk.register({
     s = { ':TSToolsSortImports<CR>', "sort imports" },
     r = { ':TSToolsRemoveUnusedImports<CR>', "remove unused imports" },
     R = { ':TSToolsRemoveUnused<CR>', "remove unused statements" },
-    a = { ':TSToolsAddMissingImports<CR>', "add missign imports" },
+    i = { ':TSToolsAddMissingImports<CR>', "add missign imports" },
     d = { ':TSToolsGoToSourceDefinition<CR>', "go to source definition" },
   },
 })

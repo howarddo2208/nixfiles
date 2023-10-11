@@ -17,6 +17,13 @@ table.insert(vimgrep_arguments, '--hidden')
 table.insert(vimgrep_arguments, '--glob')
 table.insert(vimgrep_arguments, '!**/.git/*')
 
+-- load extensions
+pcall(telescope.load_extension, 'fzf')
+pcall(telescope.load_extension, 'ui-select')
+pcall(telescope.load_extension, 'file_browser')
+pcall(telescope.load_extension, 'live_grep_args')
+local lga_actions = require("telescope-live-grep-args.actions")
+
 -- See `:help telescope` and `:help telescope.setup()`
 telescope.setup {
   defaults = {
@@ -71,13 +78,22 @@ telescope.setup {
     file_browser = {
       hidden = { file_browser = true, folder_browser = true },
     },
+    live_grep_args = {
+      auto_quoting = true, -- enable/disable auto-quoting
+      -- define mappings, e.g.
+      mappings = {         -- extend mappings
+        i = {
+          ["<C-'>"] = lga_actions.quote_prompt(),
+          ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+        },
+      },
+      -- ... also accepts theme settings, for example:
+      -- theme = "dropdown", -- use dropdown theme
+      -- theme = { }, -- use own theme spec
+      -- layout_config = { mirror=true }, -- mirror preview pane
+    }
   },
 }
-
--- load extensions
-pcall(telescope.load_extension, 'fzf')
-pcall(telescope.load_extension, 'ui-select')
-pcall(telescope.load_extension, 'file_browser')
 
 -- See `:help telescope.builtin`
 map('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
@@ -93,7 +109,9 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 map('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Search Files' })
 map('n', '<leader>fg', require('telescope.builtin').git_files, { desc = 'Search Git Files' })
 map('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = 'Search current Word' })
-map('n', '<leader>st', require('telescope.builtin').live_grep, { desc = 'Search Text' })
+-- map('n', '<leader>st', require('telescope.builtin').live_grep, { desc = 'Search Text' })
+map('n', '<leader>st', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+  { desc = 'Search Text' })
 map('n', '<leader>sT', ':Telescope current_buffer_fuzzy_find<CR>', { desc = 'Search Text current buffer' })
 map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Search Diagnostics' })
 map('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = 'Search Keymaps' })
@@ -101,12 +119,13 @@ map('n', '<leader>sm', require('telescope.builtin').marks, { desc = 'Search Mark
 map('n', '<leader>sH', require('telescope.builtin').help_tags, { desc = 'Search Help docs' })
 map('n', '<leader>sB', require('telescope.builtin').builtin, { desc = 'Search Telescope builtin method' })
 map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Search diagnostics/errors' })
+map('n', '<leader>sp', require('telescope.builtin').resume, { desc = 'Resume previous search' })
 map('n', '<leader>lp', '<cmd>Telescope import<cr>', { desc = 'Search and import' })
 
 -- file_browser open keymaps
 vim.api.nvim_set_keymap(
   "n",
-  "<space>fb",
+  "<space>fB",
   ":Telescope file_browser<CR>",
   { noremap = true, desc = 'open file browser in current workspace' }
 )
@@ -114,7 +133,7 @@ vim.api.nvim_set_keymap(
 -- open file_browser with the path of the current buffer
 vim.api.nvim_set_keymap(
   "n",
-  "<space>fB",
+  "<space>fb",
   ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
   { noremap = true, desc = 'open file browser in current buffer directory' }
 )

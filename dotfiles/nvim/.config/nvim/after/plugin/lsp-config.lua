@@ -31,11 +31,6 @@ local on_attach = function(client, bufnr)
   end
 end
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
   -- clangd = {},
   -- gopls = {
@@ -49,35 +44,7 @@ local servers = {
   --   }
   -- },
   -- pyright = {},
-  -- tsserver = {
-    -- settings = {
-    --   typescript = {
-    --     inlayHints = {
-    --       -- taken from https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
-    --       includeInlayEnumMemberValueHints = true,
-    --       includeInlayFunctionLikeReturnTypeHints = true,
-    --       includeInlayFunctionParameterTypeHints = true,
-    --       includeInlayParameterNameHints = 'all',
-    --       includeInlayParameterNameHintsWhenArgumentMatchesName = true, -- false
-    --       includeInlayPropertyDeclarationTypeHints = true,
-    --       includeInlayVariableTypeHints = true,
-    --       includeInlayVariableTypeHintsWhenTypeMatchesName = true -- false
-    --     }
-    --   },
-    --   javascript = {
-    --     inlayHints = {
-    --       includeInlayEnumMemberValueHints = true,
-    --       includeInlayFunctionLikeReturnTypeHints = true,
-    --       includeInlayFunctionParameterTypeHints = true,
-    --       includeInlayParameterNameHints = 'all',
-    --       includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-    --       includeInlayPropertyDeclarationTypeHints = true,
-    --       includeInlayVariableTypeHints = true,
-    --       includeInlayVariableTypeHintsWhenTypeMatchesName = true
-    --     }
-    --   },
-    -- },
-  -- },
+  -- tsserver = {},
   emmet_ls = {},
   jsonls = {},
   -- clojure_lsp = {},
