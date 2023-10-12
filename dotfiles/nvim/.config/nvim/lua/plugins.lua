@@ -203,7 +203,7 @@ return {
   -- Telescopes and extensions
   {
     'nvim-telescope/telescope.nvim',
-    version = '*',
+    tag = '0.1.4',
     dependencies = {
       { 'nvim-lua/plenary.nvim' },
       { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0", },
@@ -403,23 +403,8 @@ return {
     ---@type Flash.Config
     opts = {},
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash", },
-      { "-", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter", },
-      { "r", mode = "o",               function() require("flash").remote() end,     desc = "Remote Flash", },
-      {
-        "_",
-        mode = { "o", "x" },
-        function() require("flash").treesitter_search() end,
-        desc =
-        "Treesitter Search"
-      },
-      {
-        "<c-s>",
-        mode = { "c" },
-        function() require("flash").toggle() end,
-        desc =
-        "Toggle Flash Search"
-      },
+      { "-", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash", },
+      { "_", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter", },
     },
   },
   {
