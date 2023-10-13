@@ -108,7 +108,7 @@ map('n', '<leader>sm', require('telescope.builtin').marks, { desc = 'Search Mark
 map('n', '<leader>sH', require('telescope.builtin').help_tags, { desc = 'Search Help docs' })
 map('n', '<leader>sB', require('telescope.builtin').builtin, { desc = 'Search Telescope builtin method' })
 map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Search diagnostics/errors' })
-map('n', '<leader>sp', require('telescope.builtin').resume, { desc = 'Resume previous search' })
+map('n', '<leader>sr', require('telescope.builtin').resume, { desc = 'Resume previous search' })
 map('n', '<leader>lp', '<cmd>Telescope import<cr>', { desc = 'Search and import' })
 map({ "n", "v" }, "<leader>sv", lga_shortcuts.grep_visual_selection, { desc = 'live grep with visual selection' })
 

@@ -26,6 +26,9 @@ map({ 'i', 'n', 's' }, '<C-s>', '<ESC>:silent! w<CR>', { desc = 'save buffer' })
 map('i', '<M-;>', '<ESC>A;<ESC>', { desc = 'add semicolon to the end of the line' })
 map('i', '<M-,>', '<ESC>A,<ESC>', { desc = 'add comma to the end of the line' })
 
+map('n', '<leader>cp', ':let @*=@%<CR>', { desc = 'copy buffer relative path to system clipboard' })
+map('n', '<leader>cP', ':let @*=expand("%:p")<CR>', { desc = 'copy buffer absolute path to system clipboard' })
+
 -- steal from https://github.com/liaohui5/dotfiles/blob/d935bdcfd8a04d6112b380d071df06442b2b48b3/nvim/lua/keybindings.lua
 -- the repo structure is really interesting, will steal more
 local wk = require("which-key")
