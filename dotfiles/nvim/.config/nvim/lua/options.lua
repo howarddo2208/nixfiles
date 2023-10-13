@@ -1,3 +1,6 @@
+-- split directions
+vim.o.splitright = true
+vim.o.splitbelow= true
 -- tab space
 vim.o.expandtab = true
 vim.o.smartindent = true
