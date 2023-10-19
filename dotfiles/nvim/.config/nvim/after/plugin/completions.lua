@@ -32,6 +32,7 @@ local kind_icons = {
   Event = '',
   Operator = '',
   TypeParameter = '󰉺',
+  Copilot = "",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
@@ -86,6 +87,7 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = "copilot",  group_index = 2 },
     { name = 'luasnip' },
     { name = 'copilot' },
     { name = 'nvim_lsp', max_item_count = 6 },

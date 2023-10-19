@@ -49,6 +49,12 @@ return {
   },
   { 'zbirenbaum/copilot.lua',              cmd = 'Copilot', event = 'InsertEnter', },
   {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end
+  },
+  {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
