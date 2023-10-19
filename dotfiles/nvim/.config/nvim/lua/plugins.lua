@@ -47,7 +47,7 @@ return {
       require('Comment').setup(import)
     end,
   },
-  { 'zbirenbaum/copilot.lua',        cmd = 'Copilot', event = 'InsertEnter', },
+  { 'zbirenbaum/copilot.lua',              cmd = 'Copilot', event = 'InsertEnter', },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -62,14 +62,19 @@ return {
       },
     },
   },
-  { 'ThePrimeagen/git-worktree.nvim' },
+  {
+    'ThePrimeagen/git-worktree.nvim',
+    config = function()
+      require('git-worktree').setup()
+    end
+  },
   {
     'ThePrimeagen/harpoon',
     config = function()
       vim.keymap.set('n', '<leader>sh', ':Telescope harpoon marks<CR>', { noremap = true, desc = 'search harpoon files' })
     end,
   },
-  { "lukas-reineke/indent-blankline.nvim",    main = "ibl", opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl",    opts = {} },
   {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -184,6 +189,7 @@ return {
       { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0", },
     },
   },
+  { "LinArcX/telescope-command-palette.nvim" },
   {
     'dhruvmanila/browser-bookmarks.nvim',
     version = '*',
@@ -276,15 +282,15 @@ return {
     end,
   },
   { 'folke/zen-mode.nvim',  opt = {} },
-  {
-    -- navigation easy between tmux and nvim
-    'aserowy/tmux.nvim',
-    config = function()
-      return require('tmux').setup {
-        copy_sync = { enable = false, }
-      }
-    end
-  },
+  -- {
+  --   -- navigation easy between tmux and nvim
+  --   'aserowy/tmux.nvim',
+  --   config = function()
+  --     return require('tmux').setup {
+  --       copy_sync = { enable = false, }
+  --     }
+  --   end
+  -- },
   { 'RRethy/vim-illuminate' }, -- illuminate all the occurences of the word under the cursor
   {
     'TobinPalmer/pastify.nvim',
@@ -485,5 +491,29 @@ return {
         },
       }
     end,
+  },
+  {
+    '2kabhishek/nerdy.nvim',
+    dependencies = {
+      'stevearc/dressing.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+    cmd = 'Nerdy',
+  },
+  -- {
+  --   "hinell/lsp-timeout.nvim",
+  --   dependencies = { "neovim/nvim-lspconfig" }
+  -- },
+  {
+    'sudormrfbin/cheatsheet.nvim',
+    dependencies = {
+      { 'nvim-telescope/telescope.nvim' },
+      { 'nvim-lua/popup.nvim' },
+      { 'nvim-lua/plenary.nvim' },
+    }
+  },
+  {
+    'RishabhRD/nvim-cheat.sh',
+    dependencies = { 'RishabhRD/popfix' }
   },
 }
