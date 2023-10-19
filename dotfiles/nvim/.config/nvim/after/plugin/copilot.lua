@@ -7,11 +7,11 @@ require('copilot').setup {
     enabled = true,
     auto_refresh = false,
     keymap = {
-      jump_prev = '[[',
-      jump_next = ']]',
+      jump_prev = '<C-p>',
+      jump_next = '<C-n>',
       accept = '<CR>',
       refresh = 'gr',
-      open = '<M-CR>',
+      open = '<M-\\>',
     },
     layout = {
       position = 'bottom', -- | top | left | right

@@ -195,7 +195,7 @@ return {
       { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0", },
     },
   },
-  { "LinArcX/telescope-command-palette.nvim" },
+  -- { "LinArcX/telescope-command-palette.nvim" },
   {
     'dhruvmanila/browser-bookmarks.nvim',
     version = '*',
