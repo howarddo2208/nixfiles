@@ -4,9 +4,8 @@ let
   optionals = lib.optionals;
 in
 {
-  # set username and home directory based on if im on linux or darwin
   home.username = "howard";
-  home.homeDirectory = if isLinux then "/home/howard" else "/Users/howard";
+  home.homeDirectory = "/Users/howard";
 
   home.stateVersion = "23.05";
 
@@ -55,7 +54,7 @@ in
     stow #symlink manager, use this to sync dotfiles to current machine
     delta # syntax highlighting for git
     python311Packages.pillow # for pastify.nvim (paste image from clipboard)
-  ]
+  ];
 
   programs.home-manager.enable = true;
   programs = {
