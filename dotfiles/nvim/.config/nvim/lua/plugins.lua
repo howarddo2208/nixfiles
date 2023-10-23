@@ -195,6 +195,12 @@ return {
       { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0", },
     },
   },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require("telescope").load_extension "frecency"
+    end,
+  },
   -- { "LinArcX/telescope-command-palette.nvim" },
   {
     'dhruvmanila/browser-bookmarks.nvim',
@@ -250,7 +256,7 @@ return {
       return vim.fn.executable 'make' == 1
     end,
   },
-  { 'akinsho/toggleterm.nvim', version = '*', opts = {}, },
+  { 'akinsho/toggleterm.nvim',                version = '*', opts = {}, },
   {
     "kdheepak/lazygit.nvim",
     dependencies = {
@@ -268,6 +274,7 @@ return {
     build = ':TSUpdate',
     -- commit = "33eb472"
   },
+  { 'nvim-treesitter/nvim-treesitter-context', opts = {} },
   {
     'folke/trouble.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
@@ -279,7 +286,7 @@ return {
   },
   { 'tpope/vim-fugitive', },
   { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
-  { 'folke/which-key.nvim',    opts = {}, },
+  { 'folke/which-key.nvim',                    opts = {}, },
   {
     'anuvyklack/windows.nvim',
     dependencies = { 'anuvyklack/middleclass' },
@@ -521,5 +528,22 @@ return {
   {
     'RishabhRD/nvim-cheat.sh',
     dependencies = { 'RishabhRD/popfix' }
+  },
+  {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- required by telescope
+      "MunifTanjim/nui.nvim",
+
+      -- optional
+      "rcarriga/nvim-notify",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      -- configuration goes here
+    },
   },
 }

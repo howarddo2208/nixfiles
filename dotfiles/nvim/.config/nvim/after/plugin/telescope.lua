@@ -94,7 +94,8 @@ telescope.setup {
 
 -- See `:help telescope.builtin`
 map('n', '<leader>s?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-map('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+map('n', '<leader><space>', "<Cmd>Telescope frecency<CR>", { desc = 'Search frecency buffers' })
+map('n', '<leader>sb', require('telescope.builtin').buffers, { desc = 'Search existing buffers' })
 
 map('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Search Files' })
 map('n', '<leader>fg', require('telescope.builtin').git_files, { desc = 'Search Git Files' })
