@@ -7,3 +7,5 @@ eval "$(zoxide init zsh)"
 
 # direnv: auto switch dev environment
 eval "$(direnv hook zsh)"
+
+eval "$(fnm env --use-on-cd)"

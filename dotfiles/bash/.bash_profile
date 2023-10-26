@@ -5,3 +5,4 @@ BDOTDIR="$HOME/.config/bash"
 if [ -f "$BDOTDIR/bashrc" ]; then
     . "$BDOTDIR/bashrc"
 fi
+. "$HOME/.cargo/env"
