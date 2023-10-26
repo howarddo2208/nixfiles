@@ -20,6 +20,7 @@ map('n', '<leader>Y', [["+Y]], { desc = 'yank til end of line to system clipboar
 map({ 'n', 'v' }, '<leader>P', [["+gP]], { desc = 'paste from system clipboard' })
 map('n', '<leader>yp', ':let @*=@%<CR>', { desc = 'copy buffer relative path to system clipboard' })
 map('n', '<leader>yP', ':let @*=expand("%:p")<CR>', { desc = 'copy buffer absolute path to system clipboard' })
+map('n', '<leader>ys', ':let @*=@"<CR>', { desc = 'sync system clipboard with neovim register' })
 
 -- saving with Ctrl+S
 map({ 'i', 'n', 's' }, '<C-s>', '<ESC>:silent! w<CR>', { desc = 'save buffer' })
