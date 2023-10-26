@@ -1,0 +1,11 @@
+brew install ripgrep
+brew install fzf
+brew install fnm
+brew install git-delta
+brew install tmux
+brew install tldr
+brew install zoxide
+brew install bat
+brew install grep
+brew install fd
+brew install exa

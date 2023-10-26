@@ -9,6 +9,7 @@ export MANWIDTH=999
 export EDITOR="nvim"
 export PATH="$HOME/.local/bin":$PATH
 export PATH="$HOME/.cargo/bin":$PATH
+export PATH="$HOME/.local/share/bob/nvim-bin":$PATH
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export BAT_THEME="Catppuccin-mocha"
