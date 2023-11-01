@@ -84,8 +84,8 @@ telescope.setup {
       auto_quoting = true,
       mappings = {
         i = {
-          ["<C-]>"] = lga_actions.quote_prompt,
-          ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+          ["<C-]>"] = require("telescope-live-grep-args.actions").quote_prompt(),
+          ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
         },
       },
     },
@@ -97,8 +97,8 @@ map('n', '<leader>s?', require('telescope.builtin').oldfiles, { desc = '[?] Find
 map('n', '<leader><space>', "<Cmd>Telescope frecency<CR>", { desc = 'Search frecency buffers' })
 map('n', '<leader>sb', require('telescope.builtin').buffers, { desc = 'Search existing buffers' })
 
-map('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Search Files' })
-map('n', '<leader>fg', require('telescope.builtin').git_files, { desc = 'Search Git Files' })
+map('n', '<leader>sf', require('telescope.builtin').find_files, { desc = 'Search Files' })
+map('n', '<leader>sg', require('telescope.builtin').git_files, { desc = 'Search Git Files' })
 map('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = 'Search current Word' })
 -- map('n', '<leader>st', require('telescope.builtin').live_grep, { desc = 'Search Text' })
 map('n', '<leader>st', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",

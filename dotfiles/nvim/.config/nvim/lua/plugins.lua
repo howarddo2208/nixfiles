@@ -274,6 +274,13 @@ return {
     build = ':TSUpdate',
     -- commit = "33eb472"
   },
+  {
+    'Wansmer/treesj',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    cmd = { 'TSJToggle', 'TSJSplit', 'TSJJoin' },
+    keys = { { '<leader>m', '<CMD>TSJToggle<CR>', desc = 'Toggle Treesitter Join' } },
+    opts = {}
+  },
   { 'nvim-treesitter/nvim-treesitter-context', opts = {} },
   {
     'folke/trouble.nvim',
@@ -461,7 +468,27 @@ return {
       }
     end
   },
-  { 'akinsho/git-conflict.nvim', version = "*", config = true },
+  {
+    'f-person/git-blame.nvim',
+    config = function()
+      require('gitblame').setup {
+        enabled = false,
+      }
+      vim.keymap.set('n', '<leader>gB', ':GitBlameToggle<CR>')
+    end
+  },
+  {
+    'akinsho/git-conflict.nvim',
+    version = "*",
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require('git-conflict').setup({
+        default_mappings = true,
+        disable_diagnostics = false,
+      })
+    end
+  },
+  { 'sindrets/diffview.nvim' },
   {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
@@ -546,4 +573,5 @@ return {
       -- configuration goes here
     },
   },
+  { 'tpope/vim-unimpaired' }
 }

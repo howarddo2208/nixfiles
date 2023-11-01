@@ -1,0 +1,3 @@
+nginx # start nginx
+nginx -s stop # turn off nginx
+nginx -s reload # reload nginx
