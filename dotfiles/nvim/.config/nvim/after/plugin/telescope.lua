@@ -21,7 +21,6 @@ table.insert(vimgrep_arguments, '!**/.git/*')
 pcall(telescope.load_extension, 'fzf')
 pcall(telescope.load_extension, 'ui-select')
 pcall(telescope.load_extension, 'file_browser')
-pcall(telescope.load_extension, 'live_grep_args')
 pcall(telescope.load_extension, 'git_worktree')
 local lga_actions = require("telescope-live-grep-args.actions")
 local lga_shortcuts = require("telescope-live-grep-args.shortcuts")
@@ -92,13 +91,16 @@ telescope.setup {
   },
 }
 
+pcall(telescope.load_extension, 'live_grep_args') -- load after setup in order to this plugin to work
+
 -- See `:help telescope.builtin`
 map('n', '<leader>s?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 map('n', '<leader><space>', "<Cmd>Telescope frecency<CR>", { desc = 'Search frecency buffers' })
 map('n', '<leader>sb', require('telescope.builtin').buffers, { desc = 'Search existing buffers' })
 
 map('n', '<leader>sf', require('telescope.builtin').find_files, { desc = 'Search Files' })
-map('n', '<leader>sg', require('telescope.builtin').git_files, { desc = 'Search Git Files' })
+map('n', '<leader>sg', require('telescope.builtin').git_status, { desc = 'Search git changed file' })
+map('n', '<leader>sG', require('telescope.builtin').git_files, { desc = 'Search Git Files' })
 map('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = 'Search current Word' })
 -- map('n', '<leader>st', require('telescope.builtin').live_grep, { desc = 'Search Text' })
 map('n', '<leader>st', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
