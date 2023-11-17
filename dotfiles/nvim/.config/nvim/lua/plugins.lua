@@ -199,6 +199,14 @@ return {
     "nvim-telescope/telescope-frecency.nvim",
     config = function()
       require("telescope").load_extension "frecency"
+      require("telescope").setup {
+        extensions = {
+          frecency = {
+            db_safe_mode = false,
+            -- auto_validate = false,
+          }
+        }
+      }
     end,
   },
   -- { "LinArcX/telescope-command-palette.nvim" },
