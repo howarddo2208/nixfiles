@@ -44,7 +44,9 @@ return {
     -- comment based on context for react, vue, etc
     dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
     config = function()
-      require('Comment').setup(import)
+      require('Comment').setup()
+      require('ts_context_commentstring').setup {}
+      vim.g.skip_ts_context_commentstring_module = true
     end,
   },
   { 'zbirenbaum/copilot.lua',              cmd = 'Copilot', event = 'InsertEnter', },
