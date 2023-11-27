@@ -15,7 +15,7 @@
 # In case the path has spaces in in, include it in a " "
 # Following is a simple folder path example
 #
-SONG_DIR = "/Volumes/hwextend/hwdata/music"
+SONG_DIR = "/Volumes/hwdata/music"
 #
 #************--------ADVANCED-------*********
 # If you want to save the song in custom folders than those can be
