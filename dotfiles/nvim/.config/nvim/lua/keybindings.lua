@@ -15,7 +15,7 @@ map('x', '<leader>p', [["_dP]], { desc = 'paste without copying deleted text' })
 map({ 'n', 'v' }, '<leader>D', [["_d]], { desc = 'delete without copying text' })
 
 -- yank to system clipboard
-map({ 'n', 'v' }, '<leader>yy', [["+y]], { desc = 'yank to system clipboard' })
+map('v', '<leader>y', [["+y]], { desc = 'yank to system clipboard' })
 map('n', '<leader>Y', [["+Y]], { desc = 'yank til end of line to system clipboard' })
 map({ 'n', 'v' }, '<leader>P', [["+gP]], { desc = 'paste from system clipboard' })
 map('n', '<leader>yp', ':let @*=@%<CR>', { desc = 'copy buffer relative path to system clipboard' })
@@ -36,6 +36,8 @@ map('n', '[q', '<cmd>cprev<CR>zz', { desc = 'Backward quickfix list' })
 -- location list nav
 map('n', ']l', '<cmd>lnext<CR>zz', { desc = 'Forward location list' })
 map('n', '[l', '<cmd>lprev<CR>zz', { desc = 'Backward location list' })
+
+map('n', '<leader>fp', "<cmd>echo expand('%')<CR>", { desc = 'Print relative file path' })
 
 -- steal from https://github.com/liaohui5/dotfiles/blob/d935bdcfd8a04d6112b380d071df06442b2b48b3/nvim/lua/keybindings.lua
 -- the repo structure is really interesting, will steal more
