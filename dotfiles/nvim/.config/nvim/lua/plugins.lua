@@ -1,3 +1,4 @@
+-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 return {
   -- autopair for tags, parentheses, quotes, etc
   {
@@ -12,9 +13,7 @@ return {
       require('nvim-ts-autotag').setup()
     end,
   },
-  {
-    'hiphish/rainbow-delimiters.nvim'
-  },
+  { 'hiphish/rainbow-delimiters.nvim' },
   -- Autocompletion and snippet {{{
   {
     'hrsh7th/nvim-cmp',
@@ -36,9 +35,8 @@ return {
     end,
   },
   -- colorschemes
-  { "catppuccin/nvim",          name = "catppuccin" },
-  { "ellisonleao/gruvbox.nvim", priority = 1000,    config = true },
-
+  { "catppuccin/nvim",                name = "catppuccin" },
+  { "ellisonleao/gruvbox.nvim",       priority = 1000,    config = true },
   { 'Mofiqul/dracula.nvim' },
   {
     -- "gc" to comment visual regions/lines
@@ -49,37 +47,22 @@ return {
       require('Comment').setup(import)
     end,
   },
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    config = function()
-    end,
-  },
+  { 'zbirenbaum/copilot.lua',        cmd = 'Copilot', event = 'InsertEnter', },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
-        add = {
-          text = '+',
-        },
-        change = {
-          text = '~',
-        },
-        delete = {
-          text = '_',
-        },
-        topdelete = {
-          text = '‾',
-        },
-        changedelete = {
-          text = '~',
-        },
+        add = { text = '+', },
+        change = { text = '~', },
+        delete = { text = '_', },
+        topdelete = { text = '‾', },
+        changedelete = { text = '~', },
       },
     },
   },
+  { 'ThePrimeagen/git-worktree.nvim' },
   {
     'ThePrimeagen/harpoon',
     config = function()
@@ -88,10 +71,8 @@ return {
   },
   { "lukas-reineke/indent-blankline.nvim",    main = "ibl", opts = {} },
   {
-    -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
       {
         'williamboman/mason.nvim',
         config = function()
@@ -100,13 +81,8 @@ return {
         build = ':MasonUpdate', -- :MasonUpdate updates registry contents
       },
       'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {}, tag = 'legacy' },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
+      { 'j-hui/fidget.nvim', opts = {}, tag = 'legacy' }, -- Useful status updates for LSP
+      'folke/neodev.nvim',                                -- Additional lua configuration, makes nvim stuff amazing!
     },
   },
   {
@@ -124,7 +100,6 @@ return {
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
     config = function()
       require('lualine').setup {}
     end,
@@ -263,11 +238,7 @@ return {
       return vim.fn.executable 'make' == 1
     end,
   },
-  {
-    'akinsho/toggleterm.nvim',
-    version = '*',
-    opts = {},
-  },
+  { 'akinsho/toggleterm.nvim', version = '*', opts = {}, },
   {
     "kdheepak/lazygit.nvim",
     dependencies = {
@@ -292,23 +263,11 @@ return {
       require('trouble').setup {}
     end,
   },
-  {
-    'mbbill/undotree',
-    keys = {
-      { '<leader>tu', '<cmd>UndotreeToggle<cr>', desc = 'Toggle Undo Tree' },
-    },
+  { 'mbbill/undotree', keys = { { '<leader>tu', '<cmd>UndotreeToggle<cr>', desc = 'Toggle Undo Tree' }, },
   },
-  {
-    'tpope/vim-fugitive',
-  },
-  {
-    -- Detect tabstop and shiftwidth automatically
-    'tpope/vim-sleuth',
-  },
-  {
-    'folke/which-key.nvim',
-    opts = {},
-  },
+  { 'tpope/vim-fugitive', },
+  { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
+  { 'folke/which-key.nvim',    opts = {}, },
   {
     'anuvyklack/windows.nvim',
     dependencies = { 'anuvyklack/middleclass' },
@@ -316,16 +275,7 @@ return {
       require('windows').setup()
     end,
   },
-  {
-    'folke/zen-mode.nvim',
-    config = function()
-      require('zen-mode').setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end,
-  },
+  { 'folke/zen-mode.nvim',  opt = {} },
   {
     -- navigation easy between tmux and nvim
     'aserowy/tmux.nvim',
@@ -335,10 +285,7 @@ return {
       }
     end
   },
-  {
-    -- illuminate all the occurences of the word under the cursor
-    'RRethy/vim-illuminate'
-  },
+  { 'RRethy/vim-illuminate' }, -- illuminate all the occurences of the word under the cursor
   {
     'TobinPalmer/pastify.nvim',
     cmd = { 'Pastify' },
@@ -517,5 +464,26 @@ return {
       })
       vim.keymap.set('n', '<leader>tt', ':TransparentToggle<CR>', { noremap = true, desc = 'toggle transparent' })
     end
-  }
+  },
+  { 'famiu/bufdelete.nvim' },
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},  -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.dirman"] = {      -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/notes",
+              },
+            },
+          },
+        },
+      }
+    end,
+  },
 }
