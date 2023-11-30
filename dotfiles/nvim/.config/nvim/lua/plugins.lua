@@ -200,6 +200,10 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
   {
+    'nvim-telescope/telescope-file-browser.nvim',
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  },
+  {
     'piersolenski/telescope-import.nvim',
     requires = 'nvim-telescope/telescope.nvim',
     config = function()
@@ -282,17 +286,17 @@ return {
     'postfen/clipboard-image.nvim',
     commit = '9c45980'
   },
-  {
-    'pwntester/octo.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-      'nvim-tree/nvim-web-devicons',
-    },
-    config = function()
-      require "octo".setup()
-    end
-  },
+  -- {
+  --   'pwntester/octo.nvim',
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim',
+  --     'nvim-telescope/telescope.nvim',
+  --     'nvim-tree/nvim-web-devicons',
+  --   },
+  --   config = function()
+  --     require "octo".setup()
+  --   end
+  -- },
   { 'kevinhwang91/nvim-bqf' }, -- better quick fix
   { 'nvim-treesitter/nvim-treesitter',        build = ':TSUpdate' },
   { 'tpope/vim-eunuch' },
@@ -340,7 +344,7 @@ return {
     opts = {},
     keys = {
       {
-        "-",
+        "s",
         mode = { "n", "x", "o" },
         function()
           -- default options: exact mode, multi window, all directions, with a backdrop
@@ -349,7 +353,7 @@ return {
         desc = "Flash",
       },
       {
-        "_",
+        "S",
         mode = { "n", "o", "x" },
         function()
           require("flash").treesitter()
