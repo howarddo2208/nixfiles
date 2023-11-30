@@ -474,7 +474,7 @@ return {
       require('gitblame').setup {
         enabled = false,
       }
-      vim.keymap.set('n', '<leader>gB', ':GitBlameToggle<CR>')
+      vim.keymap.set('n', '<leader>gb', ':GitBlameToggle<CR>')
     end
   },
   {
