@@ -5,32 +5,32 @@ end
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
---   פּ ﯟ   some other good icons
 local kind_icons = {
-  Text = '',
+  Text = '󰊄',
   Method = 'm',
-  Function = '',
+  Function = '󰊕',
   Constructor = '',
   Field = '',
-  Variable = '',
-  Class = '', Interface = '',
+  Variable = '󰫧',
+  Class = '',
+  Interface = '',
   Module = '',
   Property = '',
   Unit = '',
-  Value = '',
+  Value = '',
   Enum = '',
   Keyword = '',
   Snippet = '',
-  Color = '',
-  File = '',
+  Color = '',
+  File = '󰈔',
   Reference = '',
-  Folder = '',
+  Folder = '',
   EnumMember = '',
-  Constant = '',
+  Constant = '',
   Struct = '',
   Event = '',
-  Operator = '',
-  TypeParameter = '',
+  Operator = '',
+  TypeParameter = '󰉺',
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
@@ -90,7 +90,7 @@ cmp.setup {
     { name = 'nvim_lsp', max_item_count = 6 },
     { name = 'nvim_lua' },
     { name = 'path' },
-    { name = 'buffer', max_item_count = 6 },
+    { name = 'buffer',   max_item_count = 6 },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
