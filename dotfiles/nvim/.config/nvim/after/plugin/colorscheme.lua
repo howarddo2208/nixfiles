@@ -8,7 +8,7 @@
 --   fg = '#d8bd92',
 -- })
 require('catppuccin').setup {
-  flavour = "macchiato",
+  flavour = "mocha",
   -- transparent_background = true,
   dim_inactive = {
         enabled = true,
