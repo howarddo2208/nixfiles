@@ -37,7 +37,9 @@ map('n', '[q', '<cmd>cprev<CR>zz', { desc = 'Backward quickfix list' })
 map('n', ']l', '<cmd>lnext<CR>zz', { desc = 'Forward location list' })
 map('n', '[l', '<cmd>lprev<CR>zz', { desc = 'Backward location list' })
 
-map('n', '<leader>fp', "<cmd>echo expand('%')<CR>", { desc = 'Print relative file path' })
+-- use buf_id + <C-g> instead
+-- map('n', '<leader>fp', "<cmd>echo expand('%')<CR>", { desc = 'Print relative buffer path' })
+-- map('n', '<leader>fP', "<cmd>echo expand('%:p')<CR>", { desc = 'Print absolute buffer path' })
 
 -- steal from https://github.com/liaohui5/dotfiles/blob/d935bdcfd8a04d6112b380d071df06442b2b48b3/nvim/lua/keybindings.lua
 -- the repo structure is really interesting, will steal more
