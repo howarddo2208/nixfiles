@@ -63,6 +63,10 @@ telescope.setup {
     },
   },
   extensions = {
+    import = {
+      -- Add imports to the top of the file keeping the cursor in place
+      insert_at_top = true,
+    },
   },
 }
 
@@ -90,3 +94,4 @@ map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Searc
 map('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = 'Search Keymaps' })
 map('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = 'Search Help docs' })
 map('n', '<leader>sb', require('telescope.builtin').builtin, { desc = 'Search builtin method' })
+map('n', '<leader>lp', '<cmd>Telescope import<cr>', { desc = 'Search and import' })

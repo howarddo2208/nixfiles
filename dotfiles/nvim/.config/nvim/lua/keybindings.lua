@@ -138,7 +138,7 @@ keybindings.lspsagaKeys = function()
   wk.register({
     ["gh"] = { "<cmd>Lspsaga lsp_finder<CR>", "Lspsaga lsp_finder", },
     ["<leader>la"] = { "<cmd>Lspsaga code_action<CR>", "Lspsaga code_action", },
-    ["gr"] = { "<cmd>Lspsaga rename<CR>", "Lspsaga rename", },
+    -- ["gr"] = { "<cmd>Lspsaga rename<CR>", "Lspsaga rename", },
     ["gR"] = { "<cmd>Lspsaga rename ++project<CR>", "Lspsaga rename ++project", },
     ["gp"] = { "<cmd>Lspsaga peek_definition<CR>", "Lspsaga peek_definition", },
     ["gd"] = { "<cmd>Lspsaga goto_definition<CR>", "Lspsaga goto_definition", },
@@ -188,10 +188,10 @@ keybindings.lspKeys = function()
     --   vim.lsp.buf.definition,
     --   "[G]oto [D]efinition",
     -- },
-    -- ["gr"] = {
-    --   require('telescope.builtin').lsp_references,
-    --   "[G]oto [R]eferences",
-    -- },
+    ["gr"] = {
+      require('telescope.builtin').lsp_references,
+      "[G]oto [R]eferences",
+    },
     -- ["gI"] = {
     --   vim.lsp.buf.implementation,
     --   "[G]oto [I]mplementation",

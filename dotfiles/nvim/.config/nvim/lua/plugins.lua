@@ -36,7 +36,7 @@ return {
     -- comment based on context for react, vue, etc
     dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
     config = function()
-      require('Comment').setup()
+      require('Comment').setup(import)
     end,
   },
   {
@@ -190,6 +190,13 @@ return {
     'nvim-telescope/telescope.nvim',
     version = '*',
     dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+  {
+    'piersolenski/telescope-import.nvim',
+    requires = 'nvim-telescope/telescope.nvim',
+    config = function()
+      require("telescope").load_extension("import")
+    end
   },
   { 'nvim-telescope/telescope-ui-select.nvim' },
   {
@@ -402,5 +409,15 @@ return {
         },
       })
     end
+  },
+  {
+    "roobert/activate.nvim",
+    keys = {
+      {
+        "<leader>sp",
+        '<CMD>lua require("activate").list_plugins()<CR>',
+        desc = "search plugins",
+      },
+    }
   }
 }
