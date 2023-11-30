@@ -37,6 +37,12 @@ map('n', '[q', '<cmd>cprev<CR>zz', { desc = 'Backward quickfix list' })
 map('n', ']l', '<cmd>lnext<CR>zz', { desc = 'Forward location list' })
 map('n', '[l', '<cmd>lprev<CR>zz', { desc = 'Backward location list' })
 
+for i = 1, 6 do
+  local lhs = "<leader>w" .. i
+  local rhs = i .. "<c-w>w"
+  vim.keymap.set("n", lhs, rhs, { desc = "Move to window " .. i })
+end
+
 -- use buf_id + <C-g> instead
 -- map('n', '<leader>fp', "<cmd>echo expand('%')<CR>", { desc = 'Print relative buffer path' })
 -- map('n', '<leader>fP', "<cmd>echo expand('%:p')<CR>", { desc = 'Print absolute buffer path' })
