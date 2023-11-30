@@ -239,8 +239,7 @@ return {
     'jvgrootveld/telescope-zoxide',
     config = function()
       require('telescope').load_extension('zoxide')
-      vim.keymap.set('n', '<leader>sD', ':Telescope zoxide list<CR>',
-        { noremap = true, desc = 'search directory zoxide' })
+      vim.keymap.set('n', '<leader>sD', ':Telescope zoxide list<CR>', { noremap = true, desc = 'search directory zoxide' })
     end
   },
   {
@@ -523,5 +522,21 @@ return {
     opts = {},
   },
   { 'mattkubej/jest.nvim' },
-  { 'gbrlsnchs/winpick.nvim' }
+  { 'gbrlsnchs/winpick.nvim' },
+  {
+    'xiyaowong/transparent.nvim',
+    config = function()
+      require("transparent").setup({ -- Optional, you don't have to run setup.
+        groups = {                   -- table: default groups
+          'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+          'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+          'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
+          'SignColumn', 'CursorLineNr', 'EndOfBuffer',
+        },
+        extra_groups = {},   -- table: additional groups that should be cleared
+        exclude_groups = {}, -- table: groups you don't want to clear
+      })
+      vim.keymap.set('n', '<leader>tt', ':TransparentToggle', { noremap = true, desc = 'toggle transparent' })
+    end
+  }
 }

@@ -1,6 +1,7 @@
 -- KEYMAPS
 -- TODO: merge keybindings and keymaps together
 local map = require('utils').map
+local M = {}
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 -- map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
