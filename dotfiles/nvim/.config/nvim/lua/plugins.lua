@@ -120,19 +120,20 @@ return {
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     config = function()
-      require('lualine').setup {
-        sections = {
-          lualine_c = {
-            {
-              'buffers',
-              mode = 4, -- 0: Shows buffer name
-              -- 1: Shows buffer index
-              -- 2: Shows buffer name + buffer index
-              -- 3: Shows buffer number
-              -- 4: Shows buffer name + buffer number
-            }
-          }
-        },
+      require('lualine').setup {}
+    end,
+  },
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      local bufferline = require('bufferline')
+      require('bufferline').setup {
+        options = {
+          mode = "buffers", -- set to "tabs" to only show tabpages instead
+          numbers = "buffer_id"
+        }
       }
     end,
   },
@@ -283,9 +284,27 @@ return {
     'RRethy/vim-illuminate'
   },
   {
-    'postfen/clipboard-image.nvim',
-    commit = '9c45980'
+    'TobinPalmer/pastify.nvim',
+    cmd = { 'Pastify' },
+    config = function()
+      require('pastify').setup {
+        opts = {
+          absolute_path = false, -- use absolute or relative path to the working directory
+          apikey = '',           -- Api key, required for online saving
+          local_path = '/',      -- The path to put local files in, ex ~/Projects/<name>/assets/images/<imgname>.png
+          save = 'local',        -- Either 'local' or 'online'
+        },
+        ft = {                   -- Custom snippets for different filetypes, will replace $IMG$ with the image url
+          html = '<img src="$IMG$" alt="">',
+          markdown = '![]($IMG$)',
+          tex = [[\includegraphics[width=\linewidth]{$IMG$}]],
+        }, }
+    end
   },
+  -- {
+  --   'postfen/clipboard-image.nvim',
+  --   commit = '9c45980'
+  -- },
   -- {
   --   'pwntester/octo.nvim',
   --   dependencies = {

@@ -68,7 +68,9 @@ telescope.setup {
       -- Add imports to the top of the file keeping the cursor in place
       insert_at_top = true,
     },
-    file_browser = {},
+    file_browser = {
+      hidden = { file_browser = true, folder_browser = true },
+    },
   },
 }
 
@@ -105,7 +107,7 @@ vim.api.nvim_set_keymap(
   "n",
   "<space>fb",
   ":Telescope file_browser<CR>",
-  { noremap = true, desc='open file browser in current workspace' }
+  { noremap = true, desc = 'open file browser in current workspace' }
 )
 
 -- open file_browser with the path of the current buffer
@@ -113,5 +115,5 @@ vim.api.nvim_set_keymap(
   "n",
   "<space>fB",
   ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-  { noremap = true, desc='open file browser in current buffer directory' }
+  { noremap = true, desc = 'open file browser in current buffer directory' }
 )
