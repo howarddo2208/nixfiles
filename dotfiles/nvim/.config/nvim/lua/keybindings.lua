@@ -29,6 +29,14 @@ map({ 'i', 'n', 's' }, '<C-s>', '<ESC>:silent! w<CR>', { desc = 'save buffer' })
 map('i', '<M-;>', '<ESC>A;<ESC>', { desc = 'add semicolon to the end of the line' })
 map('i', '<M-,>', '<ESC>A,<ESC>', { desc = 'add comma to the end of the line' })
 
+-- quickfix list nav
+map('n', ']q', '<cmd>cnext<CR>zz', { desc = 'Forward quickfix list' })
+map('n', '[q', '<cmd>cprev<CR>zz', { desc = 'Backward quickfix list' })
+
+-- location list nav
+map('n', ']l', '<cmd>lnext<CR>zz', { desc = 'Forward location list' })
+map('n', '[l', '<cmd>lprev<CR>zz', { desc = 'Backward location list' })
+
 -- steal from https://github.com/liaohui5/dotfiles/blob/d935bdcfd8a04d6112b380d071df06442b2b48b3/nvim/lua/keybindings.lua
 -- the repo structure is really interesting, will steal more
 local wk = require("which-key")
