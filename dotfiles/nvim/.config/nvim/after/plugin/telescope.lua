@@ -23,6 +23,7 @@ pcall(telescope.load_extension, 'ui-select')
 pcall(telescope.load_extension, 'file_browser')
 pcall(telescope.load_extension, 'live_grep_args')
 local lga_actions = require("telescope-live-grep-args.actions")
+local lga_shortcuts = require("telescope-live-grep-args.shortcuts")
 
 -- See `:help telescope` and `:help telescope.setup()`
 telescope.setup {
@@ -79,32 +80,20 @@ telescope.setup {
       hidden = { file_browser = true, folder_browser = true },
     },
     live_grep_args = {
-      auto_quoting = true, -- enable/disable auto-quoting
-      -- define mappings, e.g.
-      mappings = {         -- extend mappings
+      auto_quoting = true,
+      mappings = {
         i = {
-          ["<C-'>"] = lga_actions.quote_prompt(),
+          ["<C-k>"] = lga_actions.quote_prompt,
           ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
         },
       },
-      -- ... also accepts theme settings, for example:
-      -- theme = "dropdown", -- use dropdown theme
-      -- theme = { }, -- use own theme spec
-      -- layout_config = { mirror=true }, -- mirror preview pane
     }
   },
 }
 
 -- See `:help telescope.builtin`
-map('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+map('n', '<leader>s?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 map('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-map('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = '[/] Fuzzily search in current buffer' })
 
 map('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Search Files' })
 map('n', '<leader>fg', require('telescope.builtin').git_files, { desc = 'Search Git Files' })
@@ -112,7 +101,7 @@ map('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = 'Searc
 -- map('n', '<leader>st', require('telescope.builtin').live_grep, { desc = 'Search Text' })
 map('n', '<leader>st', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
   { desc = 'Search Text' })
-map('n', '<leader>sT', ':Telescope current_buffer_fuzzy_find<CR>', { desc = 'Search Text current buffer' })
+map('n', '<leader>/', ':Telescope current_buffer_fuzzy_find<CR>', { desc = 'Search Text current buffer' })
 map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Search Diagnostics' })
 map('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = 'Search Keymaps' })
 map('n', '<leader>sm', require('telescope.builtin').marks, { desc = 'Search Marks' })
@@ -121,19 +110,12 @@ map('n', '<leader>sB', require('telescope.builtin').builtin, { desc = 'Search Te
 map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Search diagnostics/errors' })
 map('n', '<leader>sp', require('telescope.builtin').resume, { desc = 'Resume previous search' })
 map('n', '<leader>lp', '<cmd>Telescope import<cr>', { desc = 'Search and import' })
+map({ "n", "v" }, "<leader>sv", lga_shortcuts.grep_visual_selection, { desc = 'live grep with visual selection' })
 
 -- file_browser open keymaps
-vim.api.nvim_set_keymap(
-  "n",
-  "<space>fB",
-  ":Telescope file_browser<CR>",
-  { noremap = true, desc = 'open file browser in current workspace' }
-)
+vim.api.nvim_set_keymap("n", "<space>fB", ":Telescope file_browser<CR>",
+  { noremap = true, desc = 'open file browser in current workspace' })
 
 -- open file_browser with the path of the current buffer
-vim.api.nvim_set_keymap(
-  "n",
-  "<space>fb",
-  ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-  { noremap = true, desc = 'open file browser in current buffer directory' }
-)
+vim.api.nvim_set_keymap("n", "<space>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+  { noremap = true, desc = 'open file browser in current buffer directory' })
