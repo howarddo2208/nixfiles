@@ -15,9 +15,11 @@ map('x', '<leader>p', [["_dP]], { desc = 'paste without copying deleted text' })
 map({ 'n', 'v' }, '<leader>D', [["_d]], { desc = 'delete without copying text' })
 
 -- yank to system clipboard
-map({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'yank to system clipboard' })
+map({ 'n', 'v' }, '<leader>yy', [["+y]], { desc = 'yank to system clipboard' })
 map('n', '<leader>Y', [["+Y]], { desc = 'yank til end of line to system clipboard' })
 map({ 'n', 'v' }, '<leader>P', [["+gP]], { desc = 'paste from system clipboard' })
+map('n', '<leader>yp', ':let @*=@%<CR>', { desc = 'copy buffer relative path to system clipboard' })
+map('n', '<leader>yP', ':let @*=expand("%:p")<CR>', { desc = 'copy buffer absolute path to system clipboard' })
 
 -- saving with Ctrl+S
 map({ 'i', 'n', 's' }, '<C-s>', '<ESC>:silent! w<CR>', { desc = 'save buffer' })
@@ -25,9 +27,6 @@ map({ 'i', 'n', 's' }, '<C-s>', '<ESC>:silent! w<CR>', { desc = 'save buffer' })
 -- add semicolon, comma to the end of line
 map('i', '<M-;>', '<ESC>A;<ESC>', { desc = 'add semicolon to the end of the line' })
 map('i', '<M-,>', '<ESC>A,<ESC>', { desc = 'add comma to the end of the line' })
-
-map('n', '<leader>cp', ':let @*=@%<CR>', { desc = 'copy buffer relative path to system clipboard' })
-map('n', '<leader>cP', ':let @*=expand("%:p")<CR>', { desc = 'copy buffer absolute path to system clipboard' })
 
 -- steal from https://github.com/liaohui5/dotfiles/blob/d935bdcfd8a04d6112b380d071df06442b2b48b3/nvim/lua/keybindings.lua
 -- the repo structure is really interesting, will steal more
@@ -48,6 +47,9 @@ local keybindings = {
 
 keybindings.general = function()
   wk.register({
+    ["<leader>y"] = {
+      name = "+Yank",
+    },
     ['<C-d>'] = { "<C-d>zz", "scroll down half page" },
     ['<C-u>'] = { '<C-u>zz', "scroll up half page", },
     ['n'] = { 'nzzzv', "next match", },

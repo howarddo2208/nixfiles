@@ -52,3 +52,8 @@ require('copilot').setup {
     -- },
   },
 }
+
+local map = require('utils').map
+map('n', '<leader>cp', '<CMD>Copilot panel<CR>', { desc = 'Copilot panel' })
+map('n', '<leader>ct', '<CMD>Copilot toggle<CR>', { desc = 'Copilot toggle' })
+map('n', '<leader>cs', '<CMD>Copilot suggestion<CR>', { desc = 'Copilot suggestion' })
