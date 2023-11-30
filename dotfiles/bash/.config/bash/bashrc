@@ -1,5 +1,6 @@
 #!/bin/bash
 export BDOTDIR="$HOME/.config/bash"
+alias vim='nvim --listen /tmp/nvim-server.pipe'
 
 source "$BDOTDIR/bash-functions"
 bash_add_file "bash-eval"

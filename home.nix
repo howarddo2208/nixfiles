@@ -34,6 +34,7 @@ in
     lazydocker
     lazygit
     neovim
+    neovim-remote
     tree-sitter
     ripgrep
     tldr

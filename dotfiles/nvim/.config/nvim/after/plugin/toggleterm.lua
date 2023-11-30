@@ -22,13 +22,13 @@ local toggleterm = require("toggleterm")
 local Terminal = require("toggleterm.terminal").Terminal
 local plugins = {}
 local float_opts = {
-  border = "single", -- single | double | shadow | curved
+  border = "double", -- single | double | shadow | curved
   winblend = 1,
   width = function()
-    return math.floor(vim.o.columns * 0.9)
+    return math.floor(vim.o.columns * 0.95)
   end,
   height = function()
-    return math.floor(vim.o.lines * 0.9)
+    return math.floor(vim.o.lines * 0.95)
   end,
 }
 
@@ -39,14 +39,6 @@ local function createTerminal(cmd)
     direction = "float",
     float_opts = float_opts,
   })
-end
-
--- ╭──────────────────────────────────────────────────────────────────────────────╮
--- │  lazygit                                                                     │
--- │  https://github.com/jesseduffield/lazygit                                    │
--- ╰──────────────────────────────────────────────────────────────────────────────╯
-plugins.lazygit = function()
-  return createTerminal("lazygit")
 end
 
 -- ╭──────────────────────────────────────────────────────────────────────────────╮
@@ -104,7 +96,3 @@ toggleterm.setup({
 })
 
 local wk = require "which-key"
-
-local toggle_lazygit = function()
-  plugins.lazygit():toggle()
-end

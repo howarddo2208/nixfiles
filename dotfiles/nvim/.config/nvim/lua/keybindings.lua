@@ -70,9 +70,6 @@ keybindings.general()
 -- │                          ctrl + \ : toggleterm                               │
 -- ╰──────────────────────────────────────────────────────────────────────────────╯
 keybindings.toggletermKeys = function(plugins)
-  local toggle_lazygit = function()
-    plugins.lazygit():toggle()
-  end
   wk.register({
     ["<leader>ox"] = {
       function()
@@ -82,7 +79,6 @@ keybindings.toggletermKeys = function(plugins)
       end,
       "open terminal in current directory",
     },
-    ["<leader>gg"] = { toggle_lazygit, "toggle lazygit", },
     ["<C-f>"] = {
       function()
         plugins.vifm():toggle()

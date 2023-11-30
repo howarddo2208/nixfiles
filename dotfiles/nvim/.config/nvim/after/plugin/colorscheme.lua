@@ -17,3 +17,6 @@ require('catppuccin').setup {
     },
 }
 vim.cmd.colorscheme "catppuccin"
+-- vim.cmd[[colorscheme dracula]]
+-- require("gruvbox").setup()
+-- vim.cmd("colorscheme gruvbox")
