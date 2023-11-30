@@ -4,10 +4,6 @@ end
 
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
   -- Add languages to be installed here that you want installed for treesitter
   ensure_installed = { "markdown", "markdown_inline", "html", "css", "typescript", "javascript", "json", "lua", "tsx",
     "python", "bash" },
