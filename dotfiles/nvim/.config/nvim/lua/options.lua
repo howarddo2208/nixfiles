@@ -87,5 +87,6 @@ vim.o.autowriteall = true
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldlevelstart = 99
+vim.wo.foldtext = 'v:lua.vim.treesitter.foldtext()'
 
 vim.diagnostic.config({ virtual_text = false })
