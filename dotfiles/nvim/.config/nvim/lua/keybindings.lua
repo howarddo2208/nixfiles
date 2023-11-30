@@ -148,19 +148,19 @@ keybindings.lspsagaKeys = function()
     ["<leader>sb"] = { "<cmd>Lspsaga show_buf_diagnostics<CR>", "Lspsaga show_buf_diagnostics", },
     ["<leader>sw"] = { "<cmd>Lspsaga show_workspace_diagnostics<CR>", "Lspsaga show_workspace_diagnostics", },
     ["<leader>sc"] = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "Lspsaga show_cursor_diagnostics", },
-    ["[e"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Lspsaga diagnostic_jump_prev", },
-    ["]e"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Lspsaga diagnostic_jump_next", },
-    ["[E"] = {
+    ["[d"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "previous diagnostic", },
+    ["]d"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "next diagnostic", },
+    ["[e"] = {
       function()
         require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
       end,
-      "lspsaga.diagnostic.goto_prev (severity = ERROR)",
+      "previous error",
     },
-    ["]E"] = {
+    ["]e"] = {
       function()
         require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
       end,
-      "lspsaga.diagnostic.goto_next (severity = ERROR)",
+      "next error",
     },
     ["<leader>o"] = { "<cmd>Lspsaga outline<CR>", "Lspsaga outline", },
     ["K"] = { "<cmd>Lspsaga hover_doc ++keep<CR>", "Lspsaga hover_doc ++keep", },

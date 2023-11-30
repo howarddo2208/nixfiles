@@ -59,7 +59,8 @@ local servers = {
       telemetry = { enable = false },
     },
   },
-  ltex = {}
+  ltex = {},
+  nil_ls = {} -- nix LSP
 }
 
 -- Setup neovim lua configuration
