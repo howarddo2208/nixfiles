@@ -86,16 +86,7 @@ return {
       vim.keymap.set('n', '<leader>sh', ':Telescope harpoon marks<CR>', { noremap = true, desc = 'search harpoon files' })
     end,
   },
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
-  },
+  { "lukas-reineke/indent-blankline.nvim",    main = "ibl", opts = {} },
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -160,7 +151,7 @@ return {
     end,
   },
   {
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
     config = function()
       require('null-ls').setup()
     end,
@@ -213,7 +204,10 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     version = '*',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      { 'nvim-lua/plenary.nvim' },
+      { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0", },
+    },
   },
   {
     'dhruvmanila/browser-bookmarks.nvim',
@@ -239,7 +233,8 @@ return {
     'jvgrootveld/telescope-zoxide',
     config = function()
       require('telescope').load_extension('zoxide')
-      vim.keymap.set('n', '<leader>sD', ':Telescope zoxide list<CR>', { noremap = true, desc = 'search directory zoxide' })
+      vim.keymap.set('n', '<leader>sD', ':Telescope zoxide list<CR>',
+        { noremap = true, desc = 'search directory zoxide' })
     end
   },
   {
@@ -363,7 +358,7 @@ return {
     end
   },
   { 'kevinhwang91/nvim-bqf' }, -- better quick fix
-  { 'nvim-treesitter/nvim-treesitter',        build = ':TSUpdate' },
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   { 'tpope/vim-eunuch' },
   { "axieax/urlview.nvim" },
   {
@@ -483,7 +478,7 @@ return {
     "roobert/activate.nvim",
     keys = {
       {
-        "<leader>sp",
+        "<leader>sP",
         '<CMD>lua require("activate").list_plugins()<CR>',
         desc = "search plugins",
       },
@@ -502,11 +497,11 @@ return {
   --     require('symbol-usage').setup()
   --   end
   -- },
-  {
-    "chrisgrieser/nvim-puppeteer",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    lazy = false, -- plugin lazy-loads itself
-  },
+  -- {
+  --   "chrisgrieser/nvim-puppeteer",
+  --   dependencies = "nvim-treesitter/nvim-treesitter",
+  --   lazy = false, -- plugin lazy-loads itself
+  -- },
   {
     'rmagatti/goto-preview',
     config = function()
@@ -519,7 +514,6 @@ return {
   {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
   },
   { 'mattkubej/jest.nvim' },
   { 'gbrlsnchs/winpick.nvim' },
@@ -536,7 +530,7 @@ return {
         extra_groups = {},   -- table: additional groups that should be cleared
         exclude_groups = {}, -- table: groups you don't want to clear
       })
-      vim.keymap.set('n', '<leader>tt', ':TransparentToggle', { noremap = true, desc = 'toggle transparent' })
+      vim.keymap.set('n', '<leader>tt', ':TransparentToggle<CR>', { noremap = true, desc = 'toggle transparent' })
     end
   }
 }
