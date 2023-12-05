@@ -90,3 +90,5 @@ vim.opt.foldlevelstart = 99
 vim.wo.foldtext = 'v:lua.vim.treesitter.foldtext()'
 
 vim.diagnostic.config({ virtual_text = false })
+
+vim.o.autoread = true -- auto reload file if changed outside of vim (git checkout, etc)

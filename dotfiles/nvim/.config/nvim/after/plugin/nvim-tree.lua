@@ -19,6 +19,9 @@ end
 
 -- empty setup using defaults
 require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
+  view = {
+    side = 'right',
+  },
   update_cwd = true,
   update_focused_file = {
     enable = true,

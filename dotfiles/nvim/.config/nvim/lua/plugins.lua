@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 return {
   -- autopair for tags, parentheses, quotes, etc
@@ -516,7 +517,7 @@ return {
         extra_groups = {},   -- table: additional groups that should be cleared
         exclude_groups = {}, -- table: groups you don't want to clear
       })
-      vim.keymap.set('n', '<leader>tt', ':TransparentToggle<CR>', { noremap = true, desc = 'toggle transparent' })
+      -- vim.keymap.set('n', '<leader>tt', ':TransparentToggle<CR>', { noremap = true, desc = 'toggle transparent' })
     end
   },
   { 'famiu/bufdelete.nvim' },
@@ -582,50 +583,26 @@ return {
     },
   },
   { 'tpope/vim-unimpaired' },
-  -- {
-  --   "nvim-neotest/neotest",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "antoinemadec/FixCursorHold.nvim",
-  --     'haydenmeade/neotest-jest'
-  --   },
-  --   config = function()
-  --     require('neotest').setup({
-  --       adapters = {
-  --         require('neotest-jest')({
-  --           jestCommand = "npm test --",
-  --           -- jestConfigFile = "custom.jest.config.ts",
-  --           env = { CI = true },
-  --           cwd = function(path)
-  --             return vim.fn.getcwd()
-  --           end,
-  --           jest_test_discovery = true,
-  --           discovery = {
-  --             enabled = false,
-  --           },
-  --         }),
-  --       }
-  --     })
-  --   end
-  -- },
   {
     "nvim-neotest/neotest",
     dependencies = {
-      "haydenmeade/neotest-jest",
-      "marilari88/neotest-vitest",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      'nvim-neotest/neotest-jest',
     },
     opts = {
-      -- Can be a list of adapters like what neotest expects,
-      -- or a list of adapter names,
-      -- or a table of adapter names, mapped to adapter configs.
-      -- The adapter will then be automatically loaded with the config.
-      adapters = {},
-      -- Example for loading neotest-go with a custom config
-      -- adapters = {
-      --   ["neotest-go"] = {
-      --     args = { "-tags=integration" },
-      --   },
-      -- },
+      adapters = {
+        ["neotest-jest"] = {
+          jestCommand = "npm test --",
+          jestConfigFile = "custom.jest.config.ts",
+          env = { CI = true },
+          cwd = function(path)
+            return vim.fn.getcwd()
+          end,
+          jest_test_discovery = false,
+        }
+      },
       status = { virtual_text = true },
       output = { open_on_run = true },
       quickfix = {
@@ -636,6 +613,9 @@ return {
             vim.cmd("copen")
           end
         end,
+      },
+      discovery = {
+        enabled = false,
       },
     },
     config = function(_, opts)
@@ -719,9 +699,5 @@ return {
       { "<leader>tO", function() require("neotest").output_panel.toggle() end,                            desc = "Toggle Output Panel" },
       { "<leader>tS", function() require("neotest").run.stop() end,                                       desc = "Stop" },
     },
-    -- https://gist.github.com/elijahmanor/bac05af95e1536d88a43cbfcb66c1c1d gist
-    -- https://github.com/nvim-neotest/neotest
-    -- https://github.com/nvim-neotest/neotest-jest
-    -- https://www.youtube.com/watch?v=7Nt8n3rjfDY
-  }
+  },
 }
