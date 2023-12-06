@@ -43,6 +43,8 @@ for i = 1, 6 do
   vim.keymap.set("n", lhs, rhs, { desc = "Move to window " .. i })
 end
 
+map('n', '<leader>rl', '<cmd>so $MYVIMRC<CR>', { desc = 'reload/resource neovim config'})
+
 -- use buf_id + <C-g> instead
 -- map('n', '<leader>fp', "<cmd>echo expand('%')<CR>", { desc = 'Print relative buffer path' })
 -- map('n', '<leader>fP', "<cmd>echo expand('%:p')<CR>", { desc = 'Print absolute buffer path' })
