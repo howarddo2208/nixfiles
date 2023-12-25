@@ -50,11 +50,26 @@ return {
       vim.g.skip_ts_context_commentstring_module = true
     end,
   },
-  { 'zbirenbaum/copilot.lua',              cmd = 'Copilot', event = 'InsertEnter', },
+  -- no longer using copilot, comment out for now
+  -- { 'zbirenbaum/copilot.lua',              cmd = 'Copilot', event = 'InsertEnter', },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end
+  -- },
   {
-    "zbirenbaum/copilot-cmp",
+    'Exafunction/codeium.vim',
+    event = 'BufEnter',
     config = function()
-      require("copilot_cmp").setup()
+      vim.g.codeium_disable_bindings = 1
+      vim.g.codeium_no_map_tab = 1
+      vim.keymap.set('i', '<M-y>', function() return vim.fn['codeium#Accept']() end, { expr = true })
+      vim.keymap.set('i', '<M-n>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+      vim.keymap.set('i', '<M-p>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+      vim.keymap.set('i', '<M-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+      vim.keymap.set('n', '<leader>ce', '<CMD>Codeium Enable<CR>', { desc = 'Codeium enable' })
+      vim.keymap.set('n', '<leader>cd', '<CMD>Codeium Disable<CR>', { desc = 'Codeium disable' })
     end
   },
   {
@@ -83,7 +98,7 @@ return {
       vim.keymap.set('n', '<leader>sh', ':Telescope harpoon marks<CR>', { noremap = true, desc = 'search harpoon files' })
     end,
   },
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl",    opts = {} },
+  { "lukas-reineke/indent-blankline.nvim",    main = "ibl", opts = {} },
   {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -266,7 +281,7 @@ return {
       return vim.fn.executable 'make' == 1
     end,
   },
-  { 'akinsho/toggleterm.nvim',                version = '*', opts = {}, },
+  { 'akinsho/toggleterm.nvim',                 version = '*', opts = {}, },
   {
     "kdheepak/lazygit.nvim",
     dependencies = {
@@ -303,7 +318,7 @@ return {
   },
   { 'tpope/vim-fugitive', },
   { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
-  { 'folke/which-key.nvim',                    opts = {}, },
+  { 'folke/which-key.nvim', opts = {}, },
   {
     'anuvyklack/windows.nvim',
     dependencies = { 'anuvyklack/middleclass' },
