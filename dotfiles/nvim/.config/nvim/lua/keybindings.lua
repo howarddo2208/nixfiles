@@ -26,8 +26,8 @@ map('n', '<leader>ys', ':let @*=@"<CR>', { desc = 'sync system clipboard with ne
 map({ 'i', 'n', 's' }, '<C-s>', '<ESC>:silent! w<CR>', { desc = 'save buffer' })
 
 -- add semicolon, comma to the end of line
-map('i', '<M-;>', '<ESC>A;<ESC>', { desc = 'add semicolon to the end of the line' })
-map('i', '<M-,>', '<ESC>A,<ESC>', { desc = 'add comma to the end of the line' })
+map({ 'i', 'n' }, '<M-;>', '<ESC>A;<ESC>', { desc = 'add semicolon to the end of the line' })
+map({ 'i', 'n' }, '<M-,>', '<ESC>A,<ESC>', { desc = 'add comma to the end of the line' })
 
 -- quickfix list nav
 map('n', ']q', '<cmd>cnext<CR>zz', { desc = 'Forward quickfix list' })
@@ -43,7 +43,7 @@ for i = 1, 6 do
   vim.keymap.set("n", lhs, rhs, { desc = "Move to window " .. i })
 end
 
-map('n', '<leader>rl', '<cmd>so $MYVIMRC<CR>', { desc = 'reload/resource neovim config'})
+map('n', '<leader>rl', '<cmd>so $MYVIMRC<CR>', { desc = 'reload/resource neovim config' })
 
 -- use buf_id + <C-g> instead
 -- map('n', '<leader>fp', "<cmd>echo expand('%')<CR>", { desc = 'Print relative buffer path' })
