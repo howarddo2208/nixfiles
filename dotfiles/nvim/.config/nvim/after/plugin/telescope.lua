@@ -95,7 +95,7 @@ pcall(telescope.load_extension, 'live_grep_args') -- load after setup in order t
 
 -- See `:help telescope.builtin`
 map('n', '<leader>s?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-map('n', '<leader><space>', "<Cmd>Telescope frecency<CR>", { desc = 'Search frecency buffers' })
+map('n', '<leader><space>', "<Cmd>Telescope frecency workspace=CWD<CR>", { desc = 'Search frecency buffers' })
 map('n', '<leader>sb', require('telescope.builtin').buffers, { desc = 'Search existing buffers' })
 
 map('n', '<leader>sf', require('telescope.builtin').find_files, { desc = 'Search Files' })
